@@ -1,0 +1,26 @@
+{
+  "name": "hookahhomedeliveryapp",
+  "version": "1.0.0",
+  "description": "This is a node.js app using Handlebars for a Hookah Home Delivery Business",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "nodemon --inspect ./server.js",
+    "watch": "nodemon ./server.js",
+    "start": "node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sipmarch7/hookahHomeDeliveryAPP.git"
+  },
+  "author": "Sipmarch7",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sipmarch7/hookahHomeDeliveryAPP/issues"
+  },
+  "homepage": "https://github.com/sipmarch7/hookahHomeDeliveryAPP#readme",
+  "dependencies": {
+    "nodemo": "^1.0.0",
+    "nodemon": "^2.0.6"
+  }
+}
