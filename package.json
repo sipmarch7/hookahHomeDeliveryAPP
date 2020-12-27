@@ -20,7 +20,25 @@
   },
   "homepage": "https://github.com/sipmarch7/hookahHomeDeliveryAPP#readme",
   "dependencies": {
-    "nodemo": "^1.0.0",
-    "nodemon": "^2.0.6"
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "express-session": "^1.17.1",
+    "formidable": "^1.2.2",
+    "fs": "0.0.1-security",
+    "glob": "^7.1.6",
+    "greek-utils": "^1.2.2",
+    "hbs": "^4.1.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.4.6",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
   }
 }
