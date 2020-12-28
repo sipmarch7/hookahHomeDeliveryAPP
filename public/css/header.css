@@ -1,0 +1,178 @@
+/* header */
+
+header{
+    background-color: black;
+}
+
+#topLinkLine{
+    background-color: orange;
+    height: 14px;
+}
+#header{
+    max-width: 1200px;
+    height: 150px;
+    color: white;
+    margin: 0 auto;
+
+}
+.header-container{
+    max-width: 1400px;
+    padding: 0;
+    margin: 0 auto;
+    height: 150px;
+}
+
+#navbarNav{
+    z-index: 1000;
+}
+.header-menu{
+    padding: 0;
+    color: white;
+}
+.header-menu button{
+    display: none;
+}
+.header-menu .collapse{
+    display: unset;
+}
+.navbar-nav{
+    flex-direction: unset;
+    margin: 0;
+    padding: 0;
+}
+.nav-item{
+    padding: 0;
+}
+.nav-link{
+    padding: 0;
+    text-align: center;
+    color: white;
+}
+.nav-link:hover, .nav-item:hover{
+    background-color: rgba(180,180,180,0.8);
+}
+.nav-link span{
+    line-height: 150px;
+    font-size: 20px; 
+}
+
+
+.header-logo{
+    padding: 0;
+    text-align: center; 
+    line-height:145px;
+}
+#header-logo{
+    max-width: 450px;
+}
+
+
+.header-account{
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+}
+.header-account a{
+    line-height: 89px;
+    text-align: center;
+    width: 50%;
+}
+
+#drpdown-login{  
+    z-index: 1200;
+    position: absolute          !important; 
+    will-change: unset          !important;
+    transform: unset            !important;
+    top: 90px                   !important;
+    left: unset                 !important;
+    right: 0px                  !important;
+    border: ridge 1px;
+    width: 250px;
+    background-color: orange;
+}
+.form-group label{
+    display: inline-block;
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 5px;
+}
+#drpdown-login button{
+    width: 48%;
+}
+.form-group:nth-child(1), .form-group:nth-child(3){
+    margin-bottom: 0;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .nav-link span{
+        font-size: 15px;
+    }
+    #header-logo{
+        max-width: 350px;
+    }    
+}
+@media screen and (max-width: 800px) {
+    #help-col{
+        display: none;
+    }
+    .nav-link span{
+        font-size: 15px;
+        line-height: 50px;
+        color: white;
+    }
+    #header-logo{
+        max-width: 225px;
+    }
+    .header-logo{
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+
+    .navbar-nav{
+        flex-direction: column;
+    }
+    .header-menu .collapse{
+        display: none;
+    }
+    .header-menu .show{
+        display: block;
+        width: 100%;
+        position: absolute;
+        overflow: visible;
+        width: 100vw;
+        background-color: black;
+    }
+    .header-menu .collapsing{
+        display: none;
+        -webkit-animation-duration: 0s;
+    }
+    .header-menu{
+        flex: 0 0 20%;
+        max-width: 20%;
+        text-align: center;
+    }
+
+    .header-account{
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+    .header-menu button{
+        display: unset;
+        margin: 30px auto 26px;
+        padding: 4px;
+        border: solid rgba(0, 0, 0, 0.5) 1px;
+    }
+    .navbar-toggler-icon{
+        height: 23px;
+    }
+    .header-account img{
+        width: 20px;
+    }
+    #drpdown-login{
+        left: -120px;
+    
+    }
+    
+}

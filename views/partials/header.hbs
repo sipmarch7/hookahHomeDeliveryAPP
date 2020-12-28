@@ -1,0 +1,61 @@
+<header class="mb-2">
+    <div id="topLinkLine"></div>
+    <div id="header" class="w-100">
+        <div class="container header-container row">
+
+            <div class="col-4 header-menu">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class="navbar-toggler-icon" src="../img/toggler.png" alt="toggler"></img>
+                </button> 
+                <div class="nav-menu collapse navbar-collapse justify-content-between" id="navbarNav">
+                    <ul class="navbar-nav row">
+                        <li class="nav-item col-md-3"><a href="/" class="nav-link"><span>Home</span></a></li>
+                        <li class="nav-item col-md-3"><a href="/" class="nav-link"><span>Products</span></a></li>
+                        <li class="nav-item col-md-3"><a href="/gallery" class="nav-link"><span>Gallery</span></a></li>
+                        <li class="nav-item col-md-3"><a href="/" class="nav-link"><span>Contact</span></a></li>                
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-4 header-logo">
+                    <a href="/"><img src="../img/navbar_logo.png" alt="Shisha hub Logo" id="navbar-logo" width="210px"></a>
+            </div>
+
+            <div class="col-1" id="help-col"></div>
+
+            <div class="col-2 header-account dropdown row">
+
+                <a class="nav-link" href="#"  role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="../img/accountIcon.png" alt="image for account" width="25px">
+                </a>
+                <a href="/admin/productPhotos" class="nav-link" >
+                    <img src="../img/cart.png" alt="image for cart" width="25px">
+                </a>
+
+                <div class="dropdown-menu" id="drpdown-login">
+                    <form action="/login" method="post" class="px-2" >
+                        <div class="form-group ">
+                            <label for="exampleDropdownFormEmail1">Email</label>
+                            <input type="email" class="form-control " id="exampleDropdownFormEmail1" 
+                                name="username" placeholder="👤 email">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleDropdownFormPassword1">Password</label>
+                            <input type="password" class="form-control " id="exampleDropdownFormPassword1" 
+                                name="password" placeholder="🔑 password">
+                        </div>
+                        <div class="form-group ">
+                            <button type="submit" class="btn btn-primary logIn-button ">Log In</button>
+                            <form action="/" method="GET">
+                                <button type="button" class="btn btn-primary logIn-button">Register</button>
+                            </form>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</header>

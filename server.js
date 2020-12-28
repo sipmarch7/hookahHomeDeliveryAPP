@@ -98,11 +98,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //  ALL ROUTES /////////////////////////////////////////////////////
 
 // route Home Page -> nargilesstospiti.gr
+const indexRouter = require('./routes/index');
+app.use('/', indexRouter);
 
 
 
 //port number
-var portNumber = process.env.port || process.env.PORT || 3030;
+var portNumber = process.env.port || process.env.PORT || 3006;
 //server listening
 app.listen(portNumber, () => {
   console.log('Server is running at port '+portNumber);
