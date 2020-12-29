@@ -1,11 +1,12 @@
 /* header */
 
 header{
-    background-color: black;
+    box-shadow: 1px 1px 1px rgb(124, 166, 252);
+    background-color: rgb(94, 148, 255);
 }
 
 #topLinkLine{
-    background-color: orange;
+    background-color: black;
     height: 14px;
 }
 #header{
@@ -13,10 +14,10 @@ header{
     height: 150px;
     color: white;
     margin: 0 auto;
-
+    
 }
 .header-container{
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 0;
     margin: 0 auto;
     height: 150px;
@@ -32,117 +33,145 @@ header{
 .header-menu button{
     display: none;
 }
+.header-menu button img{
+    height: 38px;
+    width: 43px;
+}
 .header-menu .collapse{
     display: unset;
+}
+.nav-menu ul{
+    height: 150px;
+    padding: 35px 0px;
+}
+.nav-menu ul li{
+    width: 100%;
 }
 .navbar-nav{
     flex-direction: unset;
     margin: 0;
-    padding: 0;
+    padding: 0px;
 }
 .nav-item{
     padding: 0;
 }
 .nav-link{
+    font-size: 20px; 
     padding: 0;
     text-align: center;
     color: white;
+    height: 80px;
+    line-height: 80px;
 }
 .nav-link:hover, .nav-item:hover{
-    background-color: rgba(180,180,180,0.8);
-}
-.nav-link span{
-    line-height: 150px;
-    font-size: 20px; 
+    background-color: rgba(124, 166, 252, 0.8);
+    box-shadow: 1px 1px 20px rgb(124, 166, 252);
+    color: white;
 }
 
 
 .header-logo{
+    text-align: center;
+    line-height: 150px;
     padding: 0;
-    text-align: center; 
-    line-height:145px;
 }
-#header-logo{
-    max-width: 450px;
+.header-logo img{
+    padding: 10px;
+    border-radius: 40px;
 }
-
+.header-logo img:hover{
+    background-color: rgba(124, 166, 252, 0.8);
+    box-shadow: 1px 1px 20px rgb(124, 166, 252);
+}
 
 .header-account{
     margin: 0 auto;
-    padding: 0;
+    padding: 35px 0px;
     position: relative;
 }
 .header-account a{
-    line-height: 89px;
     text-align: center;
     width: 50%;
 }
-
-#drpdown-login{  
+.header-account #drpdown-login{  
     z-index: 1200;
     position: absolute          !important; 
     will-change: unset          !important;
     transform: unset            !important;
-    top: 90px                   !important;
+    top: 150px                  !important;
     left: unset                 !important;
-    right: 0px                  !important;
-    border: ridge 1px;
-    width: 250px;
-    background-color: orange;
+    right: 0                    !important;
+    width: 300px;
+    background-color: rgb(123, 167, 255);
+    color: white;
+    height: 250px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgb(124, 166, 252);
 }
-.form-group label{
+.header-account .form-group label{
     display: inline-block;
     width: 100%;
     font-weight: 600;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
 }
-#drpdown-login button{
+.header-account #drpdown-login button,
+.header-account #drpdown-login a{
     width: 48%;
 }
-.form-group:nth-child(1), .form-group:nth-child(3){
+.header-account .form-group:nth-child(1), .form-group:nth-child(3){
     margin-bottom: 0;
 }
+.header-account .form-group:nth-child(2){
+    margin-bottom: 20px;
+}
+.header-account .nav-link:nth-child(2){
+    line-height: unset;
+    padding: 10px;
+    background-color: rgb(31, 101, 254);
+    box-shadow: 1px 1px 1px rgb(124, 166, 252);
+}
 
-
+.nav-item:nth-child(2) .nav-link{
+    line-height: unset;
+    padding: 10px 0px;
+}    
 @media screen and (max-width: 1200px) {
     .nav-link span{
         font-size: 15px;
     }
     #header-logo{
         max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 1088px) {
+    .nav-item:nth-child(2) .nav-link{
+        line-height: unset;
     }    
 }
-@media screen and (max-width: 800px) {
-    #help-col{
-        display: none;
-    }
-    .nav-link span{
-        font-size: 15px;
-        line-height: 50px;
-        color: white;
-    }
-    #header-logo{
-        max-width: 225px;
-    }
-    .header-logo{
-        flex: 0 0 60%;
-        max-width: 60%;
-    }
 
-    .navbar-nav{
+@media screen and (max-width: 800px) {
+    
+    .header-menu .navbar-nav{
         flex-direction: column;
+        height: 100%;
+        padding: 10px 0px;
+    }
+    .header-menu li a{
+        width: 60%;
+        margin: 0 auto;
     }
     .header-menu .collapse{
         display: none;
     }
     .header-menu .show{
         display: block;
-        width: 100%;
         position: absolute;
         overflow: visible;
         width: 100vw;
-        background-color: black;
+        background-color: rgb(0, 33, 89);
+        margin-top: 5px;
     }
     .header-menu .collapsing{
         display: none;
@@ -153,26 +182,41 @@ header{
         max-width: 20%;
         text-align: center;
     }
+    .header-menu #navbarNav{
+        height: 420px;
+    }
+    .header-menu button{
+        display: unset;
+        margin: 58px auto;
+        padding: 2px 4px;
+        border: solid rgba(255, 255, 255, 0.592) 1px;
+    }
+    .header-menu .nav-item:nth-child(2) .nav-link{
+        line-height: 80px;
+        padding: 0;
+    }    
+
+    #header-logo{
+        max-width: 225px;
+    }
+    .header-logo{
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+
+    #help-col{
+        display: none;
+    }
 
     .header-account{
         flex: 0 0 20%;
         max-width: 20%;
-    }
-    .header-menu button{
-        display: unset;
-        margin: 30px auto 26px;
-        padding: 4px;
-        border: solid rgba(0, 0, 0, 0.5) 1px;
-    }
-    .navbar-toggler-icon{
-        height: 23px;
     }
     .header-account img{
         width: 20px;
     }
     #drpdown-login{
         left: -120px;
-    
     }
     
 }
