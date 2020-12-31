@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sipmarch7">
+    <meta name="description" content="Shisha hub delivery service shop">
+    <meta name="keywords" content="HMTL, CSS, JS, Project, shisha, delivery, service, node.js, e-shop">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Αρχική - Shisha hub</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/header.css" rel="stylesheet" type="text/css">
+    <link href="css/footer.css" rel="stylesheet" type="text/css">
+    <link href="css/contactUs.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!--                    header                    -->
+    {{> header }} 
+<!--                    main                    -->
+    <main>
+        <div class="container w-100">
+            <div class="row reverse-row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-6 whiteBlocks">
+                    <div class="contact-form p-4">
+                    <form action="#">
+                        <div><h3>Επικοινωνείστε μαζί μας</h3></div>
+                        <div class="row w-100 mx-auto">
+                            <label class="col-12" for="firstname surname">Ονοματεπώνυμο &nbsp <span> ( <sup>*</sup>μόνο γράμματα ) </span></label>
+                            <input class="fields col-5" type="text" id="firstname" name="firstname" placeholder=" Όνομα">
+                            <input class="fields col-5 ml-3" type="text" id="lastname" name="lastname" placeholder=" Επώνυμο">
+                        </div>
+                        <div class="row w-100 mx-auto">
+                            <label class="col-12" for="email">E-mail</label>
+                            <legend class="m-0"></legend>
+                            <input class="w-100 fields" type="text" name="email" id="email" placeholder=" ✉️ Διεύθυνση e-mail" >
+                        </div>
+                        <div class="row w-100 mx-auto">
+                            <div class="col-5 p-0">
+                                <label class="col-12" for="telephone">Τηλ. Επικοινωνίας</label>
+                                <input class="fields w-100" type="text" id="telephone" name="telephone" placeholder="Τηλ. Επικοινωνίας">
+                            </div>
+                            <div class="col-5 ml-3 p-0">
+                                <label class="col-12" for="instagram">Instagram <span> ( <sup>*</sup>προαιρετικά ) </span></label>
+                                <input class="fields w-100" type="text" id="instagram" name="instagram" placeholder="@ig">
+                            </div>
+                        </div>
+                        <div class="row w-100 mx-auto">
+                            <label class="col-12" for="subject">Μήνυμα &nbsp <span> ( <sup>*</sup>από 2 έως 600 χαρακτήρες ) </span> <br></label>
+                            <textarea class="w-100 fields" id="textArea" name="textArea" placeholder="Γράψε εδώ το μήνυμά σου..."></textarea>
+                        </div>
+                        <div class="row w-100 mx-auto mt-2">
+                            <input type="submit" class="btn btn-primary ml-4 mt-2" value="Υποβολή" id="submitButton">
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 whiteBlocks social-media-block p-3">
+                    <div class="text-center mt-1rs"><h3>Social Media</h3></div>
+                    <div class="col-12 my-3 px-5">
+                        <a href="https://www.instagram.com/shishahub.lc/" target="_blank">
+                            <img src="../img/instagramIcon.png" alt="Instagram page" height="25" width="25"> &nbsp
+                            <span>@shishahub.lc</span>
+                        </a>
+                    </div>
+                    <div class="col-12 my-3 px-5">
+                        <a href="mailto:ekdotikosoikos2020@gmail.com?subject=Contact Us-Ekdotikos Oikos">
+                            <img src="../img/gmailIcon.jpg" alt="gmail" height="18" width="25"> &nbsp
+                            <span>shishahub.lc@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<!--                    footer                    -->
+    {{> footer }}
+<!--                    scripts                    -->
+    
+    <script src="js/contactUs.js"></script>
+    
+</body>
+
+</html>

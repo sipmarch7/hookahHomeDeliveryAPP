@@ -1,0 +1,54 @@
+main{
+  
+}
+main .container{
+    margin: 30px auto 0;
+    
+}
+
+main .container .row .col-lg-8{
+    background-color: rgb(157, 0, 0);
+}
+
+.reverse-row{
+    flex-wrap: wrap-reverse;
+}
+
+.whiteBlocks{
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.15);
+    margin:0px 5px 20px;
+  
+}
+
+.contact-form label{
+  margin-top: 8px;
+}
+.contact-form .fields{
+  background-color: rgb(228, 228, 228);
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+.contact-form label span{
+    font-size: 10px;    
+}
+.contact-form label sup{
+    color: red;
+}
+.contact-form input{
+    padding: 3px;
+}
+
+#textArea{
+    min-height: 100px;
+}
+#submitButton{
+    width: 5rem;
+    height: 2.5rem;
+}
+
+.social-media-block a{
+    text-decoration: none;
+}

@@ -1,26 +1,26 @@
 /* header */
 
 header{
-    box-shadow: 1px 1px 1px rgb(124, 166, 252);
-    background-color: rgb(94, 148, 255);
 }
 
 #topLinkLine{
     background-color: black;
     height: 14px;
+    margin-bottom: 8px;
 }
+
 #header{
-    max-width: 1200px;
     height: 150px;
-    color: white;
     margin: 0 auto;
+    background-color: rgb(94, 148, 255);
+    box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.2);
     
 }
 .header-container{
     max-width: 1200px;
+    height: 150px;
     padding: 0;
     margin: 0 auto;
-    height: 150px;
 }
 
 #navbarNav{
@@ -28,7 +28,7 @@ header{
 }
 .header-menu{
     padding: 0;
-    color: white;
+    
 }
 .header-menu button{
     display: none;
@@ -36,6 +36,7 @@ header{
 .header-menu button img{
     height: 38px;
     width: 43px;
+    z-index: 1000;
 }
 .header-menu .collapse{
     display: unset;
@@ -68,7 +69,9 @@ header{
     box-shadow: 1px 1px 20px rgb(124, 166, 252);
     color: white;
 }
-
+.header-menu #orderNavItem{
+    display: none;
+}
 
 .header-logo{
     text-align: center;
@@ -106,7 +109,7 @@ header{
     color: white;
     height: 250px;
     padding: 10px;
-    box-shadow: 2px 2px 5px rgb(124, 166, 252);
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.15);
 }
 .header-account .form-group label{
     display: inline-block;
@@ -131,11 +134,17 @@ header{
     background-color: rgb(31, 101, 254);
     box-shadow: 1px 1px 1px rgb(124, 166, 252);
 }
-
+.header-account .nav-link:nth-child(2):hover{
+    background-color: rgb(0, 81, 255);
+}
 .nav-item:nth-child(2) .nav-link{
     line-height: unset;
     padding: 10px 0px;
 }    
+.header-account #orderAccountLink{
+    display: block;
+}
+
 @media screen and (max-width: 1200px) {
     .nav-link span{
         font-size: 15px;
@@ -194,6 +203,9 @@ header{
     .header-menu .nav-item:nth-child(2) .nav-link{
         line-height: 80px;
         padding: 0;
+    }
+    .header-menu #orderNavItem{
+        display: list-item;
     }    
 
     #header-logo{
@@ -215,8 +227,13 @@ header{
     .header-account img{
         width: 20px;
     }
+    .header-account #navbarDropdownToggle{
+        width: 100%;
+    }
     #drpdown-login{
         left: -120px;
     }
-    
+    .header-account #orderAccountLink{
+        display: none;
+    }
 }

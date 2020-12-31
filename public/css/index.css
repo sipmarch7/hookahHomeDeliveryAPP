@@ -1,7 +1,6 @@
 main{
-    height: 1000px;
     max-width: 1200px;
-    background-color: white;
+    background-color: transparent;
     padding: 15px 10px;
     margin: 1px auto;
 }

@@ -1,0 +1,64 @@
+main{
+    max-width: 1200px;
+    background-color: transparent;
+    padding: 15px 0.5vw;
+    margin: 0px auto;
+}
+main h2{
+    padding-left: 10vw;
+    padding-top: 2vw;
+    margin-bottom: 20px;
+}
+h4{margin:0;}
+
+.round-block{
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 4px;
+    padding: 15px 0px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.15);
+}
+.card-list{
+    color: black;
+    border: none;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.card{
+    background-color: transparent;
+    border: none;
+}
+.card-header{
+    background-color: unset;
+    border: none;
+}
+.card-header a{
+    text-decoration: none;
+}
+hr{
+    width: 90%;
+    margin: 0 auto;
+}
+.card-body p{
+    margin:0;
+}
+
+#faqs-block{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+    h4{
+        font-size: 1.1rem;
+    }
+    p{
+        font-size: 0.8rem;
+    }
+
+}

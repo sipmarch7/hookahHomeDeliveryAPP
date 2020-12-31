@@ -97,10 +97,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //  ALL ROUTES /////////////////////////////////////////////////////
 
-// route Home Page -> nargilesstospiti.gr
+// route Home Page -> shishahub.gr
 const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
+const faqsRouter = require('./routes/faqs');
+app.use('/faqs', faqsRouter);
+
+const contactUsRouter = require('./routes/contactUs');
+app.use('/contactUs', contactUsRouter);
 
 
 //port number
