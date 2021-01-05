@@ -7,6 +7,7 @@ header{
     background-color: black;
     height: 14px;
     margin-bottom: 8px;
+    display: none;
 }
 
 #header{
@@ -98,17 +99,13 @@ header{
 }
 .header-account #drpdown-login{  
     z-index: 1200;
-    position: absolute          !important; 
-    will-change: unset          !important;
-    transform: unset            !important;
-    top: 150px                  !important;
-    left: unset                 !important;
-    right: 0                    !important;
-    width: 300px;
-    background-color: rgb(123, 167, 255);
-    color: white;
-    height: 250px;
-    padding: 10px;
+    background-color: rgb(86, 86, 86);
+    min-width: 220px;
+    right: 0;
+    left: unset;
+    position: absolute;
+    min-height: max-content;
+    border-radius: 5px;
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.15);
 }
 .header-account .form-group label{
@@ -122,25 +119,51 @@ header{
 .header-account #drpdown-login a{
     width: 48%;
 }
-.header-account .form-group:nth-child(1), .form-group:nth-child(3){
+.header-account .form-group:nth-child(1){
     margin-bottom: 0;
 }
 .header-account .form-group:nth-child(2){
     margin-bottom: 20px;
 }
-.header-account .nav-link:nth-child(2){
-    line-height: unset;
-    padding: 10px;
-    background-color: rgb(31, 101, 254);
-    box-shadow: 1px 1px 1px rgb(124, 166, 252);
-}
-.header-account .nav-link:nth-child(2):hover{
-    background-color: rgb(0, 81, 255);
+.form-group:nth-child(3){
+
 }
 .header-account #orderAccountLink{
     display: block;
+    line-height: unset;
+    max-height: 80px;
+    background-color: rgb(31, 101, 254);
+    box-shadow: 1px 1px 1px rgb(124, 166, 252);
 }
+.header-account #orderAccountLink a:hover{
+    background-color: rgb(0, 81, 255);
+}
+.header-account #orderAccountLink a{
+    padding: 10px;
+}
+.header-account #loggedIn-dropdown{
+    z-index: 1200;
+    background-color: rgb(86, 86, 86);
+    min-width: 170px;
+    right: 0;
+    left: unset;
+    position: absolute;
+    min-height: max-content;
+    border-radius: 5px;
+}
+.header-account #loggedIn-dropdown a{
+    text-decoration: none;
+    color: white;
 
+}
+.header-account #loggedIn-dropdown .btn{
+    min-width: fit-content;
+    margin: 0 auto;
+}
+.header-account #loggedIn-dropdown hr{
+    width: 80%;
+    margin: 0 auto;
+}
 @media screen and (max-width: 1200px) {
     .nav-link span{
         font-size: 15px;
@@ -227,5 +250,9 @@ header{
     }
     .header-account #orderAccountLink{
         display: none;
+    }
+    .header-account .dropdown{
+        flex: 0 0 100% !important;
+        max-width: 100%;
     }
 }

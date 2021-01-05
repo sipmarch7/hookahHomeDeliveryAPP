@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sipmarch7">
+    <meta name="description" content="Shisha hub delivery service shop">
+    <meta name="keywords" content="HMTL, CSS, JS, Project, shisha, delivery, service, node.js, e-shop">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Τα στοιχεία μου - Shisha hub</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="/css/register.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!--                    header                    -->
+    {{> header }} 
+<!--                    main                    -->
+    <main>
+        <div class="container w-100 p-1">
+            <div class="register-form w-100 my-2 py-2">
+            <form action="/myAccount/update" method="POST" accept-charset="utf-8">
+                <div><h2 class="p-2 m-0 text-center">Τα στοιχεία μου</h2></div>
+                <div class="text-center"><span class="optional">&nbsp;{{user.user_id}}.(αλλάζετε το πεδίο που επiθυμείτε και πατάτε Ενημέρωση)</span></div>
+                
+                {{#if error}}
+                <div class="text-center" id="error"><span class="optional">{{error}}</span></div>
+                {{/if}}
+
+                <div class="row p-1 my-2 blue">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5 my-2">
+                            <div class="w-100 px-3"><label for="firstname"><span>Όνομα</span></label></div>
+                            <div class="w-100"><input type="text" id="firstname" class="w-100 py-1 px-3" name="firstname" value="{{fields.firstname}}"></div>
+                        </div>
+                        <div class="col-md-5 my-2">
+                            <div class="w-100 px-3"><label for="lastname"><span>Επώνυμο</span></label></div>
+                            <div class="w-100"><input type="text" id="lastname" class="w-100 py-1 px-3" name="lastname" value="{{fields.lastname}}"></div>
+                        </div>
+                        <div class="col-md-1"></div>
+                    
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 my-2">
+                            <div class="w-100 px-3"><label for="email"><span>Email</span></label></div>
+                            <div class="w-100"><input type="text" id="email" class="w-100 py-1 px-3" name="email" value="{{fields.email}}"></div>
+                        </div>
+                        <div class="col-md-1"></div>
+                    
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5 my-2">
+                            <div class="w-100 px-3"><label for="birthday"><span>Ημερομηνία Γέννησης</span></label></div>
+                            <div class="w-100 text-center"><span id="birthdaySpan">{{user.birthday}}</span></div>
+                        </div>
+                        <div class="col-md-5 my-2">
+                            <div class="w-100 px-3"><label for="telephone"><span>Τηλέφωνο επικοινωνίας</span></label></div>
+                            <div class="w-100"><input type="text" id="telephone" class="w-100 py-1 px-3" name="telephone" value="{{fields.telephone}}"></div>
+                        </div>
+                        <div class="col-md-1"></div>
+                
+                        <div class="col-md-1"></div>
+                        <div class="col-md-7 my-2">
+                            <div class="w-100 px-3"><label for="address"><span>Διεύθυνση</span></label></div>
+                            <div class="w-100"><input type="text" id="address" class="w-100 py-1 px-3" name="address" value="{{fields.address}}"></div>
+                        </div>
+                        <div class="col-md-3 my-2">
+                            <div class="w-100 px-3"><label for="floor"><span>Όροφος</span><span class="optional">&nbsp;(προαιρετικά)</span></label></div>
+                            <div class="w-100"><input type="text" id="floor" class="w-100 py-1 px-3" name="floor" value="{{fields.floor}}"></div>
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5 my-2">
+                            <div class="w-100 px-3"><label for="city"><span>Περιοχή</span></label></div>
+                            <div class="w-100"><input type="text" id="city" class="w-100 py-1 px-3" name="city" value="{{fields.city}}"></div>
+                        </div>
+                        <div class="col-md-5 my-2">
+                            <div class="w-100 px-3"><label for="postal"><span>Ταχυδρομικός Κώδικας</span></label></div>
+                            <div class="w-100 text-center"><span>{{user.postal}}</span></div>
+                        </div>
+                        <div class="col-md-1"></div>
+                </div>
+                
+                <div class="text-center my-3"><button type="submit" class="btn btn-primary" id="submit-button">Ενημέρωση</button></div>
+            </form>
+            </div>
+        </div>
+    </main>
+<!--                    footer                    -->
+    {{> footer }}
+<!--                    scripts                    -->
+    
+    <script src="/js/register.js"></script>
+    
+</body>
+</html>

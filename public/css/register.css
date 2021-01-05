@@ -1,0 +1,34 @@
+main{
+       
+}
+.register-form{
+    color: black;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px black;
+    border-radius: 5px;
+}
+.blue{
+    background-color: rgb(112, 159, 252);
+    box-shadow: 0px 0px 5px 0px black;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+}
+.optional{
+    font-size: smaller;
+    font-style: italic;
+}
+#error{
+    color: red;
+    display: none;
+}
+#submit-button{
+    width: 120px;
+    height: 45px;
+}
+@media screen and (max-width: 800px) {
+    .blue{
+        width: 90%;
+    }
+}
