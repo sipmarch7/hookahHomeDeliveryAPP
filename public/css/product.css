@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'quite_magicalregular';
+    src: url('/css/fonts/quitemagicalregular-8va2-webfont.woff2') format('woff2'),
+         url('/css/fonts/quitemagicalregular-8va2-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+main{
+    margin: 10px 0px;
+    padding: 10px 0px;
+    color: black;
+}
+main .container{
+    padding: 10px;
+}
+.row-container{
+    margin: 0 auto;
+}
+main .row{
+    margin: 0 auto;
+}
+.reverse-row{
+    flex-wrap: wrap-reverse;
+}
+.outside-block{
+    padding: 5px;
+    margin: 10px auto;
+}
+.inside-block{
+    min-height: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+/* SLIDESHOW START */
+#slideshow { 
+    background-color: rgb(203, 203, 203);
+    border-radius: 5px;
+    margin: 5px auto; 
+    position: relative; 
+    width: 320px; 
+    height: 420px; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+#slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+/* SLIDESHOW END */
+.description h5{
+    margin: 0;
+    margin-left: 12px;
+}
+.description hr{
+    margin: 0 auto;
+    width: 80%;
+}
+.description .description-tiles div{
+    padding: 5px 10px;
+    margin: 2px 0;
+    margin-left: 15px;
+    font-size: 0.8em;
+}
+.deluxe{
+    color: burlywood;
+    font-weight: bolder;
+    font-family: 'quite_magicalregular';
+    font-size: 135%;
+}
+h3{
+    color: white;
+    padding: 5px;
+    text-align: center;
+    margin: 0 auto;
+}
+/*  frlmnfior3nfjor3fjoprjferf forejf*/
+
+/*  frlmnfior3nfjor3fjoprjferf forejf*/
+.duration .price-time{
+    color: burlywood;
+    font-size: 1em;
+}
+
+.flavors select{
+    font-size: 0.75em;
+    border-radius: 5px;
+}
+.flavors #flavor3div, .flavors #flavor4div, .date #other-day{
+    display: none;
+}
+#submit-button{
+    border-radius: 20px;
+}
+.price{
+    font-weight: 700;
+    color: white;
+}
+#warning{
+    font-size: 0.8em;
+    color: red;
+    align-items: center;
+}
+#warning span{
+    margin: 0 auto;
+}
+@media screen and (max-width: 800px) {
+
+    .flavors .flavors-inside{
+        padding: 0 !important;
+    }
+    .inside-block .text-center{
+        text-align: left !important;
+    }
+
+}

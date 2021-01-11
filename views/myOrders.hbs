@@ -6,7 +6,7 @@
     <meta name="description" content="Shisha hub delivery service shop">
     <meta name="keywords" content="HMTL, CSS, JS, Project, shisha, delivery, service, node.js, e-shop">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Είσοδος - Shisha hub</title>
+    <title>Οι παραγγελίες μου - Shisha hub</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -16,52 +16,43 @@
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href="/css/header.css" rel="stylesheet" type="text/css">
     <link href="/css/footer.css" rel="stylesheet" type="text/css">
-    <link href="/css/login.css" rel="stylesheet" type="text/css">
+    <link href="/css/myOrders.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 <!--                    header                    -->
-    {{> header }} 
+{{> header }} 
 <!--                    main                    -->
     <main>
-        
-        <div class="container w-100 ">
-            <div class="mt-4"> <h2 class="text-center">Eίσοδος</h2> </div>
-            
-
-            <div class="loginPage px-5 pt-4 pb-1 my-3">
-                <div class="" id="">
-                    <div class="text-center"><span class="error"> {{error}} </span></div>
-                <form action="/login" method="POST" class="px-2" >
-                    <div class="form-group text-center">
-                        <label for="exampleDropdownFormEmail2">Email</label>
-                        <input type="email" class="form-control " id="exampleDropdownFormEmail2" 
-                            name="email" placeholder="👤 email">
-                    </div>
-                    <div class=" text-center w-100">
-                        <label for="exampleDropdownFormPassword2">Τηλέφωνο</label>
-                        <input type="password" class="form-control " id="exampleDropdownFormPassword2" 
-                            name="password" placeholder="🔑 = 📞 Τηλέφωνο">
-                    </div>
-                    <div class="form-group mt-3 row">
-                        <div class="col-12 mt-3 text-center">
-                            <button type="submit" class="btn btn-primary logIn-button ">Σύνδεση</button>
+        <div class="container m-auto p-0 w-100">
+            <div class="outside p-1 my-2">
+                <div class="inside p-2">
+                    <div class="w-100 my-2 text-center"><h2>Οι παραγγελίες μου</h2></div>
+                    <div class="row w-100 mx-auto my-4">
+                        {{#each result}}
+                        <div class="col-md-5 py-1 pink row" >
+                            <div class="col-6 pr-0"> {{date}} at {{time}}</div>
+                            <div class="col-6 text-right"> OrderID: <span class="orderid">32{{order_id}}</span></div>
+                            <div class="col-12 my-1"></div>
+                            <div class="col-md-2 grey">Γεύσεις:</div>
+                            <div class="col-md-7">{{flavors}}</div>
+                            <div class="col-12 my-1"></div>
+                            <div class="col-3 grey">Διάρκεια:</div>
+                            <div class="col-8">{{duration}} ώρες</div>
+                            <div class="col-12 my-1"></div>
+                            <div class="col-7 grey">Κατάσταση : <span class="status">{{status}}</span></div>
+                            <div class="col-5 text-right grey">Τιμή : <span class="price">{{price}}eur</span></div>
                         </div>
-                        <div class="col-12 my-2 text-center">
-                            <a href="/register"  class="btn btn-info logIn-button">Εγγραφή</a>
-                        </div>
+                        {{/each}}
                     </div>
-                </form>
                 </div>
             </div>
-            
         </div>
-
     </main>
 <!--                    footer                    -->
-    {{> footer }}
+{{> footer }}
 <!--                    scripts                    -->
-    
+<script src="/js/adminOrders.js"></script>
 </body>
 
 </html>

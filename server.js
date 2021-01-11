@@ -72,6 +72,9 @@ app.use('/myAccount', myAccountRouter);
 const productRouter = require('./routes/product');
 app.use('/product', productRouter);
 
+const adminRouter = require('./routes/admin');
+app.use('/admin', adminRouter);
+
 //port number
 var portNumber = process.env.port || process.env.PORT || 3006;
 //server listening

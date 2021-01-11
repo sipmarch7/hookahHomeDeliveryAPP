@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sipmarch7">
+    <meta name="description" content="Shisha hub delivery service shop">
+    <meta name="keywords" content="HMTL, CSS, JS, Project, shisha, delivery, service, node.js, e-shop">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Orders - Shisha hub</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="/css/adminOrders.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!--                    header                    -->
+{{> header }} 
+<!--                    main                    -->
+    <main>
+        <div class="container m-auto p-0 w-100">
+            <div class="outside p-1 my-2">
+                <div class="inside p-2">
+                    <div class="w-100 my-2 text-center"><h2>Όλες οι παραγγελίες</h2></div>
+                    {{#each result}}
+                    <div class="card">
+                        <div class="card-header px-2">
+                            <a role="button" href="#card-{{order_id}}" data-toggle="collapse" aria-expanded="false" aria-controls="card-{{order_id}}">
+                                <div class="row w-100 mx-auto p-0">
+                                    <div class="col-3 p-0"><span>{{date}}</span></div>
+                                    <div class="col-4 p-0">{{firstname}} {{lastname}}</div>
+                                    <div class="col-2 p-0 status">{{status}}</div>
+                                    <div class="col-3 text-right p-0"> orderID: 32{{order_id}}</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body p-0 row collapse" id="card-{{order_id}}">
+                            <div class="col-md-7 pt-2 mobile-outline">
+                                <div class="w-100 px-5"><h5>Επιλογές</h5></div>
+                                <hr>
+                                <div class="description-tiles px-3 row mx-0">
+    
+                                    <div class="col-4"><span> <span style="font-style: italic;">Γεύσεις </span> </div>
+                                    <div class="col-7 p-0">: &nbsp; {{flavors}}</div>
+                                        
+                                    <div class="col-4"><span> <span style="font-style: italic;">Διάρκεια</span> </div>
+                                    <div class="col-8 p-0">: &nbsp;{{duration}} ώρες</span></div>
+                                    <div class="col-4"><span> <span style="font-style: italic;">Ημερομηνία</span> </div>
+                                    <div class="col-8 p-0">: &nbsp;{{date}}</span></div>
+                                    <div class="col-4"><span> <span style="font-style: italic;">Ώρα</span> </div>
+                                    <div class="col-8 p-0">: &nbsp;{{time}}</span></div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4 mt-2"><div class="p-1 price"><span> <span style="font-style: italic;">Τιμή Πακέτου : </span> <span style="font-weight:bolder;">{{price}} eur</span></div></div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 pt-1 mobile-outline">
+                                <div class="w-100 px-5"><h5>Διεύθυνση αποστολής</h5></div>
+                                <hr>
+                                <div class="description-tiles mb-4 px-3 row mx-0">
+                                        <div class="col-4"><span> <span style="font-style: italic;">Όνομα</span> </div>
+                                        <div class="col-8">: &nbsp;{{firstname}} {{lastname}}</span></div>
+                                        <div class="col-4"><span> <span style="font-style: italic;">Διεύθυνση</span> </div>
+                                        <div class="col-8">: &nbsp;{{address}}</span></div>
+                                        <div class="col-4"><span> <span style="font-style: italic;">Όροφος</span> </div>
+                                        <div class="col-8">: &nbsp;{{floor}}</span></div>
+                                        <div class="col-4"><span> <span style="font-style: italic;">Περιοχή</span> </div>
+                                        <div class="col-8">: &nbsp;{{city}}</span></div>
+                                        <div class="col-4"><span> <span style="font-style: italic;">Τηλέφωνο</span> </div>
+                                        <div class="col-8">: &nbsp;{{telephone}}</span></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="col-12 row w-100 p-1 m-auto text-center">
+                            {{#if admin}}
+                                <div class="col-12">
+                                    <form action="/admin/adminOrders/doneOrder" method="POST">
+                                        <input type="hidden" name="order_id" value="{{order_id}}">
+                                        <button type="submit" class="btn btn-warning m-auto">Ολοκλήρωση</button>
+                                    </form>
+                                </div>
+                            {{else}}
+                                <div class="col-6 text-right">
+                                    <form action="/admin/adminOrders/cancelOrder" method="POST">
+                                        <input type="hidden" name="order_id" value="{{order_id}}">
+                                        <button type="submit" class="btn btn-danger">Ακύρωση</button>
+                                    </form>
+                                </div>
+                                <div class="col-6 text-left">
+                                    <form action="/admin/adminOrders/acceptOrder" method="POST">
+                                        <input type="hidden" name="order_id" value="{{order_id}}">
+                                        <button type="submit" class="btn btn-success">Αποδοχή</button>
+                                    </form>
+                                </div>
+                            {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </main>
+<!--                    footer                    -->
+{{> footer }}
+<!--                    scripts                    -->
+<script src="/js/adminOrders.js"></script>
+
+</body>
+
+</html>

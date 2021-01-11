@@ -12,25 +12,177 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/header.css" rel="stylesheet" type="text/css">
-    <link href="css/footer.css" rel="stylesheet" type="text/css">
-    <link href="css/product.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="/css/product.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 <!--                    header                    -->
     {{> header }} 
 <!--                    main                    -->
-
-    <main>
-        <div class="container w-100">
+<main>
+    <div class="container w-100">
         
-        
+        <div class="row reverse-row w-100">
+            <div class="col-md-1"></div>
+            <div class="outside-block col-md-4">
+                <div class="inside-block">
+                    <div id="slideshow">
+                        <div><img src="/img/products/deluxe-bamboo-brown.jpg" height="400px"></div>
+                        <div><img src="/img/products/deluxe-bamboo-glass.jpg" height="400px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1" style="max-width: 10px;"></div>
+            <div class="outside-block col-md-5">
+                <div class="inside-block description">
+                    <div class="w-100 text-center p-2"><h2><span class="deluxe">Deluxe Hookah Session</span></h2></div>
+                    <div class="w-100 p-2"><h5>Το πακέτο περιλαμβάνει:</h5></div>
+                    <hr>
+                    <div class="description-tiles mb-4">
+                        <div><span>- 1 <span class="deluxe">Deluxe</span> Ναργιλές</span></div>
+                        <div><span>- Γεύσεις της επιλογής σας</span></div>
+                        <div><span>- Επαρκή ποσότητα από κάρβουνα καρύδας</span></div>
+                        <div><span>- Ηλεκτρική θερμάστρα για τα κάρβουνα καρύδας</span></div>
+                        <div><span>- Μεταφορά και στήσιμο στο χώρο σας απο ειδικό μας</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
         </div>
-    </main>
 
+        <div class="row w-100 mb-2 mt-5 text-center">
+            <h3>Επιλογές</h3>
+        </div>
+
+        <div class="row w-100 text-center" id="warning"><span>{{warning}}</span></div>
+        
+        <form action="/product/orderPreview" method="GET">
+        
+        <div class="row w-100 my-2">
+            <div class="outside-block w-100 col-11">
+                <div class="inside-block duration p-4" >
+                    <div class="ml-4"><h5>Διάρκεια</h5></div>
+                    <hr>
+                    <div class="row w-100 yo px-4">
+                        <div class="col-md-4 my-2 p-0 text-center">
+                            <input type="radio" id="four-hours" class="durationSelection" name="duration" value="4" required>
+                            <label for="4">&nbsp;  4 ώρες (2 γεύσεις) <span class="price-time"> - 25eur</span></label>
+                        </div>
+                        <div class="col-md-4 my-2 p-0 text-center">
+                            <input type="radio" id="six-hours" class="durationSelection" name="duration" value="6">
+                            <label for="six-hours">&nbsp;  6 ώρες (3 γεύσεις) <span class="price-time"> - 35eur</span></label>
+                        </div>
+                        <div class="col-md-4 my-2 p-0 text-center">
+                            <input type="radio" id="two-days" class="durationSelection" name="duration" value="36">
+                            <label for="two-days">&nbsp; 36 ώρες (4 γεύσεις) <span class="price-time"> - 50eur</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row w-100 my-2">
+            <div class="outside-block w-100 col-11">
+                <div class="inside-block flavors p-4" >
+                    <div class="ml-4"><h5>Γεύσεις</h5></div>
+                    <hr>
+                    <div class="row w-100 flavors-inside px-4">
+                        <div class="col-md-6 my-2 p-0 text-center">
+                            <label for="flavor1">Γεύση 1η: &nbsp;</label>
+                            <select id="flavor1" name="flavor1">
+                                <option value="LOVE 66">LOVE 66 <span>- Καρπούζι και mix φρούτων</span></option>
+                                <option value="Lemon CHLL">Lemon CHLL <span>- Δροσερό Λεμόνι με νότες βανίλιας</span></option>
+                                <option value="Orange MNT">Orange MNT <span>- Δροσερό πορτοκάλι και μέντα</span></option>
+                                <option value="Gold Peach">Gold Peach <span>- Παγωμένο Ροδάκινο</span></option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 my-2 p-0 text-center">
+                            <label for="flavor2">Γεύση 2η: &nbsp;</label>
+                            <select id="flavor2" name="flavor2">
+                                <option value="LOVE 66">LOVE 66 <span>- Καρπούζι και mix φρούτων</span></option>
+                                <option value="Lemon CHLL">Lemon CHLL <span>- Δροσερό Λεμόνι με νότες βανίλιας</span></option>
+                                <option value="Orange MNT">Orange MNT <span>- Δροσερό πορτοκάλι και μέντα</span></option>
+                                <option value="Gold Peach">Gold Peach <span>- Παγωμένο Ροδάκινο</span></option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 my-2 p-0 text-center" id="flavor3div">
+                            <label for="flavor3">Γεύση 3η: &nbsp;</label>
+                            <select id="flavor3" name="flavor3">
+                                <option value=""></option>
+                                <option value="LOVE 66">LOVE 66 <span>- Καρπούζι και mix φρούτων</span></option>
+                                <option value="Lemon CHLL">Lemon CHLL <span>- Δροσερό Λεμόνι με νότες βανίλιας</span></option>
+                                <option value="Orange MNT">Orange MNT <span>- Δροσερό πορτοκάλι και μέντα</span></option>
+                                <option value="Gold Peach">Gold Peach <span>- Παγωμένο Ροδάκινο</span></option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 my-2 p-0 text-center" id="flavor4div">
+                            <label for="flavor4">Γεύση 4η: &nbsp;</label>
+                            <select id="flavor4" name="flavor4">
+                                <option value=""></option>
+                                <option value="LOVE 66">LOVE 66 <span>- Καρπούζι και mix φρούτων</span></option>
+                                <option value="Lemon CHLL">Lemon CHLL <span>- Δροσερό Λεμόνι με νότες βανίλιας</span></option>
+                                <option value="Orange MNT">Orange MNT <span>- Δροσερό πορτοκάλι και μέντα</span></option>
+                                <option value="Gold Peach">Gold Peach <span>- Παγωμένο Ροδάκινο</span></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row w-100 my-2">
+            <div class="outside-block w-100 col-11">
+                <div class="inside-block date p-4" >
+                    <div class="ml-4"><h5>Προτιμώμενη παράδοση *</h5></div>
+                    <hr>
+                    <div class="row w-100 yo px-4">
+                        <div class="col-md-3 my-2 p-0 text-center">
+                            <input type="radio" id="today" class="daySelection" name="day" value="today" required>
+                            <label for="today">&nbsp;  Σήμερα</label>
+                        </div>
+                        <div class="col-md-3 my-2 p-0 text-center">
+                            <input type="radio" id="otherday" class="daySelection" name="day" value="otherDay">
+                            <label for="otherDay">&nbsp;  Άλλη μέρα</label>
+                        </div>
+                        <div class="col-md3 my-2 p-0 text-center" id="other-day">
+                            <label for="otherDay">&nbsp;  Ημερομηνία</label>
+                            <input type="date" id="datefield" name="date">
+                        </div>
+                        <div class="col-md-2 my-2 p-0 text-center">
+                            <label for="time">Ώρα * :</label>
+                            <select id="time" name="time">
+                                <option value=""></option> 
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="21:00">21:00</option>
+                                <option value="22:00">22:00</option>
+                                <option value="23:00">23:00</option>
+                            </select>
+                        </div>
+                        <div class="col-12 p-0">*<span style="font-size: 0.5em;">Οι επιλογές ώρας και Ημερομηνίας είναι ενδεικτκές. 
+                        Θα ακολουθήσει σύντομη τηλεφωνική επικοινωνία για  επιβεβαίωση.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 text-center mb-3"><span class="price">Τιμή πακέτου : <span id="price"></span></span></div>
+
+        <div class="w-100 text-center"><button type="submit" class="btn btn-primary" id="submit-button">Προς Ολοκλήρωση</button></div>
+
+    </form>
+    </div>
+</main>
 <!--                    footer                    -->
     {{> footer }}
 <!--                    scripts                    -->

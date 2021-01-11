@@ -12,11 +12,11 @@ router.post('/update', checkAuthentication.checkAuthenticated, (req, res) => {
   for (const field in req.body){
       if (req.body[field]==""){
         if (!(field=="floor")){
-          res.render('myAccount',{error:"empty", user: req.user});
+          res.render('myAccount',{error:"empty", user: req.user, fields: req.body});
           return}}
     }
     if (!(req.body.telephone.length==10)){
-      res.render('myAccount',{error:"tel", user: req.user});
+      res.render('myAccount',{error:"tel", user: req.user, fields: req.body});
       return
     }
     bcrypt.hash(req.body.telephone,10,(err,hash)=>{
@@ -44,6 +44,16 @@ router.post('/update', checkAuthentication.checkAuthenticated, (req, res) => {
         });
       }
     });
+});
+
+router.get('/myOrders', checkAuthentication.checkAuthenticated, (req, res) => {
+  let sql = "SELECT * FROM tbl_orders WHERE user_id="+req.user.user_id+" ORDER BY order_id DESC"
+  let query = conn.query(sql, (err, results) => {
+    if(err) throw err;
+    res.render('myOrders',{user: req.user, result : results});
+  })
+
+  
 });
 
 module.exports = router;

@@ -13,7 +13,7 @@ header{
 #header{
     height: 150px;
     margin: 0 auto;
-    background-color: rgb(94, 148, 255);
+    background-color: rgba(0, 0, 0, 0.761);
     box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.2);
     
 }
@@ -66,8 +66,8 @@ header{
     
 }
 .nav-link:hover, .nav-item:hover{
-    background-color: rgba(124, 166, 252, 0.8);
-    box-shadow: 1px 1px 20px rgb(124, 166, 252);
+    background-color: rgba(100, 100, 100, 0.8);
+    box-shadow: 1px 1px 10px rgb(111, 111, 111);
     color: white;
 }
 .header-menu #orderNavItem{
@@ -84,8 +84,7 @@ header{
     border-radius: 40px;
 }
 .header-logo img:hover{
-    background-color: rgba(124, 166, 252, 0.8);
-    box-shadow: 1px 1px 20px rgb(124, 166, 252);
+    /* box-shadow: 1px 1px 20px rgb(67, 67, 67); */
 }
 
 .header-account{
@@ -163,6 +162,15 @@ header{
 .header-account #loggedIn-dropdown hr{
     width: 80%;
     margin: 0 auto;
+}
+#accountToggle span{
+    display: inline;
+}
+#accountToggle img{
+    display: none;
+}
+#accountToggle{
+    padding: 10px;
 }
 @media screen and (max-width: 1200px) {
     .nav-link span{
@@ -254,5 +262,14 @@ header{
     .header-account .dropdown{
         flex: 0 0 100% !important;
         max-width: 100%;
+    }
+    #accountToggle{
+        padding: 22px;
+    }
+    #accountToggle span{
+        display: none;
+    }
+    #accountToggle img{
+        display: inline;
     }
 }

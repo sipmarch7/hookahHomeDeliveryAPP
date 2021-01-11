@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded',showError);
 function showError(){
     try{
         var date = document.getElementById("birthdaySpan")
-        date.innerHTML = date.innerHTML.slice(4,15)
+        if (!(date==null)){ date.innerHTML = date.innerHTML.slice(4,15) }
         var err = document.getElementById("error");
         if (err.childNodes[0].innerHTML == "tk"){
             err.childNodes[0].innerHTML = "Τα στοιχεία "+
@@ -23,5 +23,7 @@ function showError(){
             err.childNodes[0].style.color = "green"
         }
         err.style.display="block"
-    }catch{}
+    }catch{
+        console.log("ENJOY... FACKING ERROR ;*")
+    }
 }

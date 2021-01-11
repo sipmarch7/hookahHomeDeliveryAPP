@@ -1,0 +1,13 @@
+.card-header a{
+    display: block;
+    text-decoration: none;
+    color: rgb(0, 73, 128);
+}
+.card-body{
+    color: black;
+    font-size: 80%;
+}
+hr{
+    width: 90%;
+    margin: 2px auto;
+}

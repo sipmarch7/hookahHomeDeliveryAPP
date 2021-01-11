@@ -28,9 +28,9 @@
             <div class="col-3 header-account row">
                 {{#if user.user_id}}
                 <div class="dropdown show col-6 p-0">
-                    <a role="button" class="nav-link w-100" href="#loggedIn-dropdown" data-toggle="collapse" aria-expanded="false" aria-controls="loggedIn-dropdown">
+                    <a role="button" class="nav-link w-100" id="accountToggle" href="#loggedIn-dropdown" data-toggle="collapse" aria-expanded="false" aria-controls="loggedIn-dropdown">
                         <img src="../img/accountIcon.png" alt="image for account" width="25px">
-                        <br><span style="overflow: hidden; font-size:0.4rem">{{user.email}}</span>         
+                        <span style="overflow: hidden; font-size:1rem">Καλώς ήρθες, {{user.firstname}}</span>         
                     </a>
                     <div class="collapse" id="loggedIn-dropdown">
                         <div class="container p-0">
@@ -39,9 +39,15 @@
                             </div>
                             <hr>
                             <div class="row m-2" >
-                                <a href="#" class="w-100 py-2">Οι παραγγελίες μου</a>
+                                <a href="/myAccount/myOrders" class="w-100 py-2">Οι παραγγελίες μου</a>
                             </div>
                             <hr>
+                            {{#if user.isAdmin}}
+                            <div class="row m-2" >
+                                <a href="/admin/adminOrders" class="w-100 py-2">Admin Orders</a>
+                            </div>
+                            <hr>
+                            {{/if}}
                             <div class="row m-2" >
                                 <a href="/login/logout"  class="btn btn-danger logIn-button ">Αποσύνδεση</a>
                             </div>
@@ -49,14 +55,15 @@
                     </div>
                 </div>
                 <div class="col-6 p-0" id="orderAccountLink">
-                    <a href="#" class="nav-link w-100"><span>Παράγγειλε τώρα</span>
+                    <a href="/product" class="nav-link w-100"><span>Παράγγειλε τώρα</span>
                         <img src="/img/cart.png" alt="image for cart" width="25px">
                     </a>
                 </div>
                 {{else}}
                 <div class="dropdown show col-6 p-0">
-                    <a class="nav-link w-100" href="#drpdown-login"  role="button" id="accountToggle" data-toggle="collapse" aria-controls="drpdown-login" aria-expanded="false">
+                    <a class="nav-link w-100 p-4" href="#drpdown-login"  role="button" id="accountToggle" data-toggle="collapse" aria-controls="drpdown-login" aria-expanded="false">
                         <img src="/img/accountIcon.png" alt="image for account" width="25px">
+                        <span>Σύνδεση</span>
                     </a>
                     <div class="collapse" id="drpdown-login">
                         <form action="/login" method="POST" class="px-2" >

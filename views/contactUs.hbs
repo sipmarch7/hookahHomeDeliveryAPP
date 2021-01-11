@@ -13,10 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/header.css" rel="stylesheet" type="text/css">
-    <link href="css/footer.css" rel="stylesheet" type="text/css">
-    <link href="css/contactUs.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="/css/contactUs.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -29,8 +29,9 @@
                 
                 <div class="col-lg-7 whiteBlocks">
                     <div class="contact-form p-4">
-                    <form action="/contactUs/sendEmail" >
+                    <form action="/contactUs/sendEmail" method="POST" >
                         <div><h3>Επικοινωνείστε μαζί μας</h3></div>
+                        <div class="row w-100 text-center" id="error"><span class="optional w-100">{{warning}}</span></div>
                         <div class="row w-100 mx-auto my-1">
                             <label class="col-12" for="firstname surname">Ονοματεπώνυμο &nbsp <span> ( <sup>*</sup>μόνο γράμματα ) </span></label>
                             <input class="fields col-5" type="text" id="firstname" name="firstname" placeholder=" Όνομα">
@@ -56,7 +57,7 @@
                             <textarea class="w-100 fields" id="textArea" name="textArea" placeholder="Γράψε εδώ το μήνυμά σου..."></textarea>
                         </div>
                         <div class="row w-100 mx-auto mt-2">
-                            <input type="submit" class="btn btn-primary ml-4 mt-2" value="Υποβολή" id="submitButton">
+                            <input type="submit" class="btn btn-primary mx-auto mt-2" value="Υποβολή" id="submitButton">
                         </div>
                     </form>
                     </div>
@@ -84,7 +85,7 @@
     {{> footer }}
 <!--                    scripts                    -->
     
-    <script src="js/contactUs.js"></script>
+    <script src="/model/"></script>
     
 </body>
 

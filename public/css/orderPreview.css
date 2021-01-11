@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'quite_magicalregular';
+    src: url('/css/fonts/quitemagicalregular-8va2-webfont.woff2') format('woff2'),
+         url('/css/fonts/quitemagicalregular-8va2-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main .container{
+    padding: 10px 0;
+}
+
+.inside-block{
+    min-height: 100%;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+.description-tiles{
+    color: rgb(116, 116, 116);
+    font-size: 0.8em;
+}
+
+.deluxe{
+    color: burlywood;
+    font-weight: bolder;
+    font-family: 'quite_magicalregular';
+    font-size: 135%;
+}
+
+.price{
+    border: solid rgb(116, 116, 116) 1px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+@media screen and (max-width: 800px) {
+
+    .mobile-outline{
+        border: solid rgb(116, 116, 116) 1px;
+        border-radius: 5px;
+        margin: 10px;
+    }
+}

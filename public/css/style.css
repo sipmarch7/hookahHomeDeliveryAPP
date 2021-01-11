@@ -5,6 +5,14 @@ body{
     color: white;
     position: relative;
     min-height: 100vh;
+    background: url("/img/hookah-background.jpg");
+    background-size: 100%;
+    position: sticky;
+    top:0;
+    bottom: 0;
+    
 }
+main{
+    
 
-
+}

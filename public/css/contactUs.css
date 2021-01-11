@@ -12,9 +12,9 @@ main .container{
 }
 
 .whiteBlocks{
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
-    color: black;
+    color: rgb(255, 255, 255);
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.15);
     margin:0px 10px 20px;
   
@@ -42,7 +42,7 @@ main .container{
     min-height: 100px;
 }
 #submitButton{
-    width: 5rem;
+    width: 6rem;
     height: 2.5rem;
 }
 
@@ -55,4 +55,9 @@ main .container{
     padding: 0.8em 1em;
     border-radius: 5px;
     width: 200px !important;
+}
+
+#error{
+    color: red;
+    align-items: center;
 }

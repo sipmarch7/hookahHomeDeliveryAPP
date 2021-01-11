@@ -1,0 +1,39 @@
+.outside{
+   
+}
+.inside{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+.pink{
+    background-color: rgb(237, 196, 91) !important;
+    border-radius: 5px;
+    border: solid rgb(116, 116, 116) 1px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    margin: 10px 45px;
+}
+.grey{
+    color: rgb(116, 116, 116);
+    font-style: italic;
+    font-size: 0.9em;
+}
+.status{
+    color: rgb(33, 33, 37);
+    font-style: normal;
+    font-size: 1em;
+}
+.price{
+    color: black;
+    font-style: normal;
+    font-size: 1em;
+}
+
+@media screen and (max-width: 800px) {
+
+    .pink{
+        margin: 10px 0;
+    }
+}

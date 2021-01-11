@@ -1,0 +1,13 @@
+.loginPage{
+    background-color: rgba(255, 255, 255, 0.9);
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 5px;
+    color: black;
+}
+.loginPage input{
+    background-color: rgb(196, 196, 196);
+}
+.loginPage button, .loginPage a{
+    width: 80%;
+}
