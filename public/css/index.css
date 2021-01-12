@@ -54,6 +54,9 @@ main .container{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 500%;
 }
+.brown{
+    color: burlywood;
+}
 .reverse-row{
     flex-wrap: wrap-reverse;
 }

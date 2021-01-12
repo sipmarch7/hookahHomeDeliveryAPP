@@ -101,16 +101,16 @@ module.exports = router;
 
 function price(duration, postal){
   if (duration==='4'){
-    if (postal===20100){return '28'}
+    if (postal===20100){return '30'}
     if (postal===20006 || postal===20001){return '30'}
     return '25'
   }
   if (duration==='6'){
-    if (postal===20100){return '38'}
+    if (postal===20100){return '40'}
     if (postal===20006 || postal===20001){return '40'}
     return '35'
   }
-  if (postal===20100){return '53'}
+  if (postal===20100){return '55'}
   if (postal===20006 || postal===20001){return '55'}
   return '50'
 }
