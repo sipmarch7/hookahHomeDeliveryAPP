@@ -8,6 +8,10 @@ router.get('/', checkAuthentication.checkNotAuthenticated, (req,res) => {
   res.render('register');
 });
 
+router.get('/confirm', checkAuthentication.checkNotAuthenticated, (req,res) => {
+  res.render('registerConfirmation');
+});
+
 router.post('/', checkAuthentication.checkNotAuthenticated, (req,res) => {
   for (const field in req.body){
     if (req.body[field]==""){
@@ -39,7 +43,7 @@ router.post('/', checkAuthentication.checkNotAuthenticated, (req,res) => {
       let sql1 = "INSERT INTO tbl_users SET ?";
       let query1 = conn.query(sql1, data, (err, results1) => {
         if(err) throw err;
-        res.render('login');  // ADD WELCOME PAGE HERE
+        res.redirect("/register/confirm")  // ADD WELCOME PAGE HERE
         return
       });
     });
