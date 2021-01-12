@@ -65,7 +65,7 @@ header{
     height: 80px;
     
 }
-.nav-link:hover, .nav-item:hover{
+.nav-link:hover{
     background-color: rgba(100, 100, 100, 0.8);
     box-shadow: 1px 1px 10px rgb(111, 111, 111);
     color: white;

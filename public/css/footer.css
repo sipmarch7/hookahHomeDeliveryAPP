@@ -2,8 +2,8 @@ footer{
     background-color: black;
     color: rgb(240, 240, 240);
     margin: 0 auto;
-    padding: 5px 0px;
-    font-size:0.8em ;
+    padding: 2px 0px;
+    font-size:0.7em ;
     position: absolute;
     bottom: 0;
 }

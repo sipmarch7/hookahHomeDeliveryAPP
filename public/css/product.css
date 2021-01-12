@@ -25,6 +25,7 @@ main .row{
 .outside-block{
     padding: 5px;
     margin: 10px auto;
+    max-width: 1000px;
 }
 .inside-block{
     min-height: 100%;
@@ -79,7 +80,10 @@ h3{
     margin: 0 auto;
 }
 /*  frlmnfior3nfjor3fjoprjferf forejf*/
-
+#datefield{
+    min-width: 100px;
+    min-height: 30px;
+}
 /*  frlmnfior3nfjor3fjoprjferf forejf*/
 .duration .price-time{
     color: burlywood;

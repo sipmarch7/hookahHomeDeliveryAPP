@@ -28,6 +28,7 @@
             <div class="outside p-1 my-2">
                 <div class="inside p-2">
                     <div class="w-100 my-2 text-center"><h2>Όλες οι παραγγελίες</h2></div>
+                    <div id="earnings" class="w-100 mx-auto my-2 py-2 text-center">Total EARNINGS from COMPLETED orders : &nbsp; <span>{{totalEarnings}} €</span></div>
                     {{#each result}}
                     <div class="card">
                         <div class="card-header px-2">
@@ -35,8 +36,14 @@
                                 <div class="row w-100 mx-auto p-0">
                                     <div class="col-3 p-0"><span>{{date}}</span></div>
                                     <div class="col-4 p-0">{{firstname}} {{lastname}}</div>
-                                    <div class="col-2 p-0 status">{{status}}</div>
-                                    <div class="col-3 text-right p-0"> orderID: 32{{order_id}}</div>
+                                    <div class="col-3 p-0">
+                                        <span class="status">{{status}}</span>
+                                        <br> 
+                                        {{#if admin}}
+                                        <span class="admin">by {{admin}}</span>
+                                        {{/if}}
+                                    </div>
+                                    <div class="col-2 text-right p-0"> orderID: 32{{order_id}}</div>
                                 </div>
                             </a>
                         </div>
@@ -56,7 +63,7 @@
                                     <div class="col-4"><span> <span style="font-style: italic;">Ώρα</span> </div>
                                     <div class="col-8 p-0">: &nbsp;{{time}}</span></div>
                                     <div class="col-md-4"></div>
-                                    <div class="col-md-4 mt-2"><div class="p-1 price"><span> <span style="font-style: italic;">Τιμή Πακέτου : </span> <span style="font-weight:bolder;">{{price}} eur</span></div></div>
+                                    <div class="col-md-4 mt-2"><div class="p-1"><span style="font-style: italic;">Τιμή Πακέτου : </span> <span style="font-weight:bolder;">{{price}} eur</span></div></div>
                                 </div>
                             </div>
                             <div class="col-md-5 pt-1 mobile-outline">

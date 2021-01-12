@@ -4,14 +4,23 @@ const conn = require('../model/db.mysql');
 const checkAuthentication = require('../passport/checkAuthentication');
 
 router.get('/adminOrders', checkAuthentication.checkAuthenticated, (req, res) => {
-    let sql = "SELECT * FROM tbl_orders INNER JOIN tbl_users ON tbl_orders.user_id=tbl_users.user_id ORDER BY order_id DESC;"
-    let query = conn.query(sql, (err, results) => {
+    let sql0 = "SELECT * FROM tbl_orders INNER JOIN tbl_users ON tbl_orders.user_id=tbl_users.user_id ORDER BY order_id DESC;"
+    let query0 = conn.query(sql0, (err, results0) => {
         if(err) throw err;
-        if (req.user.isAdmin){
-            res.render('adminOrders',{user: req.user, result: results});
-            return
-        }
-        res.redirect('/')
+
+        let sql1 = "SELECT price FROM `tbl_orders` WHERE status='completed'"
+        let query1 = conn.query(sql1, (err, results1) => {
+            if(err) throw err;
+            var totalEarnings = 0;
+            for (i in results1){
+                totalEarnings = Number(results1[i].price) + totalEarnings;
+            }
+            if (req.user.isAdmin){
+                res.render('adminOrders',{user: req.user, result: results0, totalEarnings: totalEarnings});
+                return
+            }
+            res.redirect('/');
+        })
     })
 });
 
