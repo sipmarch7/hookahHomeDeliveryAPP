@@ -27,6 +27,9 @@ main{
     height: 45px;
     box-shadow: 0px 0px 5px 0px black;
 }
+#birthday{
+    min-height: 30px;
+}
 @media screen and (max-width: 800px) {
     .blue{
         width: 90%;
