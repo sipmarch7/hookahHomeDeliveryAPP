@@ -97,7 +97,7 @@ main .container{
 
 @media screen and (max-width: 800px) {
     #home-image img{
-        max-height: 250px;
+        max-height: 300px;
     }
     .home-image{
         display: none;
