@@ -31,12 +31,11 @@
             <form action="/myAccount/update" method="POST" accept-charset="utf-8">
                 <div><h2 class="p-2 m-0 text-center">Τα στοιχεία μου</h2></div>
                 <div class="text-center"><span class="optional">&nbsp;(αλλάζετε το πεδίο που επiθυμείτε και πατάτε Ενημέρωση)</span></div>
-                
-                {{#if error}}
-                <div class="text-center" id="error"><span class="optional">{{error}}</span></div>
-                {{/if}}
 
                 <div class="row p-1 my-2 blue">
+                    {{#if error}}
+                        <div class="text-center col-12" id="error"><span class="optional">{{error}}</span></div>
+                    {{/if}}
                         <div class="col-md-1"></div>
                         <div class="col-md-5 my-2">
                             <div class="w-100 px-3"><label for="firstname"><span>Όνομα</span></label></div>
@@ -80,7 +79,21 @@
                         <div class="col-md-1"></div>
                         <div class="col-md-5 my-2">
                             <div class="w-100 px-3"><label for="city"><span>Περιοχή</span></label></div>
-                            <div class="w-100"><input type="text" id="city" class="w-100 py-1 px-3" name="city" value="{{fields.city}}"></div>
+                            <input type="hidden" id="cityHidden" name="cityHidden" value="{{fields.city}}">
+                            <div class="w-100">
+                                <select id="city" name="city" class="w-100">
+                                    <option value="Λουτράκι">Λουτράκι</span></option>
+                                    <option value="Κόρινθος">Κόρινθος</span></option>
+                                    <option value="Περαχώρα">Περαχώρα</span></option>
+                                    <option value="Ίσθμια">Ίσθμια</span></option>
+                                    <option value="Ζευγολατιό">Ζευγολατιό</span></option>
+                                    <option value="Βραχάτι">Βραχάτι</span></option>
+                                    <option value="Αρχαία Κόρινθος">Αρχαία Κόρινθος</span></option>
+                                    <option value="Λέχαιο">Λέχαιο</span></option>
+                                    <option value="Άσσος">Άσσος</span></option>
+                                    <option value="Κυρά Βρύση">Κυρά Βρύση</span></option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-md-5 my-2">
                             <div class="w-100 px-3"><label for="postal"><span>Ταχυδρομικός Κώδικας</span></label></div>
