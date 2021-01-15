@@ -31,12 +31,24 @@ main .container{
     font-size: 135%;
 }
 
-.price{
+.price-div{
     border: solid rgb(116, 116, 116) 1px;
     border-radius: 5px;
-    width: fit-content;
+    max-width: 391px;
+    color: rgb(56, 56, 56);
 }
-
+.price-div em{
+    color: grey;
+    font-size: 0.8em;
+}
+#otherAddressDiv{
+    display: none;
+}
+#textArea{
+    width: 391px;
+    height: 60px;
+    margin: 0 auto ;
+}
 @media screen and (max-width: 800px) {
 
     .mobile-outline{

@@ -27,62 +27,78 @@
 <!--                    main                    -->
 
     <main>
+        <form action="/product/orderPreview" method="POST">
         <div class="container w-100">
             <div class="w-100 text-center my-3"><h3>Προεπισκόπηση Παραγγελίας</h3></div>
-            <div class="w-100 my-2 inside-block mx-0 row">
-                <div class="col-md-7 pt-4 pb-2 mobile-outline">
-                    <div class="w-100 px-5"><h5>Επιλογές</h5></div>
-                    <hr>
-                    <div class="description-tiles mb-4 px-3 row mx-0">
-                            <div class="col-12"><span> 1 <span class="deluxe">Deluxe</span> Ναργιλές</span></div>
-                            <div class="col-4"><span> <span style="font-style: italic;">Γεύσεις </span> </div>
-                            <div class="col-8 p-0 row"><div class="col-1 mr-2">:</div>
-                                <div class="row w-100 col-10 p-0">
-                                    <div class="col-sm-3 flavor m-0 p-0">{{fields.flavor1}}</div>
-                                    <div class="col-sm-3 flavor p-0">{{fields.flavor2}}</div>
-                                    <div class="col-sm-3 flavor p-0">{{fields.flavor3}}</div>
-                                    <div class="col-sm-3 flavor p-0">{{fields.flavor4}}</div>
-                                </div> 
-                            </div>
-                            <div class="col-4"><span> <span style="font-style: italic;">Διάρκεια</span> </div>
-                            <div class="col-8 p-0">: &nbsp;{{fields.duration}} ώρες</span></div>
-                            <div class="col-4"><span> <span style="font-style: italic;">Ημερομηνία</span> </div>
-                            <div class="col-8 p-0">: &nbsp;{{fields.date}}</span></div>
-                            <div class="col-4"><span> <span style="font-style: italic;">Ώρα</span> </div>
-                            <div class="col-8 p-0">: &nbsp;{{fields.time}}</span></div>
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4 mt-2"><div class="p-1 price"><span> <span style="font-style: italic;">Τιμή Πακέτου : </span> <span style="font-weight:bolder;">{{price}} eur</span></div></div>
+            <div class="w-100 my-2 inside-block mx-0">
+                <div class="row w-100 mx-0 my-2">
+                    <div class="col-md-7 pt-4 pb-2 mobile-outline">
+                        <div class="w-100 px-5"><h5>Επιλογές</h5></div>
+                        <hr>
+                        <div class="description-tiles mb-4 px-3 row mx-0">
+                                <div class="col-12"><span> 1 <span class="deluxe">Deluxe</span> Ναργιλές</span></div>
+                                <div class="col-4"><span> <span style="font-style: italic;">Γεύσεις </span> </div>
+                                <div class="col-8 p-0 row"><div class="col-1 mr-2">:</div>
+                                    <div class="row w-100 col-10 p-0">
+                                        <div class="col-sm-3 flavor m-0 p-0">{{fields.flavor1}}</div>
+                                        <div class="col-sm-3 flavor p-0">{{fields.flavor2}}</div>
+                                        <div class="col-sm-3 flavor p-0">{{fields.flavor3}}</div>
+                                        <div class="col-sm-3 flavor p-0">{{fields.flavor4}}</div>
+                                    </div> 
+                                </div>
+                                <div class="col-4"><span> <span style="font-style: italic;">Διάρκεια</span> </div>
+                                <div class="col-8 p-0">: &nbsp;{{fields.duration}} ώρες</span></div>
+                                <div class="col-4"><span> <span style="font-style: italic;">Ημερομηνία</span> </div>
+                                <div class="col-8 p-0">: &nbsp;{{fields.date}}</span></div>
+                                <div class="col-4"><span> <span style="font-style: italic;">Ώρα</span> </div>
+                                <div class="col-8 p-0">: &nbsp;{{fields.time}}</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5 pt-4 pb-2 mobile-outline">
-                    <div class="w-100 px-5"><h5>Διεύθυνση αποστολής</h5></div>
-                    <hr>
-                    <div class="description-tiles mb-4 px-3 row mx-0">
-                            <div class="col-4"><span> <span style="font-style: italic;">Όνομα</span> </div>
-                            <div class="col-8">: &nbsp;{{user.firstname}} {{req.user.lastname}}</span></div>
-                            <div class="col-4"><span> <span style="font-style: italic;">Διεύθυνση</span> </div>
-                            <div class="col-8">: &nbsp;{{user.address}}</span></div>
-                            <div class="col-4"><span> <span style="font-style: italic;">Όροφος</span> </div>
-                            <div class="col-8">: &nbsp;{{user.floor}}</span></div>
-                            <div class="col-4"><span> <span style="font-style: italic;">Περιοχή</span> </div>
-                            <div class="col-8">: &nbsp;{{user.city}}</span></div>
-                            <div class="col-4"><span> <span style="font-style: italic;">Τηλέφωνο</span> </div>
-                            <div class="col-8">: &nbsp;{{user.telephone}}</span></div>
+                    <div class="col-md-5 pt-4 pb-2 mobile-outline">
+                        <div class="w-100 px-5"><h5>Διεύθυνση αποστολής</h5></div>
+                        <hr>
+                        <div class="description-tiles mb-4 px-3 row mx-0">
+                                <div class="col-4"><span> <span style="font-style: italic;">Όνομα</span> </div>
+                                <div class="col-8">: &nbsp;{{user.firstname}} {{req.user.lastname}}</span></div>
+                                <div class="col-4"><span> <span style="font-style: italic;">Διεύθυνση</span> </div>
+                                <div class="col-8">: &nbsp;{{user.address}}</span></div>
+                                <div class="col-4"><span> <span style="font-style: italic;">Όροφος</span> </div>
+                                <div class="col-8">: &nbsp;{{user.floor}}</span></div>
+                                <div class="col-4"><span> <span style="font-style: italic;">Περιοχή</span> </div>
+                                <div class="col-8">: &nbsp;{{user.city}}</span></div>
+                                <div class="col-4"><span> <span style="font-style: italic;">Τηλέφωνο</span> </div>
+                                <div class="col-8">: &nbsp;{{user.telephone}}</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-12 text-center">
-                    <span style="color: rgb(116, 116, 116); font-size:0.7em">Για περιοχές εκτός Λουτρακίου υπάρχει επί πρόσθετη χρέωση για τα μεταφορικά έξοδα (3-5eur)</span>
-                </div>
-                <div class="col-12 text-center pb-2">
-                    <span style="color: rgb(116, 116, 116); font-size:0.5em">
-                        * Με την ολοκλήρωση της παραγγελίας σας αποδέχεστε, οποιαδήποτε χρηματική ευθύνη για αντικατάσταση εξοπλισμού
-                        σε περίπτωση ζημιάς από την πλευρά σας.
-                    </span>
+                    <div class="row w-100 m-auto">
+                        <div class="col-12 text-center">
+                            <input type="checkbox" id="otherAddress" name="otherAddress" value="1">
+                            <label for="otherAddress">Επιλογή διαφορετικής διεύθυνσης</label>
+                        </div>
+                        <div class="col-12 p-0 text-center my-1" id="otherAddressDiv">
+                            <textarea  id="textArea" name="textArea" placeholder="Γράψε εδώ την διεύθυνση σου..."></textarea>
+                        </div>
+                    </div>
+                    <div class="row p-1 price-div m-auto">
+                        {{#if user.firstOrder}}<div class="col-12">- 5eur <em>- Έκπτωση πρώτης παραγγελίας</em></div>{{/if}}
+                        {{#if user.outOfLoutraki}}<div class="col-12">+ 5eur <em>- Χρέωση διανομής εκτός Λουτρακίου</em></div>{{/if}}
+                        <hr>
+                        <div class="col-12 text-center"><em>Τελική τιμή πακέτου:</em> {{price}}eur</div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <span style="color: rgb(116, 116, 116); font-size:0.7em">Για περιοχές εκτός Λουτρακίου υπάρχει επί πρόσθετη χρέωση για τα μεταφορικά έξοδα (5eur)</span>
+                    </div>
+                    <div class="col-12 text-center pb-2">
+                        <span style="color: rgb(116, 116, 116); font-size:0.5em">
+                            * Με την ολοκλήρωση της παραγγελίας σας αποδέχεστε, οποιαδήποτε χρηματική ευθύνη για αντικατάσταση εξοπλισμού
+                            σε περίπτωση ζημιάς από την πλευρά σας.
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
         <div>
-        <form action="/product/orderPreview" method="POST">
+        
             <input type="hidden" name="date" value="{{fields.date}}">
             <input type="hidden" name="time" value="{{fields.time}}"><input type="hidden" name="duration" value="{{fields.duration}}">
             <input type="hidden" name="flavors" value="{{fields.flavor1}}, {{fields.flavor2}}, {{fields.flavor3}}, {{fields.flavor4}}">
@@ -94,6 +110,7 @@
 <!--                    footer                    -->
     {{> footer }}
 <!--                    scripts                    -->
+<script src="/js/orderPreview.js"></script>
 </body>
 
 </html>

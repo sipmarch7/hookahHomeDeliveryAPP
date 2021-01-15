@@ -26,18 +26,18 @@ router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) =
     res.render('product', { user: req.user, warning: warning});
     return
   }
-  var mm = req.query.date.slice(5,7)
+  /* var mm = req.query.date.slice(5,7)
   var yy = req.query.date.slice(0,4)
-  var dd = req.query.date.slice(8)
-  req.query.date = dd+"-"+mm+"-"+yy
-  res.render('orderPreview', { user: req.user, fields: req.query, price: price(req.query.duration, req.user.postal)}); 
+  var dd = req.query.date.slice(8)*/
+  req.query.date = dateForEurope(req.query.date)
+  res.render('orderPreview', { user: req.user, fields: req.query, price: price(req.query.duration, req.user.outOfLoutraki, req.user.firstOrder)}); 
 });
 
 
 router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res) => {
-  let data = {  user_id : req.user.user_id, date : req.body.date, 
+  let data = {  user_id : req.user.user_id, date : dateForSQL(req.body.date), 
     time : req.body.time, duration : req.body.duration, 
-    flavors : req.body.flavors, price : price(req.body.duration, req.user.postal), 
+    flavors : req.body.flavors, price : price(req.body.duration, req.user.outOfLoutraki, req.user.firstOrder), 
     status : "pending"
   }
   let sql = "INSERT INTO tbl_orders SET ?";
@@ -67,7 +67,7 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
         '\n Time       : '+ req.body.time+
         '\n Duration  : '+ req.body.duration+
         '\n Flavors    : '+ req.body.flavors+
-        '\n Price      : '+ price(req.body.duration, req.user.postal)+
+        '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.firstOrder)+
         '\n\nACCOUNT DETAILS'+
         '\n——————————————————'+
         '\n User ID     : '+ req.user.user_id+
@@ -99,18 +99,41 @@ router.get('/orderConfirmation', (req, res) => {
 
 module.exports = router;
 
-function price(duration, postal){
+function price(duration, outOfLoutraki, firstOrder){
   if (duration==='4'){
-    if (postal===20100){return '30'}
-    if (postal===20006 || postal===20001){return '30'}
-    return '25'
+    if (outOfLoutraki && !firstOrder){
+      return "30"
+    }else if ((outOfLoutraki && firstOrder) || (!outOfLoutraki && !firstOrder)){
+      return "25"
+    }
+    return "20"
+  }else if (duration==='6'){
+    if (outOfLoutraki && !firstOrder){
+      return "40"
+    }else if ((outOfLoutraki && firstOrder) || (!outOfLoutraki && !firstOrder)){
+      return "35"
+    }
+    return "30"
+  }else{
+    if (outOfLoutraki && !firstOrder){
+      return "55"
+    }else if ((outOfLoutraki && firstOrder) || (!outOfLoutraki && !firstOrder)){
+      return "50"
+    }
+    return "45"
   }
-  if (duration==='6'){
-    if (postal===20100){return '40'}
-    if (postal===20006 || postal===20001){return '40'}
-    return '35'
-  }
-  if (postal===20100){return '55'}
-  if (postal===20006 || postal===20001){return '55'}
-  return '50'
+}
+
+function dateForSQL(date){
+  var dd = date.slice(0,2)
+  var mm = date.slice(3,5)
+  var yy = date.slice(6)
+  return yy+"-"+mm+"-"+dd
+}
+
+function dateForEurope(date){
+  var dd = date.slice(8)
+  var mm = date.slice(5,7)
+  var yy = date.slice(0,4)
+  return dd+"-"+mm+"-"+yy 
 }
