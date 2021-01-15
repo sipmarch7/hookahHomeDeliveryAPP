@@ -33,14 +33,18 @@
                     <div class="row w-100 mx-auto my-4">
                         {{#each result}}
                         <div class="col-lg-5 py-1 pink row" >
-                            <div class="col-6 pr-0"> {{date}} at {{time}}</div>
-                            <div class="col-6 text-right"> OrderID: <span class="orderid">32{{order_id}}</span></div>
-                            <div class="col-12 my-1"></div>
-                            <div class="col-md-2 grey">Γεύσεις:</div>
-                            <div class="col-md-7">{{flavors}}</div>
+                            <div class="col-1 p-0"><span class="numberOfOrder"></span>.</div>
+                            <div class="col-5 p-0">{{date}} at {{time}}</div>
+                            <div class="col-6 text-right"> OrderID: <span class="orderid">32{{order_id}}47</span></div>
                             <div class="col-12 my-1"></div>
                             <div class="col-3 grey">Διάρκεια:</div>
                             <div class="col-8">{{duration}} ώρες</div>
+                            <div class="col-md-2 grey">Γεύσεις:</div>
+                            <div class="col-md-7 pr-0 flavors">{{flavors}}</div>
+                            {{#if otherAddress}}
+                            <div class="col-12 grey">Άλλη διέυθυνση:</div>
+                            <div class="col-12">{{otherAddress}}</div>
+                            {{/if}}
                             <div class="col-12 my-1"></div>
                             <div class="col-7 grey">Κατάσταση : <span class="status">{{status}}</span></div>
                             <div class="col-5 text-right grey">Τιμή : <span class="price">{{price}}eur</span></div>

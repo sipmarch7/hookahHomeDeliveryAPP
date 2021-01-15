@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const checkAuthentication = require('../passport/checkAuthentication');
 
 router.get('/', checkAuthentication.checkAuthenticated, (req, res) => {
+    req.user.birthday = dateForEurope(req.user.birthday)
     res.render('myAccount',{user: req.user, fields: req.user});
 });
 
@@ -49,9 +50,12 @@ router.post('/update', checkAuthentication.checkAuthenticated, (req, res) => {
 });
 
 router.get('/myOrders', checkAuthentication.checkAuthenticated, (req, res) => {
-  let sql = "SELECT * FROM tbl_orders WHERE user_id="+req.user.user_id+" ORDER BY order_id DESC"
+  let sql = "SELECT * FROM tbl_orders WHERE user_id="+req.user.user_id+" ORDER BY date DESC, order_id DESC"
   let query = conn.query(sql, (err, results) => {
     if(err) throw err;
+    for (i in results){
+      results[i].date = dateForEurope(results[i].date)
+    }
     res.render('myOrders',{user: req.user, result : results});
   })
 
@@ -66,4 +70,11 @@ function checkOutOfLoutraki(city){
     return 0
   }
   return 1
+}
+
+function dateForEurope(date){
+  var dd = date.slice(8)
+  var mm = date.slice(5,7)
+  var yy = date.slice(0,4)
+  return dd+"-"+mm+"-"+yy 
 }

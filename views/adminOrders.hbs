@@ -30,7 +30,7 @@
             <div class="outside p-1 my-2">
                 <div class="inside p-2">
                     <div class="w-100 my-2 text-center"><h2>Όλες οι παραγγελίες</h2></div>
-                    <div id="earnings" class="w-100 mx-auto my-2 py-2 text-center">Total EARNINGS from COMPLETED orders : &nbsp; <span>{{totalEarnings}} €</span></div>
+                    <div id="earnings" class="w-100 mx-auto my-2 py-2 text-center">Total EARNINGS from <span>{{totalOrdersCompleted}}</span> COMPLETED orders : &nbsp; <span>{{totalEarnings}} €</span></div>
                     {{#each result}}
                     <div class="card">
                         <div class="card-header px-2">
@@ -82,31 +82,49 @@
                                         <div class="col-8">: &nbsp;{{city}}</span></div>
                                         <div class="col-4"><span> <span style="font-style: italic;">Τηλέφωνο</span> </div>
                                         <div class="col-8">: &nbsp;{{telephone}}</span></div>
+                                        {{#if otherAddress}}
+                                        <div class="col-4"><span> <span style="font-style: italic;">Άλλη διέυθυνση</span> </div>
+                                        <div class="col-8">: &nbsp;{{otherAddress}}</span></div>
+                                        {{/if}}
                                 </div>
                             </div>
                             <hr>
                             <div class="col-12 row w-100 p-1 m-auto text-center">
-                            {{#if admin}}
-                                <div class="col-12">
-                                    <form action="/admin/adminOrders/doneOrder" method="POST">
-                                        <input type="hidden" name="order_id" value="{{order_id}}">
-                                        <button type="submit" class="btn btn-warning m-auto">Ολοκλήρωση</button>
-                                    </form>
-                                </div>
-                            {{else}}
-                                <div class="col-6 text-right">
-                                    <form action="/admin/adminOrders/cancelOrder" method="POST">
-                                        <input type="hidden" name="order_id" value="{{order_id}}">
-                                        <button type="submit" class="btn btn-danger">Ακύρωση</button>
-                                    </form>
-                                </div>
-                                <div class="col-6 text-left">
-                                    <form action="/admin/adminOrders/acceptOrder" method="POST">
-                                        <input type="hidden" name="order_id" value="{{order_id}}">
-                                        <button type="submit" class="btn btn-success">Αποδοχή</button>
-                                    </form>
-                                </div>
-                            {{/if}}
+                                {{#unless canceled}}
+                                {{#unless completed}}
+                                    {{#if delivered}}
+                                        <div class="col-12">
+                                            <form action="/admin/adminOrders/doneOrder" method="POST">
+                                                <input type="hidden" name="order_id" value="{{order_id}}">
+                                                <button type="submit" class="btn btn-warning">Complete</button>
+                                            </form>
+                                        </div>
+                                    {{else}}
+                                        <div class="col-6 text-right">
+                                            <form action="/admin/adminOrders/cancelOrder" method="POST">
+                                                <input type="hidden" name="order_id" value="{{order_id}}">
+                                                <input type="hidden" name="user_id" value="{{user_id}}">
+                                                <button type="submit" class="btn btn-danger">Cancel</button>
+                                            </form>
+                                        </div>
+                                        {{#if accepted}}
+                                        <div class="col-6 text-left">
+                                            <form action="/admin/adminOrders/deliveredOrder" method="POST">
+                                                <input type="hidden" name="order_id" value="{{order_id}}">
+                                                <button type="submit" class="btn btn-info">Delivered</button>
+                                            </form>
+                                        </div>
+                                        {{else}}
+                                        <div class="col-6 text-left">
+                                            <form action="/admin/adminOrders/acceptOrder" method="POST">
+                                                <input type="hidden" name="order_id" value="{{order_id}}">
+                                                <button type="submit" class="btn btn-success">Accept</button>
+                                            </form>
+                                        </div>
+                                        {{/if}}
+                                    {{/if}}
+                                {{/unless}}
+                                {{/unless}}
                             </div>
                         </div>
                     </div>
