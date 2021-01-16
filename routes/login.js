@@ -17,7 +17,7 @@ router.post('/', checkAuthentication.checkNotAuthenticated, passport.authenticat
 router.get('/logout', checkAuthentication.checkAuthenticated,
   function(req, res){
     req.logout();
-    res.redirect(req.get('referer'));
+    res.redirect('/');
   }
 );
 

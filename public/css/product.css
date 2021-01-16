@@ -65,7 +65,7 @@ main .row{
     padding: 5px 10px;
     margin: 2px 0;
     margin-left: 15px;
-    font-size: 0.8em;
+    font-size: 1.2em;
 }
 .deluxe{
     color: burlywood;
@@ -87,8 +87,8 @@ h3{
 }
 /*  frlmnfior3nfjor3fjoprjferf forejf*/
 .duration .price-time{
-    color: burlywood;
-    font-size: 1em;
+    color: rgb(232, 140, 21);
+    font-size: 1.2em;
 }
 
 .flavors select{
@@ -121,5 +121,7 @@ h3{
     .inside-block .text-center{
         text-align: left !important;
     }
-
+    .description .description-tiles div{
+        font-size: 0.9em;
+    }
 }
