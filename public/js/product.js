@@ -24,19 +24,19 @@ durationSelection.forEach(item=>{
       flavor4.style.display = "none"
       flavor3.children[1].value = ""
       flavor4.children[1].value = ""
-      price.innerHTML=priceCheck.parentNode.children[1].innerText.slice(-5)
+      price.innerHTML=priceCheck.parentNode.children[1].innerText.slice(0,7)
       return
     }
     if (duration === "6"){
       flavor3.style.display = "block"
       flavor4.style.display = "none"
       flavor4.children[1].value = ""
-      price.innerHTML=priceCheck.parentNode.children[1].innerText.slice(-5)
+      price.innerHTML=priceCheck.parentNode.children[1].innerText.slice(0,7)
       return
     }
     flavor3.style.display = "block"
     flavor4.style.display = "block"
-    price.innerHTML=priceCheck.parentNode.children[1].innerText.slice(-5)
+    price.innerHTML=priceCheck.parentNode.children[1].innerText.slice(0,7)
   })
 });
 
