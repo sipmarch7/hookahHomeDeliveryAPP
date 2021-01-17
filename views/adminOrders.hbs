@@ -45,7 +45,7 @@
                                         <span class="admin">by {{admin}}</span>
                                         {{/if}}
                                     </div>
-                                    <div class="col-2 text-right p-0"> orderID: 32{{order_id}}</div>
+                                    <div class="col-2 text-right p-0"> orderID: 32{{order_id}}47</div>
                                 </div>
                             </a>
                         </div>
@@ -59,7 +59,7 @@
                                     <div class="col-7 p-0">: &nbsp; {{flavors}}</div>
                                         
                                     <div class="col-4"><span> <span style="font-style: italic;">Διάρκεια</span> </div>
-                                    <div class="col-8 p-0">: &nbsp;{{duration}} ώρες</span></div>
+                                    <div class="col-8 p-0">: &nbsp;{{duratiion}} ώρες</span></div>
                                     <div class="col-4"><span> <span style="font-style: italic;">Ημερομηνία</span> </div>
                                     <div class="col-8 p-0">: &nbsp;{{date}}</span></div>
                                     <div class="col-4"><span> <span style="font-style: italic;">Ώρα</span> </div>
@@ -104,6 +104,11 @@
                                             <form action="/admin/adminOrders/cancelOrder" method="POST">
                                                 <input type="hidden" name="order_id" value="{{order_id}}">
                                                 <input type="hidden" name="user_id" value="{{user_id}}">
+                                                <input type="hidden" name="date" value="{{date}}">
+                                                <input type="hidden" name="time" value="{{time}}">
+                                                <input type="hidden" name="duration" value="{{duration}}">
+                                                <input type="hidden" name="otherAddress" value="{{otherAddress}}">
+                                                <input type="hidden" name="flavors" value="{{flavors}}">
                                                 <button type="submit" class="btn btn-danger">Cancel</button>
                                             </form>
                                         </div>
@@ -118,6 +123,11 @@
                                         <div class="col-6 text-left">
                                             <form action="/admin/adminOrders/acceptOrder" method="POST">
                                                 <input type="hidden" name="order_id" value="{{order_id}}">
+                                                <input type="hidden" name="date" value="{{date}}">
+                                                <input type="hidden" name="time" value="{{time}}">
+                                                <input type="hidden" name="duration" value="{{duration}}">
+                                                <input type="hidden" name="otherAddress" value="{{otherAddress}}">
+                                                <input type="hidden" name="flavors" value="{{flavors}}">
                                                 <button type="submit" class="btn btn-success">Accept</button>
                                             </form>
                                         </div>

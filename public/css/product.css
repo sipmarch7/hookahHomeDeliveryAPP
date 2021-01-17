@@ -105,6 +105,9 @@ h3{
     font-weight: 700;
     color: white;
 }
+#price{
+    color: rgb(232, 140, 21);
+}
 #warning{
     font-size: 0.8em;
     color: red;
