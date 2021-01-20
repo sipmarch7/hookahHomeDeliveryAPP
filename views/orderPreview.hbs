@@ -80,8 +80,10 @@
                         </div>
                     </div>
                     <div class="row p-1 price-div m-auto">
-                        {{#unless user.numberOfOrders}}<div class="col-12">- 5eur <em>- Έκπτωση πρώτης παραγγελίας</em></div>{{/unless}}
-                        {{#if user.outOfLoutraki}}<div class="col-12">+ 5eur <em>- Χρέωση διανομής εκτός Λουτρακίου</em></div>{{/if}}
+                        {{#unless user.numberOfOrders}}
+                            <div class="col-12">- 5eur <em>- Έκπτωση πρώτης παραγγελίας</em></div>
+                            {{#if user.outOfLoutraki}}<div class="col-12">+ 5eur <em>- Χρέωση διανομής εκτός Λουτρακίου</em></div>{{/if}}
+                        {{/unless}}
                         <hr>
                         <div class="col-12 text-center"><em>Τελική τιμή πακέτου:</em> {{price}}eur</div>
                     </div>

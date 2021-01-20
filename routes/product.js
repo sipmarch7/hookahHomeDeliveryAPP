@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
   res.render('product', { user: req.user});
 });
 
+
 router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) => {
   let warning = "Συμπλήρωσε όλα τα απαραίτητα πεδία"
   if (req.query.time===""){
@@ -34,7 +35,15 @@ router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) =
 });
 
 
+
+
 router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res) => {
+
+  if (!(req.user.city=="Λουτράκι" || req.user.city=="Κόρινθος") && (req.body.duration==4)){
+    res.redirect('orderFailure');
+    return
+  }
+
   let data = {  user_id : req.user.user_id, date : dateForSQL(req.body.date), 
     time : req.body.time, duration : req.body.duration, 
     flavors : req.body.flavors, price : price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders), 
@@ -138,27 +147,36 @@ router.get('/orderConfirmation', (req, res) => {
   res.render('orderConfirmation', { user: req.user});
 });
 
+router.get('/orderFailure', (req, res) => {
+  res.render('orderFailure', { user: req.user});
+});
+
 
 module.exports = router;
+
+
+
+//////////////functions //////////////////////////////////////////////
+
 
 function price(duration, outOfLoutraki, numberOfOrders){
   if (duration==='4'){
     if (outOfLoutraki && numberOfOrders){
-      return "30"
+      return "25"
     }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
       return "25"
     }
     return "20"
   }else if (duration==='6'){
     if (outOfLoutraki && numberOfOrders){
-      return "40"
+      return "35"
     }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
       return "35"
     }
     return "30"
   }else{
     if (outOfLoutraki && numberOfOrders){
-      return "55"
+      return "50"
     }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
       return "50"
     }
