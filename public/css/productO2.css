@@ -1,0 +1,23 @@
+#slideshow{
+    width: 440px !important;
+}
+#title-hookah{
+    color: rgb(117, 80, 1);
+    font-family: sans-serif;
+}
+
+
+@media screen and (max-width: 800px) {
+
+    #slideshow{
+        width: 330px !important;
+        height: 370px;
+    }
+    #slideshow div{
+        width: 310px;
+    }
+    #slideshow img{
+        width: 310px;
+        height: 350px;
+    }
+}

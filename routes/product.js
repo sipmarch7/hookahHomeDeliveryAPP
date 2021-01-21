@@ -8,6 +8,13 @@ router.get('/', (req, res) => {
   res.render('product', { user: req.user});
 });
 
+router.get('/productList', (req, res) => {
+  res.render('productList', { user: req.user});
+});
+
+router.get('/productO2', (req, res) => {
+  res.render('productO2', { user: req.user});
+});
 
 router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) => {
   let warning = "Συμπλήρωσε όλα τα απαραίτητα πεδία"
@@ -27,11 +34,12 @@ router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) =
     res.render('product', { user: req.user, warning: warning});
     return
   }
-  /* var mm = req.query.date.slice(5,7)
-  var yy = req.query.date.slice(0,4)
-  var dd = req.query.date.slice(8)*/
   req.query.date = dateForEurope(req.query.date)
-  res.render('orderPreview', { user: req.user, fields: req.query, price: price(req.query.duration, req.user.outOfLoutraki, req.user.numberOfOrders)}); 
+  if (req.user.city=="Κόρινθος"){
+    res.render('orderPreview', { user: req.user, fields: req.query, korinthos: 1, price: price(req.query.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city)}); 
+  }else{
+    res.render('orderPreview', { user: req.user, fields: req.query, korinthos: 0, price: price(req.query.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city)}); 
+  }
 });
 
 
@@ -46,7 +54,7 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
 
   let data = {  user_id : req.user.user_id, date : dateForSQL(req.body.date), 
     time : req.body.time, duration : req.body.duration, 
-    flavors : req.body.flavors, price : price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders), 
+    flavors : req.body.flavors, price : price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city), 
     status : "pending", otherAddress: req.body.textArea
   }
   let sql = "INSERT INTO tbl_orders SET ?";
@@ -82,7 +90,7 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n Time       : '+ req.body.time+
           '\n Duration  : '+ req.body.duration+
           '\n Flavors    : '+ req.body.flavors+
-          '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders)+
+          '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city)+
           '\n Other Address : '+ req.body.textArea+
           '\n\nACCOUNT DETAILS'+
           '\n——————————————————————————————'+
@@ -118,7 +126,7 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n Time       : '+ req.body.time+
           '\n Duration  : '+ req.body.duration+
           '\n Flavors    : '+ req.body.flavors+
-          '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders)+
+          '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city)+
           '\n Other Address : '+ req.body.textArea+
           '\n\nACCOUNT DETAILS'+
           '\n——————————————————————————————'+

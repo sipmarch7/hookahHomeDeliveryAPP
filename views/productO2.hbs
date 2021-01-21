@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBVPYXY1B6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-EBVPYXY1B6');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Sipmarch7">
+    <meta name="description" content="Shisha hub delivery service shop">
+    <meta name="keywords" content="HMTL, CSS, JS, Project, shisha, delivery, service, node.js, e-shop">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ναργυλές - Shisha hub</title>
+    <link rel="icon" type="image/png" href="/img/favicon2.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="/css/product.css" rel="stylesheet" type="text/css">
+    <link href="/css/productO2.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!--                    header                    -->
+    {{> header }} 
+<!--                    main                    -->
+<main>
+    <div class="container w-100">
+        
+        <div class="row reverse-row w-100">
+            <div class="col-md-1"></div>
+            <div class="outside-block col-lg-4">
+                <div class="inside-block">
+                    <div id="slideshow">
+                        <div class="text-center"><img src="/img/products/o2hookah.jpg" height="400px"></div>
+                        <div><img src="/img/products/o2hookahCaps.png" height="400px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="outside-block col-lg-5">
+                <div class="inside-block description">
+                    <div class="w-100 row text-center py-2 px-0"><h3><span id="title-hookah">Electronic Luxurious Hookah Session</span></h3></div>
+                    <div class="w-100 p-2"><h5>Το πακέτο περιλαμβάνει:</h5></div>
+                    <hr>
+                    <div class="description-tiles mb-4">
+                        <div><span>- 1 ηλεκτρονικό Ναργιλέ</span></div>
+                        <div><span>- Γεύσεις της επιλογής σας (capsule pods)</span></div>
+                        <div><span>- Λειτουργεί με μπαταρία (χωρίς καρβουνάκια)</span></div>
+                        <div><span>- 2 σωλήνες για 2 χρήστες ταυτόχρονα</span></div>
+                        <div><span>- Μεταφορά και στήσιμο στο χώρο σας απο ειδικό μας</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row w-100 mb-2 mt-5 text-center">
+            <h3>Επιλογές</h3>
+        </div>
+
+        <div class="row w-100 text-center" id="warning"><span>{{warning}}</span></div>
+        
+        <form action="/product/orderPreview" method="GET">
+        
+        <div class="row w-100 my-2">
+            <div class="outside-block w-100 col-12">
+                <div class="inside-block duration p-4" >
+                    <div class="ml-4"><h5>Διάρκεια</h5></div>
+                    <hr>
+                    <div class="row w-100 yo px-4">
+                        <div class="col-md-4 my-2 p-0 text-center">
+                            <input type="radio" id="five-hours" class="durationSelection" name="duration" value="5" checked>
+                            <label for="five-hours">&nbsp;<span class="price-time">50 EUR</span> - 5 ώρες (1-3 γεύσεις)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row w-100 my-2">
+            <div class="outside-block w-100 col-12">
+                <div class="inside-block flavors p-4" >
+                    <div class="ml-4"><h5>Γεύσεις</h5></div>
+                    <hr>
+                    <div class="row w-100 flavors-inside px-4">
+                        <div class="col-md-6 my-2 p-0 text-center">
+                            <label for="flavor1">Γεύση 1η: &nbsp;</label>
+                            <select id="flavor1" name="flavor1">
+                                <option value="Mojito">Mojito <span>- C2 Pod</span></option>
+                                <option value="Double Apple">Double Apple <span>- C2 Pod</span></option>
+                                <option value="Sweet Mnt">Sweet Mnt <span>- C2 Pod</span></option>
+                                <option value="Red Fruit">Red Fruit Cocktail <span>- C2 Pod</span></option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 my-2 p-0 text-center">
+                            <label for="flavor2">Γεύση 2η: &nbsp;</label>
+                            <select id="flavor2" name="flavor2">
+                                <option value="same">ίδια με την πρώτη</option>
+                                <option value="Double Apple">Double Apple <span>- C2 Pod</span></option>
+                                <option value="Sweet Mnt">Sweet Mnt <span>- C2 Pod</span></option>
+                                <option value="Mojito">Mojito <span>- C2 Pod</span></option>
+                                <option value="Red Fruit">Red Fruit Cocktail <span>- C2 Pod</span></option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 my-2 p-0 text-center" id="flavor5div">
+                            <label for="flavor3">Γεύση 3η: &nbsp;</label>
+                            <select id="flavor3" name="flavor3">
+                                <option value="same">ίδια με την πρώτη</option>
+                                <option value="Double Apple">Double Apple <span>- C2 Pod</span></option>
+                                <option value="Sweet Mnt">Sweet Mnt <span>- C2 Pod</span></option>
+                                <option value="Mojito">Mojito <span>- C2 Pod</span></option>
+                                <option value="Red Fruit">Red Fruit Cocktail <span>- C2 Pod</span></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row w-100 my-2">
+            <div class="outside-block w-100 col-12">
+                <div class="inside-block date p-4" >
+                    <div class="ml-4"><h5>Προτιμώμενη παράδοση *</h5></div>
+                    <hr>
+                    <div class="row w-100 yo px-4">
+                        <div class="col-md-3 my-2 p-0 text-center">
+                            <input type="radio" id="today" class="daySelection" name="day" value="today" required> 
+                            <label for="today">&nbsp;  Σήμερα</label>
+                        </div>
+                        <div class="col-md-3 my-2 p-0 text-center">
+                            <input type="radio" id="otherday" class="daySelection" name="day" value="otherDay">
+                            <label for="otherDay">&nbsp;  Άλλη μέρα</label>
+                        </div>
+                        <div class="col-md3 my-2 p-0 text-center" id="other-day">
+                            <label for="otherDay">&nbsp;  Ημερομηνία</label>
+                            <input type="date" id="datefield" name="date">
+                        </div>
+                        <div class="col-md-2 my-2 p-0 text-center">
+                            <label for="time">Ώρα * :</label>
+                            <select id="time" name="time">
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:00">20:00</option>
+                                <option value="21:00">21:00</option>
+                                <option value="22:00">22:00</option>
+                                <option value="23:00">23:00</option>
+                            </select>
+                        </div>
+                        <div class="col-12 p-0">*<span style="font-size: 0.7em;">Οι επιλογές ώρας και Ημερομηνίας είναι ενδεικτκές. 
+                        Θα ακολουθήσει σύντομη τηλεφωνική επικοινωνία για  επιβεβαίωση.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 text-center mb-3"><span class="price">Τιμή πακέτου : <span id="price">50 EUR</span></span></div>
+
+        <div class="w-100 text-center"><button type="submit" class="btn btn-primary" id="submit-button">Προς Ολοκλήρωση</button></div>
+
+    </form>
+    </div>
+</main>
+<!--                    footer                    -->
+    {{> footer }}
+<!--                    scripts                    -->
+    <script src="/js/product.js"></script>
+</body>
+</html>

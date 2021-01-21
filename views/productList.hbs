@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBVPYXY1B6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-EBVPYXY1B6');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Sipmarch7">
+    <meta name="description" content="Shisha hub delivery service shop">
+    <meta name="keywords" content="HMTL, CSS, JS, Project, shisha, delivery, service, node.js, e-shop">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Προϊόντα - Shisha hub</title>
+    <link rel="icon" type="image/png" href="/img/favicon2.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/header.css" rel="stylesheet" type="text/css">
+    <link href="/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="/css/productList.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!--                    header                    -->
+    {{> header }} 
+<!--                    main                    -->
+    <main>
+        <div class="container mx-auto">
+            <div class="w-100 mx-auto my-3 text-center"><h2 class="px-0">Προϊόντα</h2></div>
+            <div class="row w-100 mx-auto">
+
+                <div class="col-lg-5 w-100 mx-auto my-3 p-1 product-div">
+                    <div class="col-12 text-center p-2">
+                        <img src="/img/products/o2hookah.jpg" alt="o2 hookah" width="300px">
+                    </div>
+                    <div class="col-12 p-2">
+                        <h4 class="w-100 mt-2 text-center" id="titleYo">Electronic Luxurious Hookah Session</h4>
+                        <hr>
+                        <div class="w-100 mx-auto px-3 description">
+                            <em>- Ηλεκτρονικός Ναργιλές</em><br>
+                            <em>- Λειτουργεί με μπαταρία (χωρίς καρβουνάκια)</em><br>
+                            <em>- 2 σωλήνες για 2 χρήστες ταυτόχρονα</em><br>
+                            <em>- Ποικιλία γεύσεων σε κάψουλες (pods) για να διαλέξεις</em>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+
+                        <a href="/product/productO2" class="btn m-2 px-5 p-2 btn-warning">Επιλογή</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 w-100 mx-auto my-3 p-1 product-div">
+                    <div class="col-12 text-center p-2">
+                        <img src="/img/products/amy-bamboo-2-600x600.jpeg" alt="deluxe hookah" width="300px">
+                    </div>
+                    <div class="col-12 p-2">
+                        <h4 class="w-100 text-center"><span class="deluxe">Deluxe</span> Hookah Session</h4>
+                        <hr>
+                        <div class="w-100 mx-auto px-3 description">
+                            <em>- <span class="deluxe">Deluxe</span> Ναργιλές</em><br>
+                            <em>- Coco καρβουνάκια καρύδας</em><br>
+                            <em>- Η γνήσια απόλαυση του ναργιλέ</em><br>
+                            <em>- Ποικιλία γεύσεων για να διαλέξεις</em>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+
+                        <a href="/product" class="btn m-2 px-5 p-2 btn-warning">Επιλογή</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+<!--                    footer                    -->
+    {{> footer }}
+<!--                    scripts                    -->
+
+</body>
+
+</html>
