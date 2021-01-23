@@ -47,7 +47,7 @@ router.post('/adminOrders/cancelOrder', checkAuthentication.checkAuthenticated, 
               });
               var mailOptions = {
                 from: 'sender',
-                to: 'panweq@gmail.com', //shishahublc@gmail.com //sipmarch7@hotmail.com
+                to: req.user.email, //shishahublc@gmail.com //sipmarch7@hotmail.com
                 subject: 'CANCELED Shishahub Order '+req.user.firstname,
                 text: 'Δυστυχώς η παραγγελία σου με αριθμό 32'+req.body.order_id+'47 ακυρώθηκε.'+
                   '\nΖητούμενη συγνώμη αλλά δεν μπορούμε να σε εξυπηρετήσουμε αυτή τη χρονική στιγμή που έχεις διαλέξει.'+
@@ -63,7 +63,7 @@ router.post('/adminOrders/cancelOrder', checkAuthentication.checkAuthenticated, 
                   '\n Duration  : '+ req.body.duration+
                   '\n Flavors    : '+ req.body.flavors+
                   '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders)+
-                  '\n Other Address : '+ req.body.textArea+
+                  '\n Other Address : '+ req.body.otherAddress+
                   '\n\nACCOUNT DETAILS'+
                   '\n——————————————————————————————'+
                   '\n Name       : '+ req.user.firstname+" "+req.user.lastname+
@@ -103,21 +103,21 @@ router.post('/adminOrders/acceptOrder', checkAuthentication.checkAuthenticated, 
           });
           var mailOptions = {
             from: 'sender',
-            to: 'panweq@gmail.com', //shishahublc@gmail.com //sipmarch7@hotmail.com
+            to: req.user.email, //shishahublc@gmail.com //sipmarch7@hotmail.com
             subject: 'ACCEPTED Shishahub Order '+req.user.firstname,
             text: 'H παραγγελία σου με αριθμό 32'+req.body.order_id+'47 έγινε δεκτή.'+
               '\nΚατά την ώρα που επέλεξες ο ειδικός μας θα σε καλέσει, στο τηλέφωνο που έχεις δηλώσει,'+
               '\nώστε να σε ειδοποιήσει ότι έχει φτάσει ή ότι είναι πολύ κοντά στον χώρο σου.'+
               '\nΣε ευχαριστούμε για την προτίμησή σου στο Shishahub.'+
               '\n\nORDER DETAILS'+
-              '\n——————————————CANCELED————————————————'+
+              '\n——————————————————————————————'+
               '\n Order ID  : '+'32'+ req.body.order_id+'47'+" "+" No."+req.user.numberOfOrders+
               '\n Date       : '+ req.body.date+
               '\n Time       : '+ req.body.time+
               '\n Duration  : '+ req.body.duration+
               '\n Flavors    : '+ req.body.flavors+
               '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders)+
-              '\n Other Address : '+ req.body.textArea+
+              '\n Other Address : '+ req.body.otherAddress+
               '\n\nACCOUNT DETAILS'+
               '\n——————————————————————————————'+
               '\n Name       : '+ req.user.firstname+" "+req.user.lastname+

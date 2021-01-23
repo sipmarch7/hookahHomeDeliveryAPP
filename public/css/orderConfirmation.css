@@ -11,3 +11,13 @@
 .loginPage button, .loginPage a{
     width: 80%;
 }
+
+
+
+@media screen and (max-width: 800px) {
+
+    
+    .loginPage{
+        padding:25px !important;
+    }
+}
