@@ -111,6 +111,7 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           console.log('Email sent: ' + info.response);
         }
       });
+      
       var mailOptions1 = {
         from: 'sender',
         to: req.user.email, //shishahublc@gmail.com //sipmarch7@hotmail.com
@@ -122,21 +123,21 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n\nORDER DETAILS'+
           '\n——————————————————————————————'+
           '\n Order ID  : '+'32'+ result0.insertId+'47'+" "+" No."+numOfOrders+
-          '\n Date       : '+ req.body.date+
-          '\n Time       : '+ req.body.time+
+          '\n Date        : '+ req.body.date+
+          '\n Time        : '+ req.body.time+
           '\n Duration  : '+ req.body.duration+
           '\n Flavors    : '+ req.body.flavors+
-          '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city)+
-          '\n Other Address : '+ req.body.textArea+
+          '\n Price        : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city)+
+          '\n Other Address : \n'+ req.body.textArea+
           '\n\nACCOUNT DETAILS'+
           '\n——————————————————————————————'+
-          '\n Name       : '+ req.user.firstname+" "+req.user.lastname+
-          '\n Email        : '+ req.user.email+
+          '\n Name        : '+ req.user.firstname+" "+req.user.lastname+
+          '\n Email         : '+ req.user.email+
           '\n Telephone : '+ req.user.telephone+
           '\n Address    : '+ req.user.address+
-          '\n Floor        : '+ req.user.floor+
-          '\n City         : '+ req.user.city+
-          '\n Postal      : '+ req.user.postal
+          '\n Floor          : '+ req.user.floor+
+          '\n City            : '+ req.user.city+
+          '\n Postal        : '+ req.user.postal
       };
 
       smtpTrans.sendMail(mailOptions1, function(error, info){

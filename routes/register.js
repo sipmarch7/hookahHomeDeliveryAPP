@@ -3,6 +3,7 @@ const router = express.Router();
 const conn = require('../model/db.mysql');
 const bcrypt = require('bcrypt');
 const checkAuthentication = require('../passport/checkAuthentication');
+const nodemailer = require('nodemailer');
 
 router.get('/', checkAuthentication.checkNotAuthenticated, (req,res) => {
   res.render('register');
@@ -50,6 +51,70 @@ router.post('/', checkAuthentication.checkNotAuthenticated, (req,res) => {
       let query1 = conn.query(sql1, data, (err, results1) => {
         if(err) throw err;
         res.redirect("/register/confirm")  // ADD WELCOME PAGE HERE
+
+        // email EIMAIFEAKFKEFLAEF EMAILEMAIL EMAIL EMAIL EMAIL EMAIL EMAILEMAIL
+        var smtpTrans = nodemailer.createTransport({
+          service: 'gmail',
+          port: 465,
+          secure: true,
+          auth: {
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_PASS
+          }
+        });
+
+        var mailOptions = {
+          from: 'sender',
+          to: req.body.email, //shishahublc@gmail.com //sipmarch7@hotmail.com
+          subject: 'Ευχαριστούμε για την εγγραφή σου '+req.body.firstname+' στο Shishahub',
+          text:'Ευχαριστούμε για την εγγραφή σου '+req.body.firstname+' στο Shishahub.'+
+            '\n Μπορείς τώρα να συνδεθείς στο www.shishahub.online και να κάνεις την πρώτη σου παραγγελία.'+
+            '\n Παρακάτω είναι τα στοιχεία του λογαριασμού σου:'+
+            '\n\nACCOUNT DETAILS'+
+            '\n——————————————————————————————'+
+            '\n Name        : '+ req.body.firstname+" "+req.body.lastname+
+            '\n Email         : '+ req.body.email+
+            '\n Telephone : '+ req.body.telephone+
+            '\n Address    : '+ req.body.address+
+            '\n Floor         : '+ req.body.floor+
+            '\n City           : '+ req.body.city+
+            '\n Postal       : '+ req.body.postal
+        };
+  
+        smtpTrans.sendMail(mailOptions, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+
+        var mailOptions1 = {
+          from: 'sender',
+          to: 'shishahublc@gmail.com', //shishahublc@gmail.com //sipmarch7@hotmail.com
+          subject: 'NEW REGISTRATION on Shishahub.online',
+          text:'Ευχαριστούμε για την εγγραφή σου '+req.body.firstname+' στο Shishahub.'+
+            '\n Παρακάτω είναι τα στοιχεία του λογαριασμού που μόλις γράφτηκε:'+
+            '\n\nACCOUNT DETAILS'+
+            '\n——————————————————————————————'+
+            '\n Name        : '+ req.body.firstname+" "+req.body.lastname+
+            '\n Email         : '+ req.body.email+
+            '\n Telephone : '+ req.body.telephone+
+            '\n Address    : '+ req.body.address+
+            '\n Floor         : '+ req.body.floor+
+            '\n City           : '+ req.body.city+
+            '\n Postal       : '+ req.body.postal
+        };
+  
+        smtpTrans.sendMail(mailOptions1, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+        // email EIMAIFEAKFKEFLAEF EMAILEMAIL EMAIL EMAIL EMAIL EMAIL EMAILEMAIL
+
         return
       });
     });

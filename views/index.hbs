@@ -13,11 +13,12 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8">
     <meta name="author" content="Sipmarch7">
-    <meta name="description" content="Shisha hub delivery service shop">
-    <meta name="keywords" content="HMTL, CSS, JS, Project, shisha, delivery, service, node.js, e-shop">
+    <meta name="description" content="To Shishahub προσφέρει την εμπειρία του ναργιλέ (hookah) στην άνεση του χώρου σας. Στην αρχή τον ετοιμάζουμε, στο τέλος τον μαζεύουμε και εσείς απλά απολαμβάνετε. Κάνουμε delivery σε Λουτράκι, Κόρινθο..">
+    <meta name="keywords" content="hookah, shisha, ναργιλές, delivery, Korinthos, Loutraki ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shisha hub</title>
+    <title>Shishahub - Deluxe Hookah Deliver at your place by experts</title>
 
+    <link rel="canonical" href="https://shishahub.online/">
     <link rel="icon" type="image/png" href="/img/favicon2.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon2.png">
 
@@ -25,6 +26,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href="/css/header.css" rel="stylesheet" type="text/css">
@@ -41,63 +43,72 @@
         <div class="container py-2 px-0 w-100">
             
             <div class="row reverse-row w-100 m-auto">
-                <div class="col-lg-5 p-1 pt-3">
-                    <div class="inside-block home-image mb-4 p-2">
-                        <div id="home-image" class=" mb-4 text-center">
-                            <img src="/img/home/first-order-bonus.jpg" >
+
+                <div class="col-lg-5">
+                    <div class="inside-block">
+                        <div id="slideshow">
+                            <div class="text-center"><img src="/img/home/first-order-bonus.jpg" alt="bonus for first order" height="380px"></div>
+                            <div class="text-center"><img src="/img/home/fifth-order-bonus.jpg" alt="bonus for fifth order" height="380px"></div>
                         </div>
-                    </div>
-                    <div class="orderOne w-100 px-5 mx-auto py-2">
-                        <div><span>Παράγγειλε τώρα και απόλαυσε τον ναργιλέ στον χώρο σου!</span></div>
-                        <div class="w-100 text-right pr-4 mt-3" style="font-size: 1rem;"> <span>Αποστολές σε <span class="brown">Λουτράκι, Κόρινθο, Βραχάτι</span></span></div>
-                        <div class="w-100 text-right pr-4 mτ-1" style="font-size: 1rem;"> <span>και <span class="brown">όλες</span> τις ενδιάμεσες περιοχές</span></div>
-                        <div><a href="/product/productList" class="btn btn-warning w-100 my-5">
-                            <span>Παράγγειλε τώρα</span>
-                            <img src="/img/cart.png" alt="image for cart" width="25px">
-                        </a></div>
                     </div>
                 </div>
                 
-                <div class="col-lg-6 p-1">
-                    <div class="inside-block px-2 pb-2 pt-4">
+                <div class="col-lg-6">
+                    <div class="inside-block" style="height: 100%;">
                         <div class="text-center w-100 px-3 py-5 yoArea">
-                            <div class="w-100"> <span class="">Premium Hookah</span></div>
-                            <div class="w-100"> <span id="delivery">DELIVERY</span></div>
-                            <div class="w-100"> <span>SERVICE</span></div>
+                            <div class="w-100" style="height: fit-content;"> <h2 class="m-0">Deluxe Hookah</h2></div>
+                            <div class="w-100" style="height: fit-content;"> <h1 id="delivery" >DELIVERY</h1></div>
+                            <div class="w-100"> <h2>SERVICE</h2></div>
                             <div class="w-100 pr-5 text-right mt-3"> 
                                 <span>#nargilesstospiti</span>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="inside-block px-2  pb-2 pt-4">
-                        
-                        <div id="home-image" class="text-center">
-                            <img src="/img/home/fifth-order-bonus.jpg" >
+            </div>
+
+            <div class="row w-100 mx-auto my-4">
+
+                <div class="col-lg-5 mb-3">
+                    <div class="orderOne w-100 px-5 mx-auto py-4">
+                        <div><h5>Παράγγειλε τώρα και απόλαυσε τον ναργιλέ στον χώρο σου!</h5></div>
+                        <div class="w-100 text-right pr-4 mt-3" style="font-size: 1rem;"> <span>Αποστολές σε <span class="brown">Λουτράκι, Κόρινθο, Βραχάτι</span></span></div>
+                        <div class="w-100 text-right pr-4 mt-1 mb-3" style="font-size: 1rem;"> <span>και <span class="brown">όλες</span> τις ενδιάμεσες περιοχές</span></div>
+                        <div><a href="/product/productList" class="btn btn-warning w-100">
+                                <span>Παράγγειλε τώρα</span>
+                                <img src="/img/cart.png" alt="image for cart" width="25px">
+                            </a>
                         </div>
-                        
                     </div>
                 </div>
+
+                
+
+                <div class="col-lg-6">
+
+                    <div class="faqs p-4 mb-4">
+                        <div class="w-100"><h5>Παραγγέλνεις πρώτη φορά και έχεις απορίες;</h5></div>
+                        <div class="w-100"><span>Μην ανησυχείς! Οι άνθρωποί μας έχουν φροντίσει για εσένα!</span></div>
+                        <div class="w-100"><a href="/faqs">Συχνές Ερωτήσεις</a></div>
+                    </div>
+
+                    <div class="social p-1">
+                        <div class="yo w-100 row mx-auto py-2">
+                            <div class="col-1"></div>
+                            <div class="col-2 p-0"><img src="/img/logos/circle-logo.png" alt="logo" width="55px"></div>
+                            <div class="col-3 p-0 ml-3" style="line-height: 50px; font-size:0.7em;"> <span>Βρείτε μας</span></div>
+                            <div class="col-1 p-0" style="line-height: 50px; text-align:end;"> <a href="https://www.instagram.com/shishahub.lc/" target="_blank"><img src="/img/instagramIcon.png" alt="instagram" width="35px"></a></div>
+                            <div class="col-1 p-0 ml-4" style="line-height: 50px; text-align:start;"> <a href="https://www.facebook.com/Shishahub-Delivery-Loutraki-Korinthos-103845825049638" target="_blank"><img src="/img/facebookIcon.png" alt="facebook" width="35px"></a></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div>
 
-            <div class="row w-100 reverse-row mx-auto my-3 px-1">
-                <div class="col-lg-5  mx-auto w-100 my-3 p-1 social">
-                    <div class="yo w-100 mx-auto row py-2">
-                        <div class="col-1"></div>
-                        <div class="col-2"><img src="/img/logos/circle-logo.png" alt="logo" width="55px"></div>
-                        <div class="col-3" style="line-height: 50px; font-size:0.8em;"> <span>Βρείτε μας</span></div>
-                        <div class="col-2" style="line-height: 50px; text-align:end;"> <a href="https://www.instagram.com/shishahub.lc/" target="_blank"><img src="/img/instagramIcon.png" alt="instagram" width="35px"></a></div>
-                        <div class="col-1" style="line-height: 50px; text-align:start;"> <a href="https://www.facebook.com/Shishahub-Delivery-Loutraki-Korinthos-103845825049638" target="_blank"><img src="/img/facebookIcon.png" alt="facebook" width="35px"></a></div>
-                    </div>
-                </div>
-                <div class="col-lg-1"></div>
-                <div class="col-lg-5 p-2 pl-4 my-3 faqs">
-                    <div class="w-100"><h5>Παραγγέλνεις πρώτη φορά και έχεις απορίες;</h5></div>
-                    <div class="w-100"><span>Μην ανησυχείς! Οι άνθρωποί μας έχουν φροντίσει για εσένα!</span></div>
-                    <div class="w-100"><a href="/faqs">Συχνές Ερωτήσεις</a></div>
-                </div>
-                <div class="col-md-1"></div>
-            </div>
+            
 
             <div class="row w-100 smoking my-3 mx-auto">
                 <span class="mx-auto">ΤΟ ΚΑΠΝΙΣΜΑ ΒΛΑΠΤΕΙ ΣΟΒΑΡΑ ΤΗΝ ΥΓΕΙΑ</span>
@@ -108,6 +119,8 @@
 <!--                    footer                    -->
     {{> footer }}
 <!--                    scripts                    -->
+<script src="/js/index.js"></script>
+
 
 </body>
 

@@ -47,8 +47,8 @@ router.post('/adminOrders/cancelOrder', checkAuthentication.checkAuthenticated, 
               });
               var mailOptions = {
                 from: 'sender',
-                to: req.user.email, //shishahublc@gmail.com //sipmarch7@hotmail.com
-                subject: 'CANCELED Shishahub Order '+req.user.firstname,
+                to: req.body.email, //shishahublc@gmail.com //sipmarch7@hotmail.com
+                subject: 'CANCELED Shishahub Order '+req.body.firstname,
                 text: 'Δυστυχώς η παραγγελία σου με αριθμό 32'+req.body.order_id+'47 ακυρώθηκε.'+
                   '\nΖητούμενη συγνώμη αλλά δεν μπορούμε να σε εξυπηρετήσουμε αυτή τη χρονική στιγμή που έχεις διαλέξει.'+
                   '\nΕάν μπορούμε να σε εξυπηρετήσουμε κάποια άλλη ώρα για την ίδια ημέρα που έχεις διαλέξει,'+
@@ -57,22 +57,22 @@ router.post('/adminOrders/cancelOrder', checkAuthentication.checkAuthenticated, 
                   '\nΣε ευχαριστούμε για την προτίμησή σου στο Shishahub.'+
                   '\n\nORDER DETAILS'+
                   '\n——————————————CANCELED————————————————'+
-                  '\n Order ID  : '+'32'+ req.body.order_id+'47'+" "+" No."+req.user.numberOfOrders+
+                  '\n Order ID  : '+'32'+ req.body.order_id+'47'+" "+" No."+req.body.numberOfOrders+
                   '\n Date       : '+ req.body.date+
                   '\n Time       : '+ req.body.time+
                   '\n Duration  : '+ req.body.duration+
                   '\n Flavors    : '+ req.body.flavors+
-                  '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders)+
+                  '\n Price      : '+ price(req.body.duration, req.body.outOfLoutraki, req.body.numberOfOrders)+
                   '\n Other Address : '+ req.body.otherAddress+
                   '\n\nACCOUNT DETAILS'+
                   '\n——————————————————————————————'+
-                  '\n Name       : '+ req.user.firstname+" "+req.user.lastname+
-                  '\n Email      : '+ req.user.email+
-                  '\n Telephone : '+ req.user.telephone+
-                  '\n Address    : '+ req.user.address+
-                  '\n Floor        : '+ req.user.floor+
-                  '\n City         : '+ req.user.city+
-                  '\n Postal      : '+ req.user.postal
+                  '\n Name       : '+ req.body.firstname+" "+req.body.lastname+
+                  '\n Email      : '+ req.body.email+
+                  '\n Telephone : '+ req.body.telephone+
+                  '\n Address    : '+ req.body.address+
+                  '\n Floor        : '+ req.body.floor+
+                  '\n City         : '+ req.body.city+
+                  '\n Postal      : '+ req.body.postal
               };
         
               smtpTrans.sendMail(mailOptions, function(error, info){
@@ -103,30 +103,30 @@ router.post('/adminOrders/acceptOrder', checkAuthentication.checkAuthenticated, 
           });
           var mailOptions = {
             from: 'sender',
-            to: req.user.email, //shishahublc@gmail.com //sipmarch7@hotmail.com
-            subject: 'ACCEPTED Shishahub Order '+req.user.firstname,
+            to: req.body.email, //shishahublc@gmail.com //sipmarch7@hotmail.com
+            subject: 'ACCEPTED Shishahub Order '+req.body.firstname,
             text: 'H παραγγελία σου με αριθμό 32'+req.body.order_id+'47 έγινε δεκτή.'+
               '\nΚατά την ώρα που επέλεξες ο ειδικός μας θα σε καλέσει, στο τηλέφωνο που έχεις δηλώσει,'+
               '\nώστε να σε ειδοποιήσει ότι έχει φτάσει ή ότι είναι πολύ κοντά στον χώρο σου.'+
               '\nΣε ευχαριστούμε για την προτίμησή σου στο Shishahub.'+
               '\n\nORDER DETAILS'+
               '\n——————————————————————————————'+
-              '\n Order ID  : '+'32'+ req.body.order_id+'47'+" "+" No."+req.user.numberOfOrders+
+              '\n Order ID  : '+'32'+ req.body.order_id+'47'+" "+" No."+req.body.numberOfOrders+
               '\n Date       : '+ req.body.date+
               '\n Time       : '+ req.body.time+
               '\n Duration  : '+ req.body.duration+
               '\n Flavors    : '+ req.body.flavors+
-              '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders)+
+              '\n Price      : '+ price(req.body.duration, req.body.outOfLoutraki, req.body.numberOfOrders)+
               '\n Other Address : '+ req.body.otherAddress+
               '\n\nACCOUNT DETAILS'+
               '\n——————————————————————————————'+
-              '\n Name       : '+ req.user.firstname+" "+req.user.lastname+
-              '\n Email      : '+ req.user.email+
-              '\n Telephone : '+ req.user.telephone+
-              '\n Address    : '+ req.user.address+
-              '\n Floor        : '+ req.user.floor+
-              '\n City         : '+ req.user.city+
-              '\n Postal      : '+ req.user.postal
+              '\n Name       : '+ req.body.firstname+" "+req.body.lastname+
+              '\n Email      : '+ req.body.email+
+              '\n Telephone : '+ req.body.telephone+
+              '\n Address    : '+ req.body.address+
+              '\n Floor        : '+ req.body.floor+
+              '\n City         : '+ req.body.city+
+              '\n Postal      : '+ req.body.postal
           };
     
           smtpTrans.sendMail(mailOptions, function(error, info){

@@ -31,8 +31,16 @@ main .container{
     border-radius: 5px;
     max-height: 400px;
 }
+#slideshow{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px 0px;
+}
+#slideshow img{
+    border-radius: 5px;
+}
 .yoArea{
-    height: 300px;
+    height: 100%;
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
@@ -62,7 +70,7 @@ main .container{
 }
 .orderOne{
     max-width: 450px;
-    height: 280px;
+    min-height: 230px;
     color: rgb(225, 225, 225);
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
@@ -75,6 +83,8 @@ main .container{
     color: rgb(255, 255, 255);
     border-radius: 5px;
     height: 79px;
+    max-width: 400px;
+    
 }
 .faqs{
     background-color: rgba(0, 0, 0, 0.5);
@@ -96,7 +106,7 @@ main .container{
 
 
 @media screen and (max-width: 800px) {
-    #home-image img{
+    #slideshow img{
         max-height: 300px;
     }
     .home-image{
