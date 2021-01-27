@@ -157,8 +157,9 @@ router.post('/adminOrders/deliveredOrder', checkAuthentication.checkAuthenticate
 
 
 
-
 module.exports = router;
+
+
 
 function dateForEurope(date){
     var dd = date.slice(8)
@@ -167,27 +168,34 @@ function dateForEurope(date){
     return dd+"-"+mm+"-"+yy 
   }
 
-function price(duration, outOfLoutraki, numberOfOrders){
+  function price(duration, outOfLoutraki, numberOfOrders){
     if (duration==='4'){
       if (outOfLoutraki && numberOfOrders){
-        return "30"
+        return "25"
       }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
         return "25"
       }
       return "20"
     }else if (duration==='6'){
       if (outOfLoutraki && numberOfOrders){
-        return "40"
+        return "35"
       }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
         return "35"
       }
       return "30"
-    }else{
+    }else if (duration==='5'){
       if (outOfLoutraki && numberOfOrders){
-        return "55"
+        return "50"
       }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
         return "50"
       }
       return "45"
+    }else{
+      if (outOfLoutraki && numberOfOrders){
+        return "45"
+      }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
+        return "45"
+      }
+      return "40"
     }
   }

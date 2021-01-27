@@ -161,6 +161,7 @@ router.get('/orderFailure', (req, res) => {
 });
 
 
+
 module.exports = router;
 
 
@@ -183,13 +184,20 @@ function price(duration, outOfLoutraki, numberOfOrders){
       return "35"
     }
     return "30"
-  }else{
+  }else if (duration==='5'){
     if (outOfLoutraki && numberOfOrders){
       return "50"
     }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
       return "50"
     }
     return "45"
+  }else{
+    if (outOfLoutraki && numberOfOrders){
+      return "45"
+    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
+      return "45"
+    }
+    return "40"
   }
 }
 
