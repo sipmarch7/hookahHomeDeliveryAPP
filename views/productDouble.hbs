@@ -27,21 +27,22 @@
             <div class="outside-block col-lg-4">
                 <div class="inside-block">
                     <div id="slideshow">
-                        <div class="text-center"><img src="/img/products/o2hookah.jpg" height="400px"></div>
-                        <div><img src="/img/products/o2hookahCaps.png" height="400px"></div>
+                        <div class="text-center"><img src="/img/products/hookah_double.jpg" height="400px"></div>
+                        <div class="text-center"><img src="/img/products/hookah_double_lit.jpg" height="400px"></div>
                     </div>
                 </div>
             </div>
             <div class="outside-block col-lg-5">
                 <div class="inside-block description">
-                    <div class="w-100 row text-center py-2 px-0"><h3><span id="title-hookah">Electronic Luxurious Hookah Session</span></h3></div>
+                    <div class="w-100 row text-center py-2 px-0"><h3><span id="title-hookah">Double Premium Hookah Session</span></h3></div>
                     <div class="w-100 p-2"><h5>Το πακέτο περιλαμβάνει:</h5></div>
                     <hr>
                     <div class="description-tiles mb-4">
-                        <div><span>- 1 ηλεκτρονικό Ναργιλέ</span></div>
-                        <div><span>- Γεύσεις της επιλογής σας (capsule pods)</span></div>
-                        <div><span>- Λειτουργεί με μπαταρία (χωρίς καρβουνάκια)</span></div>
+                        <div><span>- 1 μεγάλο διπλό Ναργιλέ 80cm</span></div>
                         <div><span>- 2 σωλήνες για 2 χρήστες ταυτόχρονα</span></div>
+                        <div><span>- Γεύσεις της επιλογής σας </span></div>
+                        <div><span>- Επαρκή ποσότητα από κάρβουνα καρύδας</span></div>
+                        <div><span>- Ηλεκτρική θερμάστρα για τo άναμά τους</span></div>
                         <div><span>- Μεταφορά και στήσιμο στο χώρο σας απο ειδικό μας</span></div>
                     </div>
                 </div>
@@ -56,6 +57,8 @@
         <div class="row w-100 text-center" id="warning"><span>{{warning}}</span></div>
         
         <form action="/product/orderPreview" method="GET">
+
+            <input type="hidden" name="double_hookah" value="1">
         
         <div class="row w-100 my-2">
             <div class="outside-block w-100 col-12">
@@ -64,10 +67,21 @@
                     <hr>
                     <div class="row w-100 yo px-4">
                         <div class="col-md-4 my-2 p-0 text-center">
-                            <input type="radio" id="five-hours" class="durationSelection" name="duration" value="5" checked>
-                            <label for="five-hours">&nbsp;<span class="price-time">50 EUR</span> - 5 ώρες (1-3 γεύσεις)</label>
+                            <input type="radio" id="four-hours" class="durationSelection" name="quantity" value="2" required >
+                            <label for="4">&nbsp;<span class="price-time">35 EUR</span>* - 2 γεύσεις (1 μέρα)**</label>
+                        </div>
+                        <div class="col-md-4 my-2 p-0 text-center">
+                            <input type="radio" id="six-hours" class="durationSelection" name="quantity" value="3">
+                            <label for="six-hours">&nbsp;<span class="price-time">40 EUR</span> - 3 γεύσεις (1 μέρα)**</label>
+                        </div>
+                        <div class="col-md-4 my-2 p-0 text-center">
+                            <input type="radio" id="two-days" class="durationSelection" name="quantity" value="4">
+                            <label for="two-days">&nbsp;<span class="price-time">50 EUR</span> - 4 γεύσεις (2 μέρες)***</label>
                         </div>
                     </div>
+                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">*Διαθέσιμο πακέτο μόνο για παραγγελίες στο Λουτράκι και την Κόρινθο.</span></div>
+                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">**1 ημέρα: εννοούμε ότι θα περάσουμε να μαζέψουμε τον ναργιλέ μετά τις 3μμ της επόμενης μέρας που παραλάβατε.</span></div>
+                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">**2 ημέρες: εννοούμε ότι θα περάσουμε να μαζέψουμε τον ναργιλέ μετά τις 3μμ της μεθεπόμενης μέρας που παραλάβατε.</span></div>
                 </div>
             </div>
         </div>
@@ -81,30 +95,33 @@
                         <div class="col-md-6 my-2 p-0 text-center">
                             <label for="flavor1">Γεύση 1η: &nbsp;</label>
                             <select id="flavor1" name="flavor1">
-                                <option value="Mojito">Mojito <span>- C2 Pod</span></option>
-                                <option value="Double Apple">Double Apple <span>- C2 Pod</span></option>
-                                <option value="Sweet Mnt">Sweet Mnt <span>- C2 Pod</span></option>
-                                <option value="Red Fruit">Red Fruit Cocktail <span>- C2 Pod</span></option>
+                                {{#each flavors}}
+                                    <option value={{flavor_value}}>{{flavor_name}}<span> - {{flavor_description}}</span></option>
+                                {{/each}}
                             </select>
                         </div>
                         <div class="col-md-6 my-2 p-0 text-center">
                             <label for="flavor2">Γεύση 2η: &nbsp;</label>
                             <select id="flavor2" name="flavor2">
-                                <option value="same">ίδια με την πρώτη</option>
-                                <option value="Double Apple">Double Apple <span>- C2 Pod</span></option>
-                                <option value="Sweet Mnt">Sweet Mnt <span>- C2 Pod</span></option>
-                                <option value="Mojito">Mojito <span>- C2 Pod</span></option>
-                                <option value="Red Fruit">Red Fruit Cocktail <span>- C2 Pod</span></option>
+                                {{#each flavors}}
+                                    <option value={{flavor_value}}>{{flavor_name}}<span> - {{flavor_description}}</span></option>
+                                {{/each}}
                             </select>
                         </div>
-                        <div class="col-md-6 my-2 p-0 text-center" id="flavor5div">
+                        <div class="col-md-6 my-2 p-0 text-center" id="flavor3div">
                             <label for="flavor3">Γεύση 3η: &nbsp;</label>
                             <select id="flavor3" name="flavor3">
-                                <option value="same">ίδια με την πρώτη</option>
-                                <option value="Double Apple">Double Apple <span>- C2 Pod</span></option>
-                                <option value="Sweet Mnt">Sweet Mnt <span>- C2 Pod</span></option>
-                                <option value="Mojito">Mojito <span>- C2 Pod</span></option>
-                                <option value="Red Fruit">Red Fruit Cocktail <span>- C2 Pod</span></option>
+                                {{#each flavors}}
+                                    <option value={{flavor_value}}>{{flavor_name}}<span> - {{flavor_description}}</span></option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-md-6 my-2 p-0 text-center" id="flavor4div">
+                            <label for="flavor4">Γεύση 4η: &nbsp;</label>
+                            <select id="flavor4" name="flavor4">
+                                {{#each flavors}}
+                                    <option value={{flavor_value}}>{{flavor_name}}<span> - {{flavor_description}}</span></option>
+                                {{/each}}
                             </select>
                         </div>
                     </div>

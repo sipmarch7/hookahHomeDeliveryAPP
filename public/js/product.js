@@ -19,7 +19,7 @@ durationSelection.forEach(item=>{
     var priceCheck = event.target;
     var duration = event.target.value;
     console.log(typeof(duration))
-    if (duration === "4"){
+    if (duration == "1" || duration == "2"){
       flavor3.style.display = "none"
       flavor4.style.display = "none"
       flavor3.children[1].value = ""
@@ -27,15 +27,12 @@ durationSelection.forEach(item=>{
       price.innerHTML=priceCheck.parentNode.children[1].innerText.slice(0,7)
       return
     }
-    if (duration === "6"){
+    if (duration == "3" || duration == "3"){
       flavor3.style.display = "block"
       flavor4.style.display = "none"
       flavor4.children[1].value = ""
       price.innerHTML=priceCheck.parentNode.children[1].innerText.slice(0,7)
       return
-    }
-    if (duration === "5"){
-      price.innerHTML=priceCheck.parentNode.children[1].innerText.slice(0,7)
     }
     flavor3.style.display = "block"
     flavor4.style.display = "block"

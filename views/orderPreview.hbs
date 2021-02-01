@@ -19,6 +19,9 @@
 
     <main>
         <form action="/product/orderPreview" method="POST">
+
+            <input type="hidden" name="double_hookah" value="{{fields.double_hookah}}">
+
         <div class="container w-100">
             <div class="w-100 text-center my-3"><h3>Προεπισκόπηση Παραγγελίας</h3></div>
             <div class="w-100 my-2 inside-block mx-0">
@@ -37,8 +40,8 @@
                                         <div class="col-sm-3 flavor p-0">{{fields.flavor4}}</div>
                                     </div> 
                                 </div>
-                                <div class="col-4"><span> <span style="font-style: italic;">Διάρκεια</span> </div>
-                                <div class="col-8 p-0">: &nbsp;{{fields.duration}} ώρες</span></div>
+                                <div class="col-4"><span> <span style="font-style: italic;">Ποσότητα</span> </div>
+                                <div class="col-8 p-0">: &nbsp;{{fields.quantity}} γεύσεις</span></div>
                                 <div class="col-4"><span> <span style="font-style: italic;">Ημερομηνία</span> </div>
                                 <div class="col-8 p-0">: &nbsp;{{fields.date}}</span></div>
                                 <div class="col-4"><span> <span style="font-style: italic;">Ώρα</span> </div>
@@ -90,7 +93,7 @@
         <div>
         
             <input type="hidden" name="date" value="{{fields.date}}">
-            <input type="hidden" name="time" value="{{fields.time}}"><input type="hidden" name="duration" value="{{fields.duration}}">
+            <input type="hidden" name="time" value="{{fields.time}}"><input type="hidden" name="quantity" value="{{fields.quantity}}">
             <input type="hidden" name="flavors" value="{{fields.flavor1}}, {{fields.flavor2}}, {{fields.flavor3}}, {{fields.flavor4}}">
             
             <div class="w-100 text-center"><button type="submit" class="btn btn-primary" id="submit-button">Ολοκλήρωση Παραγγελίας</button></div>

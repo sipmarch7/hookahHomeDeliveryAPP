@@ -5,41 +5,65 @@ const checkAuthentication = require('../passport/checkAuthentication');
 const nodemailer = require('nodemailer');
 
 router.get('/', (req, res) => {
-  res.render('product', { user: req.user});
+
+  let sql0 = "SELECT * FROM tbl_flavors WHERE flavor_online=1;"
+  let query0 = conn.query(sql0, (err, results0) => {
+      if(err) throw err;
+      res.render('product', { user: req.user, flavors: results0});
+  })
+
 });
 
 router.get('/productList', (req, res) => {
   res.render('productList', { user: req.user});
 });
 
-router.get('/productO2', (req, res) => {
-  res.render('productO2', { user: req.user});
+router.get('/productDouble', (req, res) => {
+  
+  let sql0 = "SELECT * FROM tbl_flavors WHERE flavor_online=1;"
+  let query0 = conn.query(sql0, (err, results0) => {
+      if(err) throw err;
+      res.render('productDouble', { user: req.user, flavors: results0});
+  })
+
 });
 
 router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) => {
-  let warning = "Συμπλήρωσε όλα τα απαραίτητα πεδία"
-  if (req.query.time===""){
-    res.render('product', { user: req.user, warning: warning});
-    return
-  }
-  if (req.query.date===""){
-    res.render('product', { user: req.user, warning: warning});
-    return
-  }
-  if (req.query.duration==='6' && req.query.flavor3===''){
-    res.render('product', { user: req.user, warning: warning});
-    return
-  }
-  if (req.query.duration==='36' && req.query.flavor3==='' && req.query.flavor4===''){
-    res.render('product', { user: req.user, warning: warning});
-    return
-  }
-  req.query.date = dateForEurope(req.query.date)
-  if (req.user.city=="Κόρινθος"){
-    res.render('orderPreview', { user: req.user, fields: req.query, korinthos: 1, price: price(req.query.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city)}); 
-  }else{
-    res.render('orderPreview', { user: req.user, fields: req.query, korinthos: 0, price: price(req.query.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city)}); 
-  }
+
+  let sql0 = "SELECT * FROM tbl_flavors WHERE flavor_online=1;"
+  let query0 = conn.query(sql0, (err, results0) => {
+      if(err) throw err;
+      let warning = "Συμπλήρωσε όλα τα απαραίτητα πεδία"
+      if (req.query.time===""){
+        res.render('product', { user: req.user, warning: warning, flavors: results0});
+        return
+      }
+      if (req.query.date===""){
+        res.render('product', { user: req.user, warning: warning, flavors: results0});
+        return
+      }
+      if (req.query.quantity==='6' && req.query.flavor3===''){
+        res.render('product', { user: req.user, warning: warning, flavors: results0});
+        return
+      }
+      if (req.query.quantity==='36' && req.query.flavor3==='' && req.query.flavor4===''){
+        res.render('product', { user: req.user, warning: warning, flavors: results0});
+        return
+      }
+
+      if (!(req.user.city=="Λουτράκι" || req.user.city=="Κόρινθος") && (req.query.quantity==2)){
+        res.redirect('orderFailure');
+        return
+      }
+
+      req.query.date = dateForEurope(req.query.date);
+
+      if (req.user.city=="Κόρινθος"){
+        res.render('orderPreview', { user: req.user, fields: req.query, korinthos: 1, price: findPrice(req.query.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.query.double_hookah)}); 
+      }else{
+        res.render('orderPreview', { user: req.user, fields: req.query, korinthos: 0, price: findPrice(req.query.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.query.double_hookah)}); 
+      }
+  })
 });
 
 
@@ -47,14 +71,9 @@ router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) =
 
 router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res) => {
 
-  if (!(req.user.city=="Λουτράκι" || req.user.city=="Κόρινθος") && (req.body.duration==4)){
-    res.redirect('orderFailure');
-    return
-  }
-
   let data = {  user_id : req.user.user_id, date : dateForSQL(req.body.date), 
-    time : req.body.time, duration : req.body.duration, 
-    flavors : req.body.flavors, price : price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city), 
+    time : req.body.time, quantity : req.body.quantity, 
+    flavors : req.body.flavors, price : findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah), 
     status : "pending", otherAddress: req.body.textArea
   }
   let sql = "INSERT INTO tbl_orders SET ?";
@@ -88,9 +107,9 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n Order ID  : '+'32'+ result0.insertId+'47'+" "+" No."+numOfOrders+
           '\n Date       : '+ req.body.date+
           '\n Time       : '+ req.body.time+
-          '\n Duration  : '+ req.body.duration+
+          '\n Quantity  : '+ req.body.quantity+
           '\n Flavors    : '+ req.body.flavors+
-          '\n Price      : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city)+
+          '\n Price      : '+ findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah)+
           '\n Other Address : '+ req.body.textArea+
           '\n\nACCOUNT DETAILS'+
           '\n——————————————————————————————'+
@@ -125,9 +144,9 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n Order ID  : '+'32'+ result0.insertId+'47'+" "+" No."+numOfOrders+
           '\n Date        : '+ req.body.date+
           '\n Time        : '+ req.body.time+
-          '\n Duration  : '+ req.body.duration+
+          '\n Quantity  : '+ req.body.quantity+
           '\n Flavors    : '+ req.body.flavors+
-          '\n Price        : '+ price(req.body.duration, req.user.outOfLoutraki, req.user.numberOfOrders, req.user.city)+
+          '\n Price        : '+ findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah)+
           '\n Other Address : \n'+ req.body.textArea+
           '\n\nACCOUNT DETAILS'+
           '\n——————————————————————————————'+
@@ -165,41 +184,54 @@ router.get('/orderFailure', (req, res) => {
 module.exports = router;
 
 
-
 //////////////functions //////////////////////////////////////////////
 
-
-function price(duration, outOfLoutraki, numberOfOrders){
-  if (duration==='4'){
+function findPrice(quantity, outOfLoutraki, numberOfOrders, double){
+  if (quantity=='2' && double==0){
     if (outOfLoutraki && numberOfOrders){
       return "25"
     }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
       return "25"
     }
     return "20"
-  }else if (duration==='6'){
+  }else if (quantity=='3' && double==0){
+    if (outOfLoutraki && numberOfOrders){
+      return "30"
+    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
+      return "30"
+    }
+    return "25"
+  }else if (quantity=='4' && double==0){
+    if (outOfLoutraki && numberOfOrders){
+      return "40"
+    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
+      return "40"
+    }
+    return "35"
+  }else if (quantity=='2' && double==1){
     if (outOfLoutraki && numberOfOrders){
       return "35"
     }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
       return "35"
     }
     return "30"
-  }else if (duration==='5'){
+  }else if (quantity=='3' && double==1){
+    if (outOfLoutraki && numberOfOrders){
+      return "40"
+    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
+      return "40"
+    }
+    return "35"
+  }else{
     if (outOfLoutraki && numberOfOrders){
       return "50"
     }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
       return "50"
     }
     return "45"
-  }else{
-    if (outOfLoutraki && numberOfOrders){
-      return "45"
-    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
-      return "45"
-    }
-    return "40"
   }
 }
+
 
 function dateForSQL(date){
   var dd = date.slice(0,2)

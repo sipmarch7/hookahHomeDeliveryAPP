@@ -60,9 +60,9 @@ router.post('/adminOrders/cancelOrder', checkAuthentication.checkAuthenticated, 
                   '\n Order ID  : '+'32'+ req.body.order_id+'47'+" "+" No."+req.body.numberOfOrders+
                   '\n Date       : '+ req.body.date+
                   '\n Time       : '+ req.body.time+
-                  '\n Duration  : '+ req.body.duration+
+                  '\n quantity  : '+ req.body.quantity+
                   '\n Flavors    : '+ req.body.flavors+
-                  '\n Price      : '+ price(req.body.duration, req.body.outOfLoutraki, req.body.numberOfOrders)+
+                  '\n Price      : '+ findPrice(req.body.quantity, req.body.outOfLoutraki, req.body.numberOfOrders, req.body.double_hookah)+
                   '\n Other Address : '+ req.body.otherAddress+
                   '\n\nACCOUNT DETAILS'+
                   '\n——————————————————————————————'+
@@ -114,9 +114,9 @@ router.post('/adminOrders/acceptOrder', checkAuthentication.checkAuthenticated, 
               '\n Order ID  : '+'32'+ req.body.order_id+'47'+" "+" No."+req.body.numberOfOrders+
               '\n Date       : '+ req.body.date+
               '\n Time       : '+ req.body.time+
-              '\n Duration  : '+ req.body.duration+
+              '\n quantity  : '+ req.body.quantity+
               '\n Flavors    : '+ req.body.flavors+
-              '\n Price      : '+ price(req.body.duration, req.body.outOfLoutraki, req.body.numberOfOrders)+
+              '\n Price      : '+ findPrice(req.body.quantity, req.body.outOfLoutraki, req.body.numberOfOrders, req.body.double_hookah)+
               '\n Other Address : '+ req.body.otherAddress+
               '\n\nACCOUNT DETAILS'+
               '\n——————————————————————————————'+
@@ -168,34 +168,48 @@ function dateForEurope(date){
     return dd+"-"+mm+"-"+yy 
   }
 
-  function price(duration, outOfLoutraki, numberOfOrders){
-    if (duration==='4'){
-      if (outOfLoutraki && numberOfOrders){
-        return "25"
-      }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
-        return "25"
-      }
-      return "20"
-    }else if (duration==='6'){
-      if (outOfLoutraki && numberOfOrders){
-        return "35"
-      }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
-        return "35"
-      }
+function findPrice(quantity, outOfLoutraki, numberOfOrders, double){
+  if (quantity=='2' && double==0){
+    if (outOfLoutraki && numberOfOrders){
+      return "25"
+    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
+      return "25"
+    }
+    return "20"
+  }else if (quantity=='3' && double==0){
+    if (outOfLoutraki && numberOfOrders){
       return "30"
-    }else if (duration==='5'){
-      if (outOfLoutraki && numberOfOrders){
-        return "50"
-      }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
-        return "50"
-      }
-      return "45"
-    }else{
-      if (outOfLoutraki && numberOfOrders){
-        return "45"
-      }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
-        return "45"
-      }
+    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
+      return "30"
+    }
+    return "25"
+  }else if (quantity=='4' && double==0){
+    if (outOfLoutraki && numberOfOrders){
+      return "40"
+    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
       return "40"
     }
+    return "35"
+  }else if (quantity=='2' && double==1){
+    if (outOfLoutraki && numberOfOrders){
+      return "35"
+    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
+      return "35"
+    }
+    return "30"
+  }else if (quantity=='3' && double==1){
+    if (outOfLoutraki && numberOfOrders){
+      return "40"
+    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
+      return "40"
+    }
+    return "35"
+  }else{
+    if (outOfLoutraki && numberOfOrders){
+      return "50"
+    }else if ((outOfLoutraki && !numberOfOrders) || (!outOfLoutraki && numberOfOrders)){
+      return "50"
+    }
+    return "45"
   }
+}
