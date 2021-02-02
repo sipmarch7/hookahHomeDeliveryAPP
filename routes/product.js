@@ -74,8 +74,10 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
   let data = {  user_id : req.user.user_id, date : dateForSQL(req.body.date), 
     time : req.body.time, quantity : req.body.quantity, 
     flavors : req.body.flavors, price : findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah), 
-    status : "pending", otherAddress: req.body.textArea
+    status : "pending", otherAddress: req.body.textArea, double_hookah: req.body.double_hookah
   }
+  if (req.body.double_hookah=="1"){var dualHose="Yes";}else{var dualHose="No";}
+  
   let sql = "INSERT INTO tbl_orders SET ?";
   let query = conn.query(sql, data,(err, result0) => {
     if(err) throw err;
@@ -107,7 +109,8 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n Order ID  : '+'32'+ result0.insertId+'47'+" "+" No."+numOfOrders+
           '\n Date       : '+ req.body.date+
           '\n Time       : '+ req.body.time+
-          '\n Quantity  : '+ req.body.quantity+
+          '\n Double    : '+dualHose+
+          '\n Quantity  : '+ req.body.quantity+' γεύσεις'+
           '\n Flavors    : '+ req.body.flavors+
           '\n Price      : '+ findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah)+
           '\n Other Address : '+ req.body.textArea+
@@ -144,7 +147,8 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n Order ID  : '+'32'+ result0.insertId+'47'+" "+" No."+numOfOrders+
           '\n Date        : '+ req.body.date+
           '\n Time        : '+ req.body.time+
-          '\n Quantity  : '+ req.body.quantity+
+          '\n Διπλός     : '+dualHose+
+          '\n Quantity  : '+ req.body.quantity+' γεύσεις'+
           '\n Flavors    : '+ req.body.flavors+
           '\n Price        : '+ findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah)+
           '\n Other Address : \n'+ req.body.textArea+

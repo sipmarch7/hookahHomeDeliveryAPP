@@ -30,7 +30,8 @@
                         <div class="w-100 px-5"><h5>Επιλογές</h5></div>
                         <hr>
                         <div class="description-tiles mb-4 px-3 row mx-0">
-                                <div class="col-12"><span> 1 <span class="deluxe">Deluxe</span> Ναργιλές</span></div>
+                                <div class="col-4"><span style="font-style: italic;">Διπλός Ναργιλές</span> </div>
+                                <div class="col-8 p-0">: &nbsp;<span id="dualHose">{{fields.double_hookah}}</span></div>
                                 <div class="col-4"><span> <span style="font-style: italic;">Γεύσεις </span> </div>
                                 <div class="col-8 p-0 row"><div class="col-1 mr-2">:</div>
                                     <div class="row w-100 col-10 p-0">
@@ -40,8 +41,8 @@
                                         <div class="col-sm-3 flavor p-0">{{fields.flavor4}}</div>
                                     </div> 
                                 </div>
-                                <div class="col-4"><span> <span style="font-style: italic;">Ποσότητα</span> </div>
-                                <div class="col-8 p-0">: &nbsp;{{fields.quantity}} γεύσεις</span></div>
+                                <div class="col-4"><span> <span style="font-style: italic;">Διάρκεια</span> </div>
+                                <div class="col-8 p-0">: &nbsp;<span id="quantity">{{fields.quantity}}</span> ημέρα/ες</div>
                                 <div class="col-4"><span> <span style="font-style: italic;">Ημερομηνία</span> </div>
                                 <div class="col-8 p-0">: &nbsp;{{fields.date}}</span></div>
                                 <div class="col-4"><span> <span style="font-style: italic;">Ώρα</span> </div>
@@ -76,7 +77,7 @@
                     <div class="row p-1 price-div m-auto">
                         {{#unless user.numberOfOrders}}
                             <div class="col-12">- 5eur <em>- Έκπτωση πρώτης παραγγελίας</em></div>
-                            {{#if user.outOfLoutraki}}<div class="col-12">+ 5eur <em>- Χρέωση διανομής εκτός Λουτρακίου</em></div>{{/if}}
+                            {{#if user.outOfLoutraki}}<div class="col-12">+ 5eur <em>- Έκπτωση εκτός Λουτρακίου ΔΕΝ ισχύει</em></div>{{/if}}
                         {{/unless}}
                         <hr>
                         <div class="col-12 text-center"><em>Τελική τιμή πακέτου:</em> {{price}}eur</div>

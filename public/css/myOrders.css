@@ -9,14 +9,14 @@
 }
 
 .pink{
-    background-color: rgb(237, 196, 91) !important;
+    background-color: rgba(73, 73, 73, 0.72) !important;
     border-radius: 5px;
     border: solid rgb(116, 116, 116) 1px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
     margin: 10px 45px;
 }
 .grey{
-    color: rgb(116, 116, 116);
+    color: rgb(160, 160, 160);
     font-style: italic;
     font-size: 0.9em;
 }
@@ -26,7 +26,7 @@
     font-size: 1em;
 }
 .price{
-    color: black;
+    color: gold;
     font-style: normal;
     font-size: 1em;
 }

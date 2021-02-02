@@ -3,9 +3,16 @@
     text-decoration: none;
     color: rgb(0, 73, 128);
 }
+.card{
+    background-color: rgba(187, 187, 187, 0.92);
+}
+.card-header{
+    background-color: rgba(221, 221, 221, 0.92);
+}
 .card-body{
     color: black;
     font-size: 80%;
+    border-radius: 5px;
 }
 hr{
     width: 90%;
@@ -16,7 +23,7 @@ hr{
 }
 
 #earnings{
-    background-color: white;
+    background-color: rgb(255, 192, 192);
     color: black;
     border-radius: 5px;
 }

@@ -48,17 +48,19 @@
                                 <hr>
                                 <div class="description-tiles px-3 row mx-0">
     
-                                    <div class="col-4"><span> <span style="font-style: italic;">Γεύσεις </span> </div>
-                                    <div class="col-7 p-0">: &nbsp; {{flavors}}</div>
+                                    <div class="col-4"><span style="font-style: italic;">Γεύσεις </span> </div>
+                                    <div class="col-7 p-0">: &nbsp; <span>{{flavors}}</div>
                                         
-                                    <div class="col-4"><span> <span style="font-style: italic;">Διάρκεια</span> </div>
-                                    <div class="col-8 p-0">: &nbsp;{{duration}} ώρες</span></div>
-                                    <div class="col-4"><span> <span style="font-style: italic;">Ημερομηνία</span> </div>
-                                    <div class="col-8 p-0">: &nbsp;{{date}}</span></div>
-                                    <div class="col-4"><span> <span style="font-style: italic;">Ώρα</span> </div>
-                                    <div class="col-8 p-0">: &nbsp;{{time}}</span></div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4 mt-2"><div class="p-1"><span style="font-style: italic;">Τιμή Πακέτου : </span> <span style="font-weight:bolder;">{{price}} eur</span></div></div>
+                                    <div class="col-4"><span style="font-style: italic;">Ποσότητα</span> </div>
+                                    <div class="col-8 p-0">: &nbsp;<span>{{quantity}} γεύσεις</span></div>
+                                    <div class="col-4"><span style="font-style: italic;">Ημερομηνία</span> </div>
+                                    <div class="col-8 p-0">: &nbsp;<span>{{date}}</span></div>
+                                    <div class="col-4"><span style="font-style: italic;">Ώρα</span> </div>
+                                    <div class="col-8 p-0">: &nbsp;<span>{{time}}</span></div>
+                                    <div class="col-4"><span style="font-style: italic;">Double Hose</span> </div>
+                                    <div class="col-8 p-0">: &nbsp;<span class="dualHose">{{double_hookah}}</span></div>
+                                    <div class="col-md-6"></div>
+                                    <div class="col-md-4 mt-1"><div class="p-1"><span style="font-style: italic;">Τιμή Πακέτου : </span> <span style="font-weight:bolder;">{{price}} eur</span></div></div>
                                 </div>
                             </div>
                             <div class="col-md-5 pt-1 mobile-outline">
@@ -99,7 +101,7 @@
                                                 <input type="hidden" name="user_id" value="{{user_id}}">
                                                 <input type="hidden" name="date" value="{{date}}">
                                                 <input type="hidden" name="time" value="{{time}}">
-                                                <input type="hidden" name="duration" value="{{duration}}">
+                                                <input type="hidden" name="quantity" value="{{quantity}}">
                                                 <input type="hidden" name="otherAddress" value="{{otherAddress}}">
                                                 <input type="hidden" name="flavors" value="{{flavors}}">
                                                 <input type="hidden" name="email" value="{{email}}">
@@ -129,7 +131,7 @@
                                                 <input type="hidden" name="order_id" value="{{order_id}}">
                                                 <input type="hidden" name="date" value="{{date}}">
                                                 <input type="hidden" name="time" value="{{time}}">
-                                                <input type="hidden" name="duration" value="{{duration}}">
+                                                <input type="hidden" name="quantity" value="{{quantity}}">
                                                 <input type="hidden" name="otherAddress" value="{{otherAddress}}">
                                                 <input type="hidden" name="flavors" value="{{flavors}}">
                                                 <input type="hidden" name="email" value="{{email}}">

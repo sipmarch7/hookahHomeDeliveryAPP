@@ -18,7 +18,6 @@ durationSelection.forEach(item=>{
   item.addEventListener('change',event=>{
     var priceCheck = event.target;
     var duration = event.target.value;
-    console.log(typeof(duration))
     if (duration == "1" || duration == "2"){
       flavor3.style.display = "none"
       flavor4.style.display = "none"

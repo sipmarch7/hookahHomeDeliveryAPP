@@ -8,7 +8,7 @@ router.get('/adminOrders', checkAuthentication.checkAuthenticated, (req, res) =>
     let sql0 = "SELECT * FROM tbl_orders INNER JOIN tbl_users ON tbl_orders.user_id=tbl_users.user_id ORDER BY date DESC, order_id DESC;"
     let query0 = conn.query(sql0, (err, results0) => {
         if(err) throw err;
-
+        if (req.body.double_hookah=="1"){var dualHose="Yes";}else{var dualHose="No";}
         let sql1 = "SELECT price FROM `tbl_orders` WHERE status='completed'"
         let query1 = conn.query(sql1, (err, results1) => {
             if(err) throw err;
@@ -60,7 +60,8 @@ router.post('/adminOrders/cancelOrder', checkAuthentication.checkAuthenticated, 
                   '\n Order ID  : '+'32'+ req.body.order_id+'47'+" "+" No."+req.body.numberOfOrders+
                   '\n Date       : '+ req.body.date+
                   '\n Time       : '+ req.body.time+
-                  '\n quantity  : '+ req.body.quantity+
+                  '\n Double Hose  : '+dualHose+
+                  '\n Quantity  : '+ req.body.quantity+' γεύσεις'+
                   '\n Flavors    : '+ req.body.flavors+
                   '\n Price      : '+ findPrice(req.body.quantity, req.body.outOfLoutraki, req.body.numberOfOrders, req.body.double_hookah)+
                   '\n Other Address : '+ req.body.otherAddress+
@@ -89,6 +90,7 @@ router.post('/adminOrders/cancelOrder', checkAuthentication.checkAuthenticated, 
 })
 
 router.post('/adminOrders/acceptOrder', checkAuthentication.checkAuthenticated, (req,res)=>{
+    if (req.body.double_hookah=="1"){var dualHose="Yes";}else{var dualHose="No";}
     let sql = "UPDATE tbl_orders SET status='accepted', accepted=1, admin='"+req.user.firstname+"' WHERE order_id="+req.body.order_id;
     let query = conn.query(sql, (err,results) => {
         // email EIMAIFEAKFKEFLAEF EMAILEMAIL EMAIL EMAIL EMAIL EMAIL EMAILEMAIL
@@ -114,7 +116,8 @@ router.post('/adminOrders/acceptOrder', checkAuthentication.checkAuthenticated, 
               '\n Order ID  : '+'32'+ req.body.order_id+'47'+" "+" No."+req.body.numberOfOrders+
               '\n Date       : '+ req.body.date+
               '\n Time       : '+ req.body.time+
-              '\n quantity  : '+ req.body.quantity+
+              '\n Double Hose  : '+dualHose+
+              '\n Quantity  : '+ req.body.quantity+' γεύσεις'+
               '\n Flavors    : '+ req.body.flavors+
               '\n Price      : '+ findPrice(req.body.quantity, req.body.outOfLoutraki, req.body.numberOfOrders, req.body.double_hookah)+
               '\n Other Address : '+ req.body.otherAddress+
