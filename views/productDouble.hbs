@@ -68,15 +68,15 @@
                     <div class="row w-100 yo px-4">
                         <div class="col-md-4 my-2 p-0 text-center">
                             <input type="radio" id="four-hours" class="durationSelection" name="quantity" value="2" required >
-                            <label for="4">&nbsp;<span class="price-time">35 EUR</span>* - 2 γεύσεις (1 μέρα)**</label>
+                            <label for="4">&nbsp;<span class="price-time">35 EUR</span>* - 3 γεύσεις (1 μέρα)**</label>
                         </div>
                         <div class="col-md-4 my-2 p-0 text-center">
                             <input type="radio" id="six-hours" class="durationSelection" name="quantity" value="3">
-                            <label for="six-hours">&nbsp;<span class="price-time">40 EUR</span> - 3 γεύσεις (1 μέρα)**</label>
+                            <label for="six-hours">&nbsp;<span class="price-time">40 EUR</span> - 4 γεύσεις (1 μέρα)**</label>
                         </div>
                         <div class="col-md-4 my-2 p-0 text-center">
                             <input type="radio" id="two-days" class="durationSelection" name="quantity" value="4">
-                            <label for="two-days">&nbsp;<span class="price-time">50 EUR</span> - 4 γεύσεις (2 μέρες)***</label>
+                            <label for="two-days">&nbsp;<span class="price-time">50 EUR</span> - 5 γεύσεις (2 μέρες)***</label>
                         </div>
                     </div>
                     <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">*Διαθέσιμο πακέτο μόνο για παραγγελίες στο Λουτράκι και την Κόρινθο.</span></div>
@@ -93,7 +93,15 @@
                     <hr>
                     <div class="row w-100 flavors-inside px-4">
                         <div class="col-md-6 my-2 p-0 text-center">
-                            <label for="flavor1">Γεύση 1η: &nbsp;</label>
+                            <label for="flavor0">Γεύση 1η: &nbsp;</label>
+                            <select id="flavor0" name="flavor0">
+                                {{#each flavors}}
+                                    <option value={{flavor_value}}>{{flavor_name}}<span> - {{flavor_description}}</span></option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-md-6 my-2 p-0 text-center">
+                            <label for="flavor1">Γεύση 2η: &nbsp;</label>
                             <select id="flavor1" name="flavor1">
                                 {{#each flavors}}
                                     <option value={{flavor_value}}>{{flavor_name}}<span> - {{flavor_description}}</span></option>
@@ -101,7 +109,7 @@
                             </select>
                         </div>
                         <div class="col-md-6 my-2 p-0 text-center">
-                            <label for="flavor2">Γεύση 2η: &nbsp;</label>
+                            <label for="flavor2">Γεύση 3η: &nbsp;</label>
                             <select id="flavor2" name="flavor2">
                                 {{#each flavors}}
                                     <option value={{flavor_value}}>{{flavor_name}}<span> - {{flavor_description}}</span></option>
@@ -109,7 +117,7 @@
                             </select>
                         </div>
                         <div class="col-md-6 my-2 p-0 text-center" id="flavor3div">
-                            <label for="flavor3">Γεύση 3η: &nbsp;</label>
+                            <label for="flavor3">Γεύση 4η: &nbsp;</label>
                             <select id="flavor3" name="flavor3">
                                 {{#each flavors}}
                                     <option value={{flavor_value}}>{{flavor_name}}<span> - {{flavor_description}}</span></option>
@@ -117,7 +125,7 @@
                             </select>
                         </div>
                         <div class="col-md-6 my-2 p-0 text-center" id="flavor4div">
-                            <label for="flavor4">Γεύση 4η: &nbsp;</label>
+                            <label for="flavor4">Γεύση 5η: &nbsp;</label>
                             <select id="flavor4" name="flavor4">
                                 {{#each flavors}}
                                     <option value={{flavor_value}}>{{flavor_name}}<span> - {{flavor_description}}</span></option>

@@ -42,11 +42,11 @@ router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) =
         res.render('product', { user: req.user, warning: warning, flavors: results0});
         return
       }
-      if (req.query.quantity==='6' && req.query.flavor3===''){
+      if (req.query.quantity==='3' && req.query.flavor3===''){
         res.render('product', { user: req.user, warning: warning, flavors: results0});
         return
       }
-      if (req.query.quantity==='36' && req.query.flavor3==='' && req.query.flavor4===''){
+      if (req.query.quantity==='4' && req.query.flavor3==='' && req.query.flavor4===''){
         res.render('product', { user: req.user, warning: warning, flavors: results0});
         return
       }
@@ -70,6 +70,7 @@ router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) =
 
 
 router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res) => {
+
 
   let data = {  user_id : req.user.user_id, date : dateForSQL(req.body.date), 
     time : req.body.time, quantity : req.body.quantity, 
@@ -110,7 +111,7 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n Date       : '+ req.body.date+
           '\n Time       : '+ req.body.time+
           '\n Double    : '+dualHose+
-          '\n Quantity  : '+ req.body.quantity+' γεύσεις'+
+          //'\n Quantity  : '+ req.body.quantity+' γεύσεις'+
           '\n Flavors    : '+ req.body.flavors+
           '\n Price      : '+ findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah)+
           '\n Other Address : '+ req.body.textArea+
@@ -148,7 +149,7 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n Date        : '+ req.body.date+
           '\n Time        : '+ req.body.time+
           '\n Διπλός     : '+dualHose+
-          '\n Quantity  : '+ req.body.quantity+' γεύσεις'+
+          //'\n Quantity  : '+ req.body.quantity+' γεύσεις'+
           '\n Flavors    : '+ req.body.flavors+
           '\n Price        : '+ findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah)+
           '\n Other Address : \n'+ req.body.textArea+

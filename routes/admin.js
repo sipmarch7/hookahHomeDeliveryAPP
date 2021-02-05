@@ -61,7 +61,7 @@ router.post('/adminOrders/cancelOrder', checkAuthentication.checkAuthenticated, 
                   '\n Date       : '+ req.body.date+
                   '\n Time       : '+ req.body.time+
                   '\n Double Hose  : '+dualHose+
-                  '\n Quantity  : '+ req.body.quantity+' γεύσεις'+
+                  //'\n Quantity  : '+ req.body.quantity+' γεύσεις'+
                   '\n Flavors    : '+ req.body.flavors+
                   '\n Price      : '+ findPrice(req.body.quantity, req.body.outOfLoutraki, req.body.numberOfOrders, req.body.double_hookah)+
                   '\n Other Address : '+ req.body.otherAddress+
@@ -117,7 +117,7 @@ router.post('/adminOrders/acceptOrder', checkAuthentication.checkAuthenticated, 
               '\n Date       : '+ req.body.date+
               '\n Time       : '+ req.body.time+
               '\n Double Hose  : '+dualHose+
-              '\n Quantity  : '+ req.body.quantity+' γεύσεις'+
+              //'\n Quantity  : '+ req.body.quantity+' γεύσεις'+
               '\n Flavors    : '+ req.body.flavors+
               '\n Price      : '+ findPrice(req.body.quantity, req.body.outOfLoutraki, req.body.numberOfOrders, req.body.double_hookah)+
               '\n Other Address : '+ req.body.otherAddress+

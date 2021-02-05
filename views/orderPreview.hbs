@@ -35,7 +35,8 @@
                                 <div class="col-4"><span> <span style="font-style: italic;">Γεύσεις </span> </div>
                                 <div class="col-8 p-0 row"><div class="col-1 mr-2">:</div>
                                     <div class="row w-100 col-10 p-0">
-                                        <div class="col-sm-3 flavor m-0 p-0">{{fields.flavor1}}</div>
+                                        <div class="col-sm-3 flavor m-0 p-0">{{fields.flavor0}}</div>
+                                        <div class="col-sm-3 flavor p-0">{{fields.flavor1}}</div>
                                         <div class="col-sm-3 flavor p-0">{{fields.flavor2}}</div>
                                         <div class="col-sm-3 flavor p-0">{{fields.flavor3}}</div>
                                         <div class="col-sm-3 flavor p-0">{{fields.flavor4}}</div>
@@ -77,7 +78,7 @@
                     <div class="row p-1 price-div m-auto">
                         {{#unless user.numberOfOrders}}
                             <div class="col-12">- 5eur <em>- Έκπτωση πρώτης παραγγελίας</em></div>
-                            {{#if user.outOfLoutraki}}<div class="col-12">+ 5eur <em>- Έκπτωση εκτός Λουτρακίου ΔΕΝ ισχύει</em></div>{{/if}}
+                            {{#if user.outOfLoutraki}}<div class="col-12">+ 5eur <em>- Έκπτωση εκτός Λουτρακίου ΔΕΝ ισχύει (λόγω μεγαλύτερων μεταφορικών εξόδων).</em></div>{{/if}}
                         {{/unless}}
                         <hr>
                         <div class="col-12 text-center"><em>Τελική τιμή πακέτου:</em> {{price}}eur</div>
@@ -95,7 +96,7 @@
         
             <input type="hidden" name="date" value="{{fields.date}}">
             <input type="hidden" name="time" value="{{fields.time}}"><input type="hidden" name="quantity" value="{{fields.quantity}}">
-            <input type="hidden" name="flavors" value="{{fields.flavor1}}, {{fields.flavor2}}, {{fields.flavor3}}, {{fields.flavor4}}">
+            <input type="hidden" name="flavors" value="{{fields.flavor0}}, {{fields.flavor1}}, {{fields.flavor2}}, {{fields.flavor3}}, {{fields.flavor4}}">
             
             <div class="w-100 text-center"><button type="submit" class="btn btn-primary" id="submit-button">Ολοκλήρωση Παραγγελίας</button></div>
         </form>
