@@ -30,6 +30,7 @@ router.get('/adminOrders', checkAuthentication.checkAuthenticated, (req, res) =>
 });
 
 router.post('/adminOrders/cancelOrder', checkAuthentication.checkAuthenticated, (req,res)=>{
+    if (req.body.double_hookah=="1"){var dualHose="Yes";}else{var dualHose="No";}
     let sql = "UPDATE tbl_orders SET status='canceled', canceled=1 WHERE order_id="+req.body.order_id;
     let query = conn.query(sql, (err,results) => {
         var sql = "UPDATE tbl_users SET numberOfOrders = numberOfOrders - 1 WHERE user_id="+req.body.user_id
