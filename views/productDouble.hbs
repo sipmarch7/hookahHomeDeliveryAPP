@@ -27,6 +27,7 @@
             <div class="outside-block col-lg-4">
                 <div class="inside-block">
                     <div id="slideshow">
+                        <div class="text-center"><img src="/img/products/hookah_double_lit.jpg" height="400px"></div>
                         <div class="text-center"><img src="/img/products/hookah_double.jpg" height="400px"></div>
                         <div class="text-center"><img src="/img/products/hookah_double_lit.jpg" height="400px"></div>
                     </div>
@@ -80,8 +81,8 @@
                         </div>
                     </div>
                     <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">*Διαθέσιμο πακέτο μόνο για παραγγελίες στο Λουτράκι και την Κόρινθο.</span></div>
-                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">**1 ημέρα: εννοούμε ότι θα περάσουμε να μαζέψουμε τον ναργιλέ μετά τις 3μμ της επόμενης μέρας που παραλάβατε.</span></div>
-                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">**2 ημέρες: εννοούμε ότι θα περάσουμε να μαζέψουμε τον ναργιλέ μετά τις 3μμ της μεθεπόμενης μέρας που παραλάβατε.</span></div>
+                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">**1 ημέρα: εννοούμε ότι θα περάσουμε να μαζέψουμε τον ναργιλέ μέχρι τις 2μμ της επόμενης μέρας που παραλάβατε.</span></div>
+                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">**2 ημέρες: εννοούμε ότι θα περάσουμε να μαζέψουμε τον ναργιλέ μέχρι τις 2μμ της μεθεπόμενης μέρας που παραλάβατε.</span></div>
                 </div>
             </div>
         </div>
@@ -155,25 +156,22 @@
                             <label for="otherDay">&nbsp;  Ημερομηνία</label>
                             <input type="date" id="datefield" name="date">
                         </div>
+
                         <div class="col-md-2 my-2 p-0 text-center">
                             <label for="time">Ώρα * :</label>
                             <select id="time" name="time">
-                                <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                                <option value="18:00">18:00</option>
-                                <option value="19:00">19:00</option>
-                                <option value="20:00">20:00</option>
-                                <option value="20:00">20:00</option>
-                                <option value="21:00">21:00</option>
-                                <option value="22:00">22:00</option>
-                                <option value="23:00">23:00</option>
+                                {{#each time_slot}}
+                                    <option value="{{action_value}}">{{action_value}}</option>
+                                {{/each}}
+                                {{#unless user.outOfLoutraki}}<option value="22:00">22:00</option>{{/unless}}
                             </select>
                         </div>
+
                         <div class="col-12 p-0">*<span style="font-size: 0.7em;">Οι επιλογές ώρας και Ημερομηνίας είναι ενδεικτκές. 
-                        Θα ακολουθήσει σύντομη τηλεφωνική επικοινωνία για  επιβεβαίωση.</span></div>
+                            Θα ακολουθήσει σύντομη τηλεφωνική επικοινωνία για  επιβεβαίωση.</span>
+                        </div>
                         <div class="col-12 p-0">*<span style="font-size: 0.7em;">ΣΗΜΑΝΤΙΚΟ: Υπάρχει μόνο ένα τεμάχιο διαθέσιμο. Εξυπηρετείται με σειρά προτεραιότητας</span></div>
+
                     </div>
                 </div>
             </div>
