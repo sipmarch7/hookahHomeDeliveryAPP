@@ -8,8 +8,11 @@ router.get('/', (req, res) => {
 
   let sql0 = "SELECT * FROM tbl_flavors WHERE flavor_online=1;"
   let query0 = conn.query(sql0, (err, results0) => {
+    let sql1 = "SELECT * FROM tbl_site WHERE action_name='time_slot';"
+    let query0 = conn.query(sql1, (err, results1) => {
       if(err) throw err;
-      res.render('product', { user: req.user, flavors: results0});
+      res.render('product', { user: req.user, flavors: results0, time_slot: results1});
+    }) 
   })
 
 });
@@ -22,8 +25,11 @@ router.get('/productDouble', (req, res) => {
   
   let sql0 = "SELECT * FROM tbl_flavors WHERE flavor_online=1;"
   let query0 = conn.query(sql0, (err, results0) => {
+    let sql1 = "SELECT * FROM tbl_site WHERE action_name='time_slot';"
+    let query0 = conn.query(sql1, (err, results1) => {
       if(err) throw err;
-      res.render('productDouble', { user: req.user, flavors: results0});
+      res.render('productDouble', { user: req.user, flavors: results0, time_slot: results1});
+    }) 
   })
 
 });
