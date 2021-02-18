@@ -19,7 +19,7 @@ select{
     color: burlywood;
     font-weight: bolder;
     font-family: 'quite_magicalregular';
-    font-size: 135%;
+    font-size: 125%;
 }
 
 @media screen and (max-width: 800px) {
