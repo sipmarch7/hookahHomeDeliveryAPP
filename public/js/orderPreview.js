@@ -17,3 +17,8 @@ if (dualHose.innerHTML=="1"){dualHose.innerHTML="Ναι"}else{dualHose.innerHTML
 
 let quantity = document.getElementById("quantity");
 if (quantity.innerHTML=="2"||quantity.innerHTML=="3"){quantity.innerHTML="1"}else{quantity.innerHTML="2"}
+
+var order0 = document.getElementById("order0");
+if (order0.innerHTML==""){
+    order0.style.display="none"
+}

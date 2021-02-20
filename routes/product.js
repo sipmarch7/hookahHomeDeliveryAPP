@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
     let query0 = conn.query(sql1, (err, results1) => {
       if(err) throw err;
       res.render('product', { user: req.user, flavors: results0, time_slot: results1});
+      console.log(req.originalUrl)    ////////////////////////
     }) 
   })
 

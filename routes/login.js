@@ -4,7 +4,7 @@ const router = express.Router();
 const checkAuthentication = require('../passport/checkAuthentication');
 
 router.get('/', checkAuthentication.checkNotAuthenticated, (req, res) => {
-  const error = req.flash().error
+  const error = req.flash().error;   
   res.render('login',{error});
 });
 
