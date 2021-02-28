@@ -36,7 +36,7 @@ router.get('/productDouble', (req, res) => {
 });
 
 router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) => {
-
+  console.log(happyHour(findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah), req.body.time))
   let sql0 = "SELECT * FROM tbl_flavors WHERE flavor_online=1;"
   let query0 = conn.query(sql0, (err, results0) => {
       if(err) throw err;
@@ -66,9 +66,9 @@ router.get('/orderPreview', checkAuthentication.checkAuthenticated, (req, res) =
       req.query.date = dateForEurope(req.query.date);
 
       if (req.user.city=="Κόρινθος"){
-        res.render('orderPreview', { user: req.user, fields: req.query, korinthos: 1, price: findPrice(req.query.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.query.double_hookah)}); 
+        res.render('orderPreview', { user: req.user, fields: req.query, korinthos: 1, price: happyHour( findPrice(req.query.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.query.double_hookah), req.query.time ) }); 
       }else{
-        res.render('orderPreview', { user: req.user, fields: req.query, korinthos: 0, price: findPrice(req.query.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.query.double_hookah)}); 
+        res.render('orderPreview', { user: req.user, fields: req.query, korinthos: 0, price: happyHour( findPrice(req.query.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.query.double_hookah), req.query.time ) }); 
       }
   })
 });
@@ -81,7 +81,7 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
 
   let data = {  user_id : req.user.user_id, date : dateForSQL(req.body.date), 
     time : req.body.time, quantity : req.body.quantity, 
-    flavors : req.body.flavors, price : findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah), 
+    flavors : req.body.flavors, price : happyHour( findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah), req.body.time ), 
     status : "pending", otherAddress: req.body.textArea, double_hookah: req.body.double_hookah
   }
   if (req.body.double_hookah=="1"){var dualHose="Yes";}else{var dualHose="No";}
@@ -120,7 +120,7 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n Double    : '+dualHose+
           //'\n Quantity  : '+ req.body.quantity+' γεύσεις'+
           '\n Flavors    : '+ req.body.flavors+
-          '\n Price      : '+ findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah)+
+          '\n Price      : '+ happyHour(findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah), req.body.time) +
           '\n Other Address : '+ req.body.textArea+
           '\n\nACCOUNT DETAILS'+
           '\n——————————————————————————————'+
@@ -158,7 +158,7 @@ router.post('/orderPreview', checkAuthentication.checkAuthenticated,  (req, res)
           '\n Διπλός     : '+dualHose+
           //'\n Quantity  : '+ req.body.quantity+' γεύσεις'+
           '\n Flavors    : '+ req.body.flavors+
-          '\n Price        : '+ findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah)+
+          '\n Price        : '+ happyHour(findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah), req.body.time) +
           '\n Other Address : \n'+ req.body.textArea+
           '\n\nACCOUNT DETAILS'+
           '\n——————————————————————————————'+
@@ -242,6 +242,14 @@ function findPrice(quantity, outOfLoutraki, numberOfOrders, double){
     }
     return "45"
   }
+}
+
+function happyHour(price,time){
+  if (time == "15:00" || time == "16:00" || time == "17:00"){
+    var priceInt = parseInt(price) - 5
+    return priceInt.toString();
+  }
+  return price
 }
 
 

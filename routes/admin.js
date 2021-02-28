@@ -64,7 +64,7 @@ router.post('/adminOrders/cancelOrder', checkAuthentication.checkAuthenticated, 
                   '\n Double Hose  : '+dualHose+
                   //'\n Quantity  : '+ req.body.quantity+' γεύσεις'+
                   '\n Flavors    : '+ req.body.flavors+
-                  '\n Price      : '+ findPrice(req.body.quantity, req.body.outOfLoutraki, req.body.numberOfOrders, req.body.double_hookah)+
+                  '\n Price      : '+ happyHour(findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah), req.body.time) +
                   '\n Other Address : '+ req.body.otherAddress+
                   '\n\nACCOUNT DETAILS'+
                   '\n——————————————————————————————'+
@@ -120,7 +120,7 @@ router.post('/adminOrders/acceptOrder', checkAuthentication.checkAuthenticated, 
               '\n Double Hose  : '+dualHose+
               //'\n Quantity  : '+ req.body.quantity+' γεύσεις'+
               '\n Flavors    : '+ req.body.flavors+
-              '\n Price      : '+ findPrice(req.body.quantity, req.body.outOfLoutraki, req.body.numberOfOrders, req.body.double_hookah)+
+              '\n Price      : '+ happyHour(findPrice(req.body.quantity, req.user.outOfLoutraki, req.user.numberOfOrders, req.body.double_hookah), req.body.time)+
               '\n Other Address : '+ req.body.otherAddress+
               '\n\nACCOUNT DETAILS'+
               '\n——————————————————————————————'+
@@ -216,4 +216,12 @@ function findPrice(quantity, outOfLoutraki, numberOfOrders, double){
     }
     return "45"
   }
+}
+
+function happyHour(price,time){
+  if (time == "15:00" || time == "16:00" || time == "17:00"){
+    var priceInt = parseInt(price) - 5
+    return priceInt.toString();
+  }
+  return price
 }
