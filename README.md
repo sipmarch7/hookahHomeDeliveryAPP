@@ -15,5 +15,6 @@ https://shishahub.online/
 -Handlebars Template
 -mySQL (phpMyAdmin)
 -Linux server 
+
 που παρέχεται από https://cyclades.okeanos.grnet.gr/ 
 (τρέχει ταυτόχρονα τον NGINX Server και το phpMyAdmin για την βάση)
