@@ -1,5 +1,5 @@
 # hookahHomeDeliveryAPP
-This is a node.js app using Handlebars 
+This is a node.js app using Handlebars.
 It's a web app to be utilized for a local hookah delivery business 
 
 Website URL:
