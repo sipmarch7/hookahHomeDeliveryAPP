@@ -1,124 +1,135 @@
 @font-face {
-    font-family: 'quite_magicalregular';
-    src: url('/css/fonts/quitemagicalregular-8va2-webfont.woff2') format('woff2'),
-         url('/css/fonts/quitemagicalregular-8va2-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "quite_magicalregular";
+  src: url("/css/fonts/quitemagicalregular-8va2-webfont.woff2") format("woff2"),
+    url("/css/fonts/quitemagicalregular-8va2-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-main{
-    max-width: 1400px;
-    background-color: transparent;
-    margin: 10px auto;
-    color: black;
+main {
+  max-width: 1400px;
+  background-color: transparent;
+  margin: 10px auto;
+  color: black;
 }
 
-.smoking{
-    border-top: solid black 5px;
-    border-bottom: solid black 5px;
-    border-left: solid black 10px;
-    border-right: solid black 10px;
-    background-color: white;
-    color: black;
+.smoking {
+  border-top: solid black 5px;
+  border-bottom: solid black 5px;
+  border-left: solid black 10px;
+  border-right: solid black 10px;
+  background-color: white;
+  color: black;
 }
 
-main .container{
-    background-color: transparent;
-    border-radius: 5px;
+main .container {
+  background-color: transparent;
+  border-radius: 5px;
 }
 
-#home-image img{
-    border-radius: 5px;
-    max-height: 400px;
+#home-image img {
+  border-radius: 5px;
+  max-height: 400px;
 }
-#slideshow{
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    padding: 10px 0px;
+.inside-block {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
 }
-#slideshow img{
-    border-radius: 5px;
+#slideshow {
+  background-color: rgba(77, 77, 77, 0.5);
+  border-radius: 5px;
+  padding: 5px;
+  width: min-content;
 }
-.yoArea{
-    height: 100%;
-    color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    text-shadow: 0px 0px 5px burlywood;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.yoArea div:nth-child(1){
-    height: 10px;
-}
-.yoArea div:nth-child(2){
-    height: 100px;
-}
-.yoArea span:nth-child(1), .yoArea span:nth-child(3){
-    font-size: 150%;
-}
-#delivery{
-    color: rgb(225, 165, 88);
-    font-weight: bolder;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 500%;
-}
-.brown{
-    color: burlywood;
-}
-.reverse-row{
-    flex-wrap: wrap-reverse;
-}
-.orderOne{
-    max-width: 450px;
-    min-height: 230px;
-    color: rgb(225, 225, 225);
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    font-size: 1.5em;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+#slideshow img {
+  border-radius: 5px;
 }
 
-.social{
-    background-color: rgba(0, 187, 255, 1);
-    color: rgb(255, 255, 255);
-    border-radius: 5px;
-    height: 79px;
-    max-width: 400px;
-    
+.yoArea {
+  height: 70%;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  text-shadow: 0px 0px 5px burlywood;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-.faqs{
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border-radius: 5px;
+.yoArea div:nth-child(1) {
+  height: 10px;
 }
-.faqs span{
-    color: rgb(175, 175, 175);
-    font-size: 0.9em;
+.yoArea div:nth-child(2) {
+  height: 100px;
 }
-.faqs a{
-    text-decoration: none;
+.yoArea span:nth-child(1),
+.yoArea span:nth-child(3) {
+  font-size: 150%;
+}
+#delivery {
+  color: rgb(225, 165, 88);
+  font-weight: bolder;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 500%;
+}
+.brown {
+  color: burlywood;
 }
 
-.yo{
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 5px;
+.outer-comments {
+  height: 30%;
+  color: white;
 }
 
+.reverse-row {
+  flex-wrap: wrap-reverse;
+}
+.orderOne {
+  max-width: 450px;
+  min-height: 230px;
+  color: rgb(225, 225, 225);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  font-size: 1.5em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.social {
+  background-color: rgba(0, 187, 255, 1);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  height: 79px;
+  max-width: 400px;
+}
+.faqs {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 5px;
+}
+.faqs span {
+  color: rgb(175, 175, 175);
+  font-size: 0.9em;
+}
+.faqs a {
+  text-decoration: none;
+}
+
+.yo {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+}
 
 @media screen and (max-width: 800px) {
-    #slideshow img{
-        max-height: 300px;
-    }
-    .home-image{
-        
-    }
-    #delivery{
-        font-size: 400%;
-    }
-    .yoArea div:nth-child(1){
-        height: 25px;
-    }
-    .orderOne{
-        font-size: 1.5em;
-    }
+  #slideshow img {
+    max-height: 300px;
+  }
+  .home-image {
+  }
+  #delivery {
+    font-size: 400%;
+  }
+  .yoArea div:nth-child(1) {
+    height: 25px;
+  }
+  .orderOne {
+    font-size: 1.5em;
+  }
 }

@@ -35,11 +35,11 @@
                                 <div class="col-4"><span> <span style="font-style: italic;">Γεύσεις </span> </div>
                                 <div class="col-8 p-0 row"><div class="col-1 mr-2">:</div>
                                     <div class="row w-100 col-10 p-0">
-                                        <div class="col-sm-3 flavor m-0 p-0" id="order0">{{fields.flavor0}}</div>
                                         <div class="col-sm-3 flavor p-0">{{fields.flavor1}}</div>
                                         <div class="col-sm-3 flavor p-0">{{fields.flavor2}}</div>
                                         <div class="col-sm-3 flavor p-0">{{fields.flavor3}}</div>
                                         <div class="col-sm-3 flavor p-0">{{fields.flavor4}}</div>
+                                        <div class="col-sm-3 flavor m-0 p-0" id="order0">{{fields.flavor0}}</div>
                                     </div> 
                                 </div>
                                 <div class="col-4"><span> <span style="font-style: italic;">Διάρκεια</span> </div>
@@ -78,9 +78,8 @@
                     <div class="row p-1 price-div m-auto">
                         {{#unless user.numberOfOrders}}
                             <div class="col-12">- 5eur <em>- Έκπτωση πρώτης παραγγελίας</em></div>
-                            {{#if user.outOfLoutraki}}<div class="col-12">+ 5eur <em>- Έκπτωση εκτός Λουτρακίου ΔΕΝ ισχύει (λόγω μεγαλύτερων μεταφορικών εξόδων).</em></div>{{/if}}
+                            {{#if user.outOfLoutraki}}<div class="col-12">+ 5eur <em>- Έκπτωση για Ρίο ΔΕΝ ισχύει (λόγω μεγαλύτερων μεταφορικών εξόδων).</em></div>{{/if}}
                         {{/unless}}
-                        <div class="col-12">- 5eur <em>- Έκπτωση για παράδοση 3μμ με 5μμ</em></div>
                         <hr>
                         <div class="col-12 text-center"><em>Τελική τιμή πακέτου:</em> {{price}}eur</div>
                     </div>

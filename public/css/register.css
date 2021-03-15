@@ -1,44 +1,42 @@
-main{
-       
+main {
 }
-.register-form{
-    color: white;
-    background-color: transparent;
-    
-    border-radius: 5px;
+.register-form {
+  color: white;
+  background-color: transparent;
+
+  border-radius: 5px;
 }
-.blue{
-    background-color: rgb(112, 159, 252);
-    box-shadow: 0px 0px 5px 0px black;
-    border-radius: 5px;
-    width: 80%;
-    margin: 0 auto;
-    color: white;
+.blue {
+  background-color: rgba(77, 77, 77, 0.72);
+  box-shadow: 0px 0px 5px 0px black;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
+  color: white;
 }
-.optional{
-    
-    font-style: italic;
+.optional {
+  font-style: italic;
 }
-#error{
-    color: red;
-    border-radius: 5px;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 0 2px;
+#error {
+  color: red;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0 2px;
 }
-#city{
-    height: 34px;
+#city {
+  height: 34px;
 }
-#submit-button{
-    width: 120px;
-    height: 45px;
-    box-shadow: 0px 0px 5px 0px black;
+#submit-button {
+  width: 120px;
+  height: 45px;
+  box-shadow: 0px 0px 5px 0px black;
 }
-#birthday{
-    min-height: 30px;
+#birthday {
+  min-height: 30px;
 }
 @media screen and (max-width: 800px) {
-    .blue{
-        width: 90%;
-    }
+  .blue {
+    width: 90%;
+  }
 }

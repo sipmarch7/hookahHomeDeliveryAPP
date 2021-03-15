@@ -77,9 +77,9 @@
                             <label for="two-days">&nbsp;<span class="price-time">40 EUR</span> - 4 γεύσεις (2 μέρες)***</label>
                         </div>
                     </div>
-                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">*Διαθέσιμο πακέτο μόνο για παραγγελίες στο Λουτράκι και την Κόρινθο.</span></div>
-                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">**1 ημέρα: εννοούμε ότι θα περάσουμε να μαζέψουμε τον ναργιλέ μέχρι τις 2μμ της επόμενης μέρας που παραλάβατε.</span></div>
-                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">**2 ημέρες: εννοούμε ότι θα περάσουμε να μαζέψουμε τον ναργιλέ μέχρι τις 2μμ της μεθεπόμενης μέρας που παραλάβατε.</span></div>
+                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">*Διαθέσιμο πακέτο μόνο για παραγγελίες στην Πάτρα, όχι στο Ρίο.</span></div>
+                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">**1 ημέρα: εννοούμε ότι θα περάσουμε να μαζέψουμε τον ναργιλέ μέχρι τη 1μμ της επόμενης μέρας που παραλάβατε.</span></div>
+                    <div class="row w-100 mx-auto my-1 pl-2"> <span style="font-size:0.7em;">**2 ημέρες: εννοούμε ότι θα περάσουμε να μαζέψουμε τον ναργιλέ μέχρι τη 1μμ της μεθεπόμενης μέρας που παραλάβατε.</span></div>
                 </div>
             </div>
         </div>
@@ -124,6 +124,14 @@
                                 {{/each}}
                             </select>
                         </div>
+                        <div class="col-md-6 my-2 p-0 text-center" style="display: none;" id="flavor0div">
+                            <label for="flavor0">Γεύση 5η: &nbsp;</label>
+                            <select id="flavor0" name="flavor0">
+                                {{#each flavors}}
+                                    <option value={{flavor_value}}>{{flavor_name}}<span> - {{flavor_description}}</span></option>
+                                {{/each}}
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,7 +163,7 @@
                                 {{#each time_slot}}
                                     <option value="{{action_value}}">{{action_value}}</option>
                                 {{/each}}
-                                {{#unless user.outOfLoutraki}}<option value="22:00">22:00</option>{{/unless}}
+                                {{#unless user.outOfLoutraki}}<option value="19:00">19:00</option>{{/unless}}
                             </select>
                         </div>
 

@@ -91,12 +91,14 @@
                                         <div class="col-12">
                                             <form action="/admin/adminOrders/doneOrder" method="POST">
                                                 <input type="hidden" name="order_id" value="{{order_id}}">
+                                                <input type="hidden" name="double_hookah" value="{{double_hookah}}">
                                                 <button type="submit" class="btn btn-warning">Complete</button>
                                             </form>
                                         </div>
                                     {{else}}
                                         <div class="col-6 text-right">
                                             <form action="/admin/adminOrders/cancelOrder" method="POST">
+                                                <input type="hidden" name="price" value="{{price}}">
                                                 <input type="hidden" name="order_id" value="{{order_id}}">
                                                 <input type="hidden" name="user_id" value="{{user_id}}">
                                                 <input type="hidden" name="date" value="{{date}}">
@@ -128,6 +130,7 @@
                                         {{else}}
                                         <div class="col-6 text-left">
                                             <form action="/admin/adminOrders/acceptOrder" method="POST">
+                                                <input type="hidden" name="price" value="{{price}}">
                                                 <input type="hidden" name="order_id" value="{{order_id}}">
                                                 <input type="hidden" name="date" value="{{date}}">
                                                 <input type="hidden" name="time" value="{{time}}">
