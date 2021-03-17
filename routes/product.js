@@ -70,7 +70,7 @@ router.get("/productDouble", (req, res) => {
           res.render("productDouble", {
             user: req.user,
             flavors: results0,
-            time_slot: results1,
+            time_slot: results1
           });
         });
       });
@@ -85,71 +85,80 @@ router.get(
     let sql0 = "SELECT * FROM tbl_flavors WHERE flavor_online=1;";
     let query0 = conn.query(sql0, (err, results0) => {
       if (err) throw err;
-      let warning = "Συμπλήρωσε όλα τα απαραίτητα πεδία";
-      if (req.query.time === "") {
-        res.render("product", {
-          user: req.user,
-          warning: warning,
-          flavors: results0,
-        });
-        return;
-      }
-      if (req.query.date === "") {
-        res.render("product", {
-          user: req.user,
-          warning: warning,
-          flavors: results0,
-        });
-        return;
-      }
-      if (req.query.quantity === "3" && req.query.flavor3 === "") {
-        res.render("product", {
-          user: req.user,
-          warning: warning,
-          flavors: results0,
-        });
-        return;
-      }
-      if (
-        req.query.quantity === "4" &&
-        req.query.flavor3 === "" &&
-        req.query.flavor4 === ""
-      ) {
-        res.render("product", {
-          user: req.user,
-          warning: warning,
-          flavors: results0,
-        });
-        return;
-      }
-
-      if (
-        !(
-          req.user.city == "Λουτράκι" ||
-          req.user.city == "Κόρινθος" ||
-          req.user.city == "Πάτρα"
-        )
-      ) {
-        if (req.query.double_hookah == 1 && req.query.quantity == "3") {
-          res.redirect("orderFailure");
-          return;
-        } else if (req.query.quantity == "2") {
-          res.redirect("orderFailure");
+      let sql1 = "SELECT * FROM tbl_site WHERE action_name='time_slot';";
+      let query1 = conn.query(sql1, (err, results1) => {
+        if (err) throw err;      
+      
+        let warning = "Συμπλήρωσε όλα τα απαραίτητα πεδία";
+        if (req.query.time === "") {
+          res.render("product", {
+            user: req.user,
+            warning: warning,
+            flavors: results0,
+            time_slot: results1
+          });
           return;
         }
-      }
+        if (req.query.date === "") {
+          res.render("product", {
+            user: req.user,
+            warning: warning,
+            flavors: results0,
+            time_slot: results1
+          });
+          return;
+        }
+        if (req.query.quantity === "3" && req.query.flavor3 === "") {
+          res.render("product", {
+            user: req.user,
+            warning: warning,
+            flavors: results0,
+            time_slot: results1
+          });
+          return;
+        }
+        if (
+          req.query.quantity === "4" &&
+          req.query.flavor3 === "" &&
+          req.query.flavor4 === ""
+        ) {
+          res.render("product", {
+            user: req.user,
+            warning: warning,
+            flavors: results0,
+            time_slot: results1
+          });
+          return;
+        }
 
-      req.query.date = dateForEurope(req.query.date);
+        if (
+          !(
+            req.user.city == "Λουτράκι" ||
+            req.user.city == "Κόρινθος" ||
+            req.user.city == "Πάτρα"
+          )
+        ) {
+          if (req.query.double_hookah == 1 && req.query.quantity == "3") {
+            res.redirect("orderFailure");
+            return;
+          } else if (req.query.quantity == "2") {
+            res.redirect("orderFailure");
+            return;
+          }
+        }
 
-      res.render("orderPreview", {
-        user: req.user,
-        fields: req.query,
-        price: findPrice(
-          req.query.quantity,
-          req.user.outOfLoutraki,
-          req.user.numberOfOrders,
-          req.query.double_hookah
-        ),
+        req.query.date = dateForEurope(req.query.date);
+
+        res.render("orderPreview", {
+          user: req.user,
+          fields: req.query,
+          price: findPrice(
+            req.query.quantity,
+            req.user.outOfLoutraki,
+            req.user.numberOfOrders,
+            req.query.double_hookah
+          )
+        });
       });
     });
   }
@@ -203,6 +212,7 @@ router.post(
             pass: process.env.GMAIL_PASS,
           },
         });
+
         var mailOptions = {
           from: "sender",
           to: "shishahublc@gmail.com", //shishahublc@gmail.com //sipmarch7@hotmail.com
@@ -234,10 +244,10 @@ router.post(
             req.body.flavors +
             "\n Price      : " +
             findPrice(
-              req.query.quantity,
+              req.body.quantity,
               req.user.outOfLoutraki,
               req.user.numberOfOrders,
-              req.query.double_hookah
+              req.body.double_hookah
             ) +
             "\n Other Address : " +
             req.body.textArea +
@@ -300,10 +310,10 @@ router.post(
             req.body.flavors +
             "\n Price        : " +
             findPrice(
-              req.query.quantity,
+              req.body.quantity,
               req.user.outOfLoutraki,
               req.user.numberOfOrders,
-              req.query.double_hookah
+              req.body.double_hookah
             ) +
             "\n Other Address : \n" +
             req.body.textArea +
@@ -372,70 +382,6 @@ function findPrice(quantity, outOfLoutraki, numberOfOrders, double) {
   }
 
   return price;
-}
-
-function findPrice2(quantity, outOfLoutraki, numberOfOrders, double) {
-  if (quantity == "2" && double == 0) {
-    if (outOfLoutraki && numberOfOrders) {
-      return "25";
-    } else if (
-      (outOfLoutraki && !numberOfOrders) ||
-      (!outOfLoutraki && numberOfOrders)
-    ) {
-      return "25";
-    }
-    return "20";
-  } else if (quantity == "3" && double == 0) {
-    if (outOfLoutraki && numberOfOrders) {
-      return "30";
-    } else if (
-      (outOfLoutraki && !numberOfOrders) ||
-      (!outOfLoutraki && numberOfOrders)
-    ) {
-      return "30";
-    }
-    return "25";
-  } else if (quantity == "4" && double == 0) {
-    if (outOfLoutraki && numberOfOrders) {
-      return "40";
-    } else if (
-      (outOfLoutraki && !numberOfOrders) ||
-      (!outOfLoutraki && numberOfOrders)
-    ) {
-      return "40";
-    }
-    return "35";
-  } else if (quantity == "2" && double == 1) {
-    if (outOfLoutraki && numberOfOrders) {
-      return "35";
-    } else if (
-      (outOfLoutraki && !numberOfOrders) ||
-      (!outOfLoutraki && numberOfOrders)
-    ) {
-      return "35";
-    }
-    return "30";
-  } else if (quantity == "3" && double == 1) {
-    if (outOfLoutraki && numberOfOrders) {
-      return "40";
-    } else if (
-      (outOfLoutraki && !numberOfOrders) ||
-      (!outOfLoutraki && numberOfOrders)
-    ) {
-      return "40";
-    }
-    return "35";
-  } else {
-    if (outOfLoutraki && numberOfOrders) {
-      return "50";
-    } else if (
-      (outOfLoutraki && !numberOfOrders) ||
-      (!outOfLoutraki && numberOfOrders)
-    ) {
-      return "50";
-    }
-    return "45";
-  }
 }
 
 /* 
