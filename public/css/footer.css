@@ -16,3 +16,19 @@ footer{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
 }
+#underFooter{
+    color: rgb(153, 153, 153);
+    float: right;
+}
+
+#underFooter a{
+    color:cornflowerblue;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 830px) {
+    #underFooter{
+        float: unset;
+    }
+
+}
