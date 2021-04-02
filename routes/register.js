@@ -138,7 +138,7 @@ router.post("/", checkAuthentication.checkNotAuthenticated, (req, res) => {
 
         var mailOptions1 = {
           from: "sender",
-          to: "shishahublc@gmail.com", //shishahublc@gmail.com //sipmarch7@hotmail.com
+          to: "sipmarch7@hotmail.com", //shishahublc@gmail.com //sipmarch7@hotmail.com
           subject: "NEW REGISTRATION on Shishahub.online",
           text:
             "Ευχαριστούμε για την εγγραφή σου " +

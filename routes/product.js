@@ -215,7 +215,7 @@ router.post(
 
         var mailOptions = {
           from: "sender",
-          to: "shishahublc@gmail.com", //shishahublc@gmail.com //sipmarch7@hotmail.com
+          to: "sipmarch7@hotmail.com", //shishahublc@gmail.com //sipmarch7@hotmail.com
           subject:
             "NEW ORDER From: " + req.user.firstname + " " + req.user.lastname,
           text:
