@@ -32,13 +32,11 @@ main .container {
   max-height: 400px;
 }
 .inside-block {
- 
   border-radius: 5px;
-  
 }
 .inside-block-slideshow{
   max-width: fit-content;
-  padding: 10px;
+  padding: 5px;
   border: 2px solid burlywood;
   border-radius: 5px;
 }
@@ -52,13 +50,18 @@ main .container {
 #slideshow img {
   border-radius: 5px;
 }
-
+.yoArea-outside{
+  padding: 5px;
+  border: 2px solid burlywood;
+  border-radius: 5px;
+}
 .yoArea {
   height: 70%;
   color: rgb(255, 255, 255);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
   text-shadow: 0px 0px 5px burlywood;
+  box-shadow: 0px 0px 24px 6px rgba(138,138,138,1);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .yoArea div:nth-child(1) {
@@ -80,13 +83,12 @@ main .container {
 .brown {
   color: burlywood;
 }
-
 .outer-comments {
   border-radius: 5px;
   border: 2px solid burlywood;
   color: white;
-  min-height: 120px;
-  padding: 10px;
+  min-height: 110px;
+  padding: 5px;
 }
 .inner-comments{
   box-shadow: 0px 0px 24px 5px rgba(138,138,138,1);
