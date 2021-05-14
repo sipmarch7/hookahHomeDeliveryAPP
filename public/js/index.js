@@ -1,12 +1,21 @@
-$("#slideshow > div:gt(0)").hide();
 
-setInterval(function() {
-  $('#slideshow > div:first')
-    .fadeOut(0)
-    .next()
-    .fadeIn(0)
-    .end()
-    .appendTo('#slideshow');
-}, 3000);
+$(document).ready(function(){
+  $('#slideshow').slick({
+    arrows: false,
+    dots: true,
+    autoplay: true,
+    centerMode: false,
+    infinite: true,
+    autoplaySpeed: 2500
+  });
+});
 
                                    
+
+$(document).ready(function(){
+  $('.reviews').slick({
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000
+  });
+});

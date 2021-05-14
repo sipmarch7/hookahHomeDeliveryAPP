@@ -28,10 +28,10 @@
                 <div class="col-lg-5 slideshow-col">
                     <div class="inside-block inside-block-slideshow mx-auto">
                         <div id="slideshow" class="mx-auto">
-                            <div class="text-center"><img src="/img/products/amy-bamboo-2-600x600.jpeg" height="350px"></div>
-                            <div class="text-center"><img src="/img/home/cloud-one-3-box.jpeg" alt="aladin" height="350px"></div>
-                            <div class="text-center"><img src="/img/products/hookah_double_1.jpg" height="350px"></div>
-                            <div class="text-center"><img src="/img/home/amy-bamboo-3.jpeg" height="350px"></div>
+                            <div class="text-center pt-2"><img class="mx-auto" src="/img/products/amy-bamboo-2-600x600.jpeg" height="350px"></div>
+                            <div class="text-center pt-2"><img class="mx-auto" src="/img/home/cloud-one-3-box.jpeg" alt="aladin" height="350px"></div>
+                            <div class="text-center pt-2"><img class="mx-auto" src="/img/products/hookah_double_1.jpg" height="350px"></div>
+                            <div class="text-center pt-2"><img class="mx-auto" src="/img/home/amy-bamboo-3.jpeg" height="350px"></div>
                         </div>
                     </div>
                 </div>
@@ -49,18 +49,23 @@
                         </div>
                         <div class="outer-comments mt-3">
                                 {{!-- <span>comments</span> --}}
-                                <div class="inner-comments">
-                                    <div class="w-100 py-1 px-5">
-                                        <em>Review from</em>
-                                        <span style="color: burlywood;">Giannis</span>
-                                        <em>on</em>
-                                        <span>3/5/21</span>
+                                
+                                <div class="inner-comments reviews">
+                                    {{#each reviews}}
+                                    <div class="">
+                                        <div class="w-100 py-1 px-5" style="font-size: 15px;">
+                                            <em>Review from</em>
+                                            <span style="color: burlywood;">{{name}}</span>
+                                            <em>on</em>
+                                            <span style="color: burlywood;">{{date}}</span>
+                                        </div>
+                                        <div class=" pb-1 px-2 mx-auto text-center" style="color: rgb(225, 165, 88); font-size:14px;">
+                                            	&#8221; {{review}} 	&#8221;
+                                        </div>
                                     </div>
-                                    <div class=" pb-1 px-2 mx-auto text-center" style="color: rgb(225, 165, 88);">
-                                        Premium ναργιλές και απίστευτη ποιότητα γεύσης, παρόλο που είναι no tobacco!!
-                                        Τυχερό το Λουτράκι που έχει τέτοιες παροχές!
-                                    </div>
+                                    {{/each}}
                                 </div>
+                                
                         </div>
                 </div>
             </div>
@@ -87,7 +92,6 @@
                 </div>
 
                 
-
                 <div class="col-lg-7">
                     <div class="faqs-container">
                         <div class="faqs-outside">
@@ -113,8 +117,6 @@
 
             </div>
 
-            
-
            {{!--  <div class="row w-100 smoking my-3 mx-auto">
                 <span class="mx-auto">ΤΟ ΚΑΠΝΙΣΜΑ ΒΛΑΠΤΕΙ ΣΟΒΑΡΑ ΤΗΝ ΥΓΕΙΑ</span>
             </div> --}}
@@ -124,6 +126,15 @@
 <!--                    footer                    -->
     {{> footer }}
 <!--                    scripts                    -->
+    <!-- jquery  -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- bootstrap  -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- slick-carousel  -->
+    <script src="js/slick.min.js"></script>
+        <!-- local  -->
 <script src="/js/index.js"></script>
 
 
