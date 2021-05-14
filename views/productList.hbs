@@ -18,57 +18,65 @@
 <!--                    main                    -->
     <main>
         <div class="container mx-auto">
-            <div class="w-100 mx-auto my-3 text-center"><h2 class="px-0">Προϊόντα</h2></div>
+            <div class="w-100 mx-auto my-4 text-center"><h2 class="px-0">Προϊόντα</h2></div>
             <div class="row w-100 mx-auto flex-wrap-reverse">
 
-                <div class="col-lg-5 w-100 mx-auto my-3 p-1 product-div">
-                    <div class="col-12 text-center p-2">
-                        <img src="/img/products/hookah_double.jpg" alt="o2 hookah" width="300px">
-                    </div>
-                    <div class="col-12 p-2">
-                        
-                        <h4 class="w-100 mt-2 text-center" ><span id="titleYo" class="deluxe">Double Premium</span> Hookah Session</h4>
-                        <hr>
-                        <div class="w-100 mx-auto px-3 description">
-                            <em>- Μεγάλος Διπλός Ναργιλές 80cm</em><br>
-                            <em>- 2 σωλήνες για 2 χρήστες ταυτόχρονα</em><br>
-                            <em>- Έξτρα ποσότητα γεύσης</em><br>
-                            <em>- Ποικιλία γεύσεων για να διαλέξεις</em>
+                <div class="col-lg-6 py-2">
+                    <div class="outer-product">
+                        <div class=" w-100 mx-auto p-2 py-3 product-div">
+                            <div class="w-100 text-center pt-4 p-2">
+                                <img class="product-img" src="/img/products/hookah_double.jpg" alt="o2 hookah" width="300px">
+                            </div>
+                            <div class="col-12 p-2">
+
+                                <h4 class="w-100 mb-3 text-center" ><span id="titleYo" class="deluxe">Double Premium</span> Hookah Session</h4>
+                                <hr>
+                                <div class="w-100 mx-auto px-3 description">
+                                    <em>- Μεγάλος Διπλός Ναργιλές 80cm</em><br>
+                                    <em>- 2 σωλήνες για 2 χρήστες ταυτόχρονα</em><br>
+                                    <em>- Έξτρα ποσότητα γεύσης</em><br>
+                                    <em>- Ποικιλία γεύσεων για να διαλέξεις</em>
+                                </div>
+                            </div>
+                            <div class="col-12 price text-center"><em>τιμές από 35EUR</em></div>
+                            <div class="col-12 text-center">
+                                {{#unless doubleQuantity}} 
+                                    Δεν υπάρχει διαθεσιμότητα για σήμερα <br>
+                                    Ξαναπροσπάθησε αύριο
+                                {{else}}
+                                    <a href="/product/productDouble" class="btn m-2 px-5 p-2 btn-warning">Επιλογή</a>
+                                {{/unless}}
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12 price text-center"><em>τιμές από 35EUR</em></div>
-                    <div class="col-12 text-center">
-                        {{#unless doubleQuantity}} 
-                            Δεν υπάρχει διαθεσιμότητα για σήμερα <br>
-                            Ξαναπροσπάθησε αύριο
-                        {{else}}
-                            <a href="/product/productDouble" class="btn m-2 px-5 p-2 btn-warning">Επιλογή</a>
-                        {{/unless}}
                     </div>
                 </div>
 
-                <div class="col-lg-5 w-100 mx-auto my-3 p-1 product-div">
-                    <div class="col-12 text-center p-2">
-                        <img src="/img/products/amy-bamboo-2-600x600.jpeg" alt="deluxe hookah" width="300px">
-                    </div>
-                    <div class="col-12 p-2">
-                        <h4 class="w-100 text-center"><span class="deluxe">Deluxe</span> Hookah Session</h4>
-                        <hr>
-                        <div class="w-100 mx-auto px-3 description">
-                            <em>- <span class="deluxe">Deluxe</span> Ναργιλές</em><br>
-                            <em>- Coco καρβουνάκια καρύδας</em><br>
-                            <em>- Η γνήσια απόλαυση του ναργιλέ</em><br>
-                            <em>- Ποικιλία γεύσεων για να διαλέξεις</em>
+                <div class="col-lg-6 py-2">
+                    <div class="outer-product">
+                        <div class=" w-100 mx-auto p-2 py-3 product-div">
+                            <div class="col-12 text-center p-2 pt-4">
+                                <img class="product-img" src="/img/products/amy-bamboo-2-600x600.jpeg" alt="deluxe hookah" width="300px">
+                            </div>
+                            <div class="col-12 p-2">
+                                <h4 class="w-100 mb-3 text-center"><span class="deluxe">Deluxe</span> Hookah Session</h4>
+                                <hr>
+                                <div class="w-100 mx-auto px-3 description">
+                                    <em>- <span class="deluxe">Deluxe</span> Ναργιλές</em><br>
+                                    <em>- Coco καρβουνάκια καρύδας</em><br>
+                                    <em>- Η γνήσια απόλαυση του ναργιλέ</em><br>
+                                    <em>- Ποικιλία γεύσεων για να διαλέξεις</em>
+                                </div>
+                            </div>
+                            <div class="col-12 price text-center"><em>τιμές από 25EUR</em></div>
+                            <div class="col-12 text-center">
+                                {{#unless singleQuantity}} 
+                                    <p>Δεν υπάρχει διαθεσιμότητα για σήμερα <br>
+                                    Ξαναπροσπάθησε αύριο</p> 
+                                {{else}}
+                                    <a href="/product" class="btn m-2 px-5 p-2 btn-warning">Επιλογή</a>
+                                {{/unless}}
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12 price text-center"><em>τιμές από 25EUR</em></div>
-                    <div class="col-12 text-center">
-                        {{#unless singleQuantity}} 
-                            <p>Δεν υπάρχει διαθεσιμότητα για σήμερα <br>
-                            Ξαναπροσπάθησε αύριο</p> 
-                        {{else}}
-                            <a href="/product" class="btn m-2 px-5 p-2 btn-warning">Επιλογή</a>
-                        {{/unless}}
                     </div>
                 </div>
 

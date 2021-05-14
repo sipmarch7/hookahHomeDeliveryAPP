@@ -20,61 +20,74 @@
         <div class="container w-100">
             <div class="row reverse-row">
                 
-                <div class="col-lg-7 whiteBlocks">
-                    <div class="contact-form p-4">
-                    <form action="/contactUs/sendEmail" method="POST" >
-                        <div><h3>Επικοινωνείστε μαζί μας</h3></div>
-                        <div class="row w-100 text-center" id="error"><span class="optional w-100">{{warning}}</span></div>
-                        <div class="row w-100 mx-auto my-1">
-                            <label class="col-12" for="firstname surname">Ονοματεπώνυμο &nbsp <span> ( <sup>*</sup>μόνο γράμματα ) </span></label>
-                            <input class="fields col-5" type="text" id="firstname" name="firstname" placeholder=" Όνομα">
-                            <input class="fields col-5 ml-3" type="text" id="lastname" name="lastname" placeholder=" Επώνυμο">
-                        </div>
-                        <div class="row w-100 mx-auto my-1">
-                            <label class="col-12" for="email">E-mail</label>
-                            <legend class="m-0"></legend>
-                            <input class="w-100 fields" type="text" name="email" id="email" placeholder=" ✉️ Διεύθυνση e-mail" >
-                        </div>
-                        <div class="row w-100 mx-auto my-1">
-                            <div class="col-5 p-0">
-                                <label class="col-12" for="telephone">Τηλ. Επικοινωνίας</label>
-                                <input class="fields w-100" type="text" id="telephone" name="telephone" placeholder="Τηλ. Επικοινωνίας">
+                <div class="col-lg-7">
+                    <div class="whiteBlocks">
+                        <form action="/contactUs/sendEmail" method="POST" >
+                        <div class="contact-form p-3 row w-100 mx-auto">
+                        
+                            <div class="col-12"><h3>Επικοινωνείστε μαζί μας</h3></div>
+                            <div class="col-12 w-100 text-center" id="error"><span class="optional w-100">{{warning}}</span></div>
+                            <div class="row w-100 mx-auto py-1">
+                                <label class="col-12" for="firstname surname">Ονοματεπώνυμο &nbsp <span> ( <sup>*</sup>μόνο γράμματα ) </span></label>
+                                <div class="col-lg-6 py-1"><input class="fields w-100 px-1" type="text" id="firstname" name="firstname" placeholder=" Όνομα"></div>
+                                <div class="col-lg-6 py-1"><input class="fields w-100 px-1" type="text" id="lastname" name="lastname" placeholder=" Επώνυμο"></div>
                             </div>
-                            <div class="col-5 ml-3 p-0 my-1">
-                                <label class="col-12" for="instagram">Instagram <span>(<sup>*</sup>προαιρετικά)</span></label>
-                                <input class="fields w-100" type="text" id="instagram" name="instagram" placeholder="@ig">
+                            <div class="row w-100 mx-auto py-2">
+                                <label class="col-12" for="email">E-mail</label>
+                                <legend class="m-0"></legend>
+                                <div class="col-12"><input class="w-100  fields" type="text" name="email" id="email" placeholder=" ✉️ Διεύθυνση e-mail" ></div>
                             </div>
+                            <div class="row w-100 mx-auto ">
+                                <div class="col-lg-6 py-2">
+                                    <label class="col-12" for="telephone">Τηλ. Επικοινωνίας</label>
+                                    <input class="fields w-100" type="text" id="telephone" name="telephone" placeholder="Τηλ. Επικοινωνίας">
+                                </div>
+                                <div class="col-lg-6 py-2">
+                                    <label class="col-12" for="instagram"> Review? <span>(<sup>*</sup>προαιρετικά)</span></label>
+                                    <div class="w-100 fields">
+                                        <select name="review" class="fields w-100" id="review" style="height: 32px;">
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100 mx-auto py-1">
+                                <label class="col-12" for="subject">Μήνυμα &nbsp <span> ( <sup>*</sup>από 2 έως 600 χαρακτήρες ) </span> <br></label>
+                                <div class="col-12 "><textarea class="w-100 fields" id="textArea" name="textArea" placeholder="Γράψε εδώ το μήνυμά σου..."></textarea></div>
+                            </div>
+                            <div class="row w-100 mx-auto py-2">
+                                <input type="submit" class="btn btn-primary mx-auto mt-2" value="Υποβολή" id="submitButton">
+                            </div>
+                        
                         </div>
-                        <div class="row w-100 mx-auto my-1">
-                            <label class="col-12" for="subject">Μήνυμα &nbsp <span> ( <sup>*</sup>από 2 έως 600 χαρακτήρες ) </span> <br></label>
-                            <textarea class="w-100 fields" id="textArea" name="textArea" placeholder="Γράψε εδώ το μήνυμά σου..."></textarea>
-                        </div>
-                        <div class="row w-100 mx-auto mt-2">
-                            <input type="submit" class="btn btn-primary mx-auto mt-2" value="Υποβολή" id="submitButton">
-                        </div>
-                    </form>
+                        </form>
                     </div>
                 </div>
-                <div class="col-lg-4 whiteBlocks social-media-block p-3">
-                    <div class="text-center mt-1 mb-3"><h3>Social Media</h3></div>
-                    <hr style="width: 80%;">
-                    <div class="m-4 py-1 px-3">
-                        <a href="https://www.facebook.com/shishahublc" target="_blank">
-                            <img src="../img/facebookIcon.png" alt="Facebook page" height="25" width="25"> &nbsp
-                            <span>Shishahub - Hookah Delivery</span>
-                        </a>
-                    </div>
-                    <div class="m-4 py-1 px-3">
-                        <a href="https://www.instagram.com/shishahub.hookah.delivery/" target="_blank">
-                            <img src="../img/instagramIcon.png" alt="Instagram page" height="25" width="25"> &nbsp
-                            <span>@shishahub.hookah.delivery</span>
-                        </a>
-                    </div>
-                    <div class="m-4 py-1 px-3">
-                        <a href="mailto:ekdotikosoikos2020@gmail.com?subject=Contact Us-Ekdotikos Oikos">
-                            <img src="../img/gmailIcon.jpg" alt="gmail" height="18" width="25"> &nbsp
-                            <span>shishahub.lc@gmail.com</span>
-                        </a>
+                <div class="col-lg-5">
+                    <div class="whiteBlocks">
+                        <div class="social-media-block pb-3 px-3">
+                            <div class="text-center w-100 py-3"><h3>Social Media</h3></div>
+                            <hr class="mt-0" style="width: 50%; border: 2px solid white">
+                            <div class="socials">
+                                <a href="https://www.facebook.com/shishahublc" target="_blank">
+                                    <img src="../img/facebookIcon.png" alt="Facebook page" height="25" width="25"> &nbsp
+                                    <span>Shishahub - Hookah Delivery</span>
+                                </a>
+                            </div>
+                            <div class="socials">
+                                <a href="https://www.instagram.com/shishahub.hookah.delivery/" target="_blank">
+                                    <img src="../img/instagramIcon.png" alt="Instagram page" height="25" width="25"> &nbsp
+                                    <span>@shishahub.hookah.delivery</span>
+                                </a>
+                            </div>
+                            <div class="socials">
+                                <a href="mailto:ekdotikosoikos2020@gmail.com?subject=Contact Us-Ekdotikos Oikos">
+                                    <img src="../img/gmailIcon.jpg" alt="gmail" height="18" width="25"> &nbsp
+                                    <span>shishahub.lc@gmail.com</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

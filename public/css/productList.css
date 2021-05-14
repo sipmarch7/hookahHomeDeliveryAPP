@@ -9,6 +9,8 @@
 .product-div{
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
+    height: 100%;
+    box-shadow: 0px 0px 24px 6px rgba(138,138,138,1);
 }
 
 .product-div img{
@@ -28,4 +30,17 @@
 }
 .price{
     color: rgb(255, 204, 0);
+}
+
+.outer-product{
+    padding: 5px;
+    border: 2px solid burlywood;
+    border-radius: 5px;
+    height: 100%;
+}
+
+@media screen and (max-width: 991px) {
+    .product-img{
+        width: 250px;
+    }
 }

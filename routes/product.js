@@ -215,7 +215,7 @@ router.post(
 
         var mailOptions = {
           from: "sender",
-          to: "sipmarch7@hotmail.com", //shishahublc@gmail.com //sipmarch7@hotmail.com
+          to: "shishahublc@gmail.com", //shishahublc@gmail.com //sipmarch7@hotmail.com
           subject:
             "NEW ORDER From: " + req.user.firstname + " " + req.user.lastname,
           text:
@@ -365,8 +365,8 @@ module.exports = router;
 function findPrice(quantity, outOfLoutraki, numberOfOrders, double) {
   let price = 25;
 
-  if (!outOfLoutraki && !numberOfOrders) {
-    price = price - 5;
+  if (outOfLoutraki) {
+    price = price + 5;
   }
 
   if (quantity == "3") {

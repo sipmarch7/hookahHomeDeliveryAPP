@@ -90,7 +90,9 @@ h3{
     color: rgb(232, 140, 21);
     font-size: 1.2em;
 }
-
+.cloudOne{
+    color: cadetblue;
+}
 .flavors select{
     font-size: 0.75em;
     border-radius: 5px;

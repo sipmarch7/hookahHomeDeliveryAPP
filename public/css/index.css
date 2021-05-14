@@ -9,7 +9,8 @@
 main {
   max-width: 1400px;
   background-color: transparent;
-  margin: 10px auto;
+  margin: 5px auto;
+  font-family: 'Open Sans', sans-serif;
   color: black;
 }
 
@@ -100,17 +101,42 @@ main .container {
 .reverse-row {
   flex-wrap: wrap-reverse;
 }
+.orderOne-outside{
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid burlywood;
+}
 .orderOne {
   max-width: 450px;
   min-height: 230px;
   color: rgb(225, 225, 225);
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 24px 6px rgba(138,138,138,1);
   border-radius: 5px;
   font-size: 1.5em;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
+.orderOne .title1{
+  padding: 25px 30px 10px;
+}
+.orderOne .title2{
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+.orderOne .btn-div{
+  padding-bottom: 25px;
+}
+.orderOne .btn-div a{
+  width: 250px;
+  background-color: #852002;
+  color: white;
+}
+.orderOne .btn-div a:hover{
+  
+  background-color: #962604;
+  border: solid 1px #852002;
+}
 .social {
   background-color: rgba(0, 187, 255, 1);
   color: rgb(255, 255, 255);
@@ -118,10 +144,25 @@ main .container {
   height: 79px;
   max-width: 400px;
 }
+.social-logo{
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 2px;
+}
+.faqs-container{
+  padding-bottom: 24px;
+}
+.faqs-outside{
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid burlywood;
+}
 .faqs {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border-radius: 5px;
+  padding: 20px 30px ;
+  box-shadow: 0px 0px 24px 6px rgba(138,138,138,1);
 }
 .faqs span {
   color: rgb(175, 175, 175);
@@ -136,7 +177,7 @@ main .container {
   border-radius: 5px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 991px) {
   #slideshow img {
     max-height: 300px;
   }
@@ -150,5 +191,23 @@ main .container {
   }
   .orderOne {
     font-size: 1.5em;
+    min-height: unset;
+  }
+
+  .slideshow-col{
+    padding-top: 16px;
+  }
+
+  .orderOne .title1{
+    padding: 20px 15px 10px;
+  }
+  .orderOne .title2{  
+    padding-right: 15px;
+  }
+  .orderOne .btn-div{
+    
+  }
+  .orderOne .btn-div a{
+
   }
 }
