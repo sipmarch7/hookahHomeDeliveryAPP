@@ -209,7 +209,7 @@ function checkBirthday(birthday) {
 }
 
 function checkOutOfLoutraki(city) {
-  if (city === "Λουτράκι" || city === "Πάτρα") {
+  if (city === "Λουτράκι" || city === "Κόρινθος") {
     return 0;
   }
   return 1;
