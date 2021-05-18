@@ -369,9 +369,9 @@ module.exports = router;
 function findPrice(quantity, outOfLoutraki, numberOfOrders, double) {
   let price = 25;
 
-  if (outOfLoutraki) {
+  /* if (outOfLoutraki) {
     price = price + 5;
-  }
+  } */
 
   if (quantity == "3") {
     if (double == 1) {
