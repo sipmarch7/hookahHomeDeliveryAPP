@@ -5,6 +5,11 @@
     font-weight: normal;
     font-style: normal;
 }
+.radio-selection{
+    width: 18px;
+    height: 18px;
+    
+}
 main{
     margin: 10px 0px;
     padding: 10px 0px;
@@ -24,15 +29,19 @@ main .row{
 }
 .outside-block{
     padding: 5px;
+    border: 2px solid burlywood;
+    border-radius: 5px;
     margin: 10px auto;
     max-width: 1000px;
 }
 .inside-block{
     min-height: 100%;
-    background-color: rgba(255, 255, 255, 0.85);
+    /* background-color: rgba(255, 255, 255, 0.85); */
     border-radius: 5px;
     padding: 5px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+    box-shadow: 0px 0px 24px 6px rgba(138,138,138,1);
+    background-color: rgba(58, 58, 58, 0.8);
+    color: white;
 }
 /* SLIDESHOW START */
 #slideshow { 
@@ -65,7 +74,7 @@ main .row{
     padding: 5px 10px;
     margin: 2px 0;
     margin-left: 15px;
-    font-size: 1.2em;
+    
 }
 .deluxe{
     color: burlywood;
@@ -86,6 +95,11 @@ h3{
     min-height: 30px;
 }
 /*  frlmnfior3nfjor3fjoprjferf forejf*/
+.yo div label{
+    
+    margin-bottom: 0;
+}
+
 .duration .price-time{
     color: rgb(232, 140, 21);
     font-size: 1.2em;
@@ -94,8 +108,10 @@ h3{
     color: cadetblue;
 }
 .flavors select{
-    font-size: 0.75em;
+    font-size: 12px;
     border-radius: 5px;
+    height: 25px;
+    
 }
 .flavors #flavor3div, .flavors #flavor4div, .date #other-day{
     display: none;

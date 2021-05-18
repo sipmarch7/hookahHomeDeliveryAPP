@@ -67,8 +67,12 @@ router.post(
           port: 465,
           secure: true,
           auth: {
+            type: 'OAuth2',
             user: process.env.GMAIL_USER,
             pass: process.env.GMAIL_PASS,
+            clientId: process.env.OAUTH_CLIENTID,
+            clientSecret: process.env.OAUTH_CLIENT_SECRET,
+            refreshToken: process.env.OAUTH_REFRESH_TOKEN
           },
         });
         var mailOptions = {
@@ -161,8 +165,12 @@ router.post(
         port: 465,
         secure: true,
         auth: {
+          type: 'OAuth2',
           user: process.env.GMAIL_USER,
           pass: process.env.GMAIL_PASS,
+          clientId: process.env.OAUTH_CLIENTID,
+          clientSecret: process.env.OAUTH_CLIENT_SECRET,
+          refreshToken: process.env.OAUTH_REFRESH_TOKEN
         },
       });
       var mailOptions = {

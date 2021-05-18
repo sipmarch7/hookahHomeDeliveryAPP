@@ -19,8 +19,8 @@ router.post('/sendEmail', (req,res) => {
   
   for (const field in req.body){
     if (req.body[field]==""){
-      if (!(field=="instagram")){
-        res.render('contactUs',{warning:'Δεν συμπλυρώσατε όλα τα πεδία', fields: req.body});
+      if (field=="textArea"){
+        res.render('contactUs',{warning:'Δεν συμπλυρώσες τίποτα στο μήνυμα', fields: req.body});
         return}}
   }
 
@@ -29,8 +29,12 @@ router.post('/sendEmail', (req,res) => {
     port: 465,
     secure: true,
     auth: {
+      type: 'OAuth2',
       user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASS
+      pass: process.env.GMAIL_PASS,
+      clientId: process.env.OAUTH_CLIENTID,
+      clientSecret: process.env.OAUTH_CLIENT_SECRET,
+      refreshToken: process.env.OAUTH_REFRESH_TOKEN
     }
   });
   var mailOptions = {
