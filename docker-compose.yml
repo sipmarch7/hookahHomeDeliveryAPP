@@ -50,5 +50,5 @@ services:
 #     networks:
 #       - mynet
 
-# volumes:
-#   db_data: {}
+volumes:
+  db_data: {}
