@@ -1,5 +1,5 @@
 //use mySQL MODULE for db
-const mysql = require('mysql2');
+const mysql = require('mysql');
     //Create connection
 const conn = mysql.createConnection({
     host: process.env.DB_HOST || process.env.MYSQL_DATABASE,
