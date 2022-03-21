@@ -1,21 +1,18 @@
 version: '3.9' # optional since v1.27.0
 services:
-  shishahub-db:
-    image: mysql:5.7
-    restart: unless-stopped
-    # ports:
-      # - '3306:3306'
-    # command: --default-authentication-plugin=mysql_native_password
-    env_file: ./.env
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASS}
-      MYSQL_DATABASE: ${DB_DB}
-    volumes:
-      - db_data:/var/lib/mysql
+  # shishahub-db:
+  #   image: mysql:5.7
+  #   restart: unless-stopped
+  #   ports:
+  #     - '3306:3306'
+  #   env_file: ./.env
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: ${DB_PASS}
+  #     MYSQL_DATABASE: ${DB_DB}
+  #   volumes:
+  #     - db_data:/var/lib/mysql
 
   shishahub-backend:
-    depends_on:
-      - shishahub-db
     build:
       context: .
       dockerfile: Dockerfile
@@ -24,31 +21,25 @@ services:
       - '3010:3010'
     env_file: ./.env
     environment:
-      MYSQL_HOST: shishahub-db
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASS}
-      MYSQL_DATABASE: ${DB_DB}
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_DB: ${DB_DB}
       SESSION_SECRET: ${SESSION_SECRET}
-      # FRONT_END_IP: ${FRONT_END_IP}
-      # PROXY_IP: ${PROXY_IP}
     volumes:
       - ./:/backend
-    # networks:
-    #   - mynet
       
-  shishahub-phpmyadmin:
-    depends_on:
-      - shishahub-db
-    image: phpmyadmin/phpmyadmin
-    restart: unless-stopped
-    ports:
-      - '5010:80'
-    env_file: ./.env
-    environment:
-      PMA_HOST: shishahub-db 
-      MYSQL_ROOT_PASSWORD: ${DB_PASS}
-#     networks:
-#       - mynet
+  # shishahub-phpmyadmin:
+  #   depends_on:
+  #     - shishahub-db
+  #   image: phpmyadmin/phpmyadmin
+  #   restart: unless-stopped
+  #   ports:
+  #     - '5010:80'
+  #   env_file: ./.env
+  #   environment:
+  #     PMA_HOST: shishahub-db 
+  #     MYSQL_ROOT_PASSWORD: ${DB_PASS}
 
 volumes:
   db_data: {}
