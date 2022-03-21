@@ -76,7 +76,7 @@ const adminRouter = require('./routes/admin');
 app.use('/admin', adminRouter);
 
 //port number
-var portNumber = process.env.port || process.env.PORT || 3006;
+var portNumber = process.env.PORT || 3010;
 //server listening
 app.listen(portNumber, () => {
   console.log('Server is running at port '+portNumber);

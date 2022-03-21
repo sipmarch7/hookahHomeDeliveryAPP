@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sipmarch7/hookahHomeDeliveryAPP.git"
+    "url": "git+https://github.com/spiros3p/shishahub.online.git"
   },
-  "author": "Sipmarch7",
+  "author": "Spiros3p",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sipmarch7/hookahHomeDeliveryAPP/issues"
+    "url": "https://github.com/spiros3p/shishahub.online/issues"
   },
-  "homepage": "https://github.com/sipmarch7/hookahHomeDeliveryAPP#readme",
+  "homepage": "https://github.com/spiros3p/shishahub.online#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
