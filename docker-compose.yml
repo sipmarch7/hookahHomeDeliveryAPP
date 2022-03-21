@@ -24,7 +24,7 @@ services:
       - '3010:3010'
     env_file: ./.env
     environment:
-      MYSQL_HOST: 'localhost'
+      MYSQL_HOST: shishahub-db
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASS}
       MYSQL_DATABASE: ${DB_DB}
