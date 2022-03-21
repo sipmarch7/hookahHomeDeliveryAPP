@@ -14,8 +14,8 @@ services:
       - db_data:/var/lib/mysql
 
   shishahub-backend:
-    # depends_on:
-    #   - docker-db
+    depends_on:
+      - shishahub-db
     build:
       context: .
       dockerfile: Dockerfile
@@ -38,7 +38,7 @@ services:
       
   shishahub-phpmyadmin:
     depends_on:
-      - docker-db
+      - shishahub-db
     image: phpmyadmin/phpmyadmin
     restart: unless-stopped
     ports:
