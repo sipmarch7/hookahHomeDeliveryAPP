@@ -24,15 +24,15 @@ services:
     restart: unless-stopped
     ports:
       - '3010:3010'
-    # env_file: ./.env
-    # environment:
-    #   MYSQL_DATABASE: ${DB_DATABASE}
-    #   MYSQL_USER: ${DB_USER}
-    #   MYSQL_PASSWORD: ${DB_PASSWORD}
-    #   MYSQL_HOST: docker-db
-    #   SESSION_SECRET: ${SESSION_SECRET}
-    #   FRONT_END_IP: ${FRONT_END_IP}
-    #   PROXY_IP: ${PROXY_IP}
+    env_file: ./.env
+    environment:
+      MYSQL_DATABASE: ${DB_HOST}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      MYSQL_HOST: docker-db
+      SESSION_SECRET: ${SESSION_SECRET}
+      # FRONT_END_IP: ${FRONT_END_IP}
+      # PROXY_IP: ${PROXY_IP}
     volumes:
       - ./:/backend
     # networks:
