@@ -18,6 +18,8 @@ services:
   shishahub-backend:
     # depends_on:
     #   - docker-db
+    networks:
+      - host
     build:
       context: .
       dockerfile: Dockerfile
@@ -54,3 +56,8 @@ services:
 
 # volumes:
 #   db_data: {}
+
+networks:
+  host:
+    name: host
+    external: true
