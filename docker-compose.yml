@@ -17,8 +17,10 @@ services:
       DB_PASS: ${DB_PASS}
       DB_DB: ${DB_DB}
       SESSION_SECRET: ${SESSION_SECRET}
-      VIRTUAL_HOST: shishahub.online # the incomming domain name for this site
+      VIRTUAL_HOST: www.shishahub.online # the incomming domain name for this site
       VIRTUAL_PORT: 3010 # the port your applicatio
+      LETSENCRYPT_HOST: www.shishahub.online # the domain name to issue cert to
+      LETSENCRYPT_EMAIL: sipmarch7@hotmail.com # this email can be any of your emails
 
 networks:
   default:
