@@ -7,20 +7,20 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     # ports:
-    #   - '3010:3010'
-    expose:
-    - 3010
+    #   - '${PORT}:${PORT}'
     env_file: ./.env
+    expose:
+    - ${PORT}
     environment:
       DB_HOST: ${DB_HOST}
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
       DB_DB: ${DB_DB}
       SESSION_SECRET: ${SESSION_SECRET}
-      VIRTUAL_HOST: www.shishahub.online # the incomming domain name for this site
-      VIRTUAL_PORT: 3010 # the port your applicatio
-      LETSENCRYPT_HOST: www.shishahub.online # the domain name to issue cert to
-      LETSENCRYPT_EMAIL: sipmarch7@hotmail.com # this email can be any of your emails
+      VIRTUAL_HOST: ${VIRTUAL_HOST} # the incomming domain name for this site
+      VIRTUAL_PORT: ${PORT} # the port your applicatio
+      LETSENCRYPT_HOST: ${VIRTUAL_HOST}  # the domain name to issue cert to
+      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL} # this email can be any of your emails
 
 networks:
   default:
