@@ -4,7 +4,7 @@ It's a web app to be utilized for a local hookah delivery business
 
 Website URL:
 
-https://shishahub.online/
+https://shishahub.speppas.online/
 
 Εργαλεία
 
